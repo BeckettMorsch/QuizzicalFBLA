@@ -4,7 +4,7 @@
              x:Class="QuizzicalFBLA.Views.QuestionPage">
  
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#3b3e48">
                 <StackLayout IsVisible="{Binding ShowQuestion}">
                 <!-- Place new controls here -->
                 <Label Text="{Binding Question.Category}"
@@ -39,20 +39,36 @@
                 </Grid>
 
             </StackLayout>
-            <StackLayout IsVisible="{Binding ShowAnswer}">
+            <StackLayout  BackgroundColor="#3b3e48" IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
                 <!--<Image Source="file.png" IsVisible="{Binding IsAnswerVisible}"/>-->
-                <Label Text="{Binding Message}"
+                <Label Text="{Binding Message}"                              
                        FontSize="Large"
-                       BackgroundColor="Black"
+                       BackgroundColor="#4f535d"
                        TextColor="White"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand" />
-                <Button Text=" Press to Continue"
-                        FontSize="Medium"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="CenterAndExpand"
-                        Clicked="NextQuestion"/>
+
+
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           Grid.Column="1">
+                        <StackLayout>
+                            <Button Text="Tap to Continue"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            BackgroundColor="Transparent"
+                            Clicked="NextQuestion"/>
+
+                        </StackLayout>
+                    </Frame>
+                </Grid>    
 
             </StackLayout>
            

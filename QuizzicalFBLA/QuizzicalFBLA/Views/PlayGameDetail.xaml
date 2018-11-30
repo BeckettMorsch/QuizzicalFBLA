@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.PlayGameDetail"
              Title="Quizzical FBLA">
-    <StackLayout BackgroundColor="Gray">
+    <StackLayout BackgroundColor="#3b3e48">
         <!-- Place new controls here -->
 
         <!--<Button Text= "PLAY" 
@@ -13,17 +13,34 @@
            VerticalOptions="CenterAndExpand"
            Clicked="Button_Clicked"
            BorderRadius="0"/>-->
-
+<!--
         <Image Source="xamarin_logo.png" 
                HeightRequest="100" 
                WidthRequest="300"
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="CenterAndExpand"               
                >
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
+-->
+
+            <Grid HeightRequest="100" 
+                  WidthRequest="300" 
+                  HorizontalOptions="CenterAndExpand" 
+                  VerticalOptions="CenterAndExpand">
+                
+                <Image Source="xamarin_logo.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="TEST TEST TEST"
+                        FontSize="Large"
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
 
     </StackLayout>
 </ContentPage>
