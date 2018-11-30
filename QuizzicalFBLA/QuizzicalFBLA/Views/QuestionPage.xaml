@@ -29,12 +29,12 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding Question.Answer1}" BackgroundColor="#93C90E"
+                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding Question.Answer1}" BackgroundColor="Red"
                     FontAttributes="Bold" TextColor="White" Clicked="Button1Clicked"/>
-                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding Question.Answer2}" BackgroundColor="Red" TextColor="White" Clicked="Button2Clicked"/>
-                    <Button Grid.Column="0" Grid.Row="1" Text="{Binding Question.Answer3}" BackgroundColor="#FFE53C25"
+                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding Question.Answer2}" BackgroundColor="Blue" TextColor="White" Clicked="Button2Clicked"/>
+                    <Button Grid.Column="0" Grid.Row="1" Text="{Binding Question.Answer3}" BackgroundColor="Yellow"
                     FontAttributes="Bold" TextColor="White" VerticalOptions="FillAndExpand" Clicked="Button3Clicked"/>
-                    <Button Grid.Column="1" Grid.Row="1" Text="{Binding Question.Answer4}" BackgroundColor="#98A4AE"
+                    <Button Grid.Column="1" Grid.Row="1" Text="{Binding Question.Answer4}" BackgroundColor="Green"
                     FontAttributes="Bold" TextColor="White" VerticalOptions="FillAndExpand" Clicked="Button4Clicked"/>
                 </Grid>
 
@@ -43,15 +43,15 @@
                 <!--<Image Source="file.png" IsVisible="{Binding IsAnswerVisible}"/>-->
                 <Label Text="{Binding Message}"
                        FontSize="Large"
-                       BackgroundColor="Green"
+                       BackgroundColor="Black"
                        TextColor="White"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand" />
                 <Button Text=" Press to Continue"
                         FontSize="Medium"
                         TextColor="Black"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
                         Clicked="NextQuestion"/>
 
             </StackLayout>

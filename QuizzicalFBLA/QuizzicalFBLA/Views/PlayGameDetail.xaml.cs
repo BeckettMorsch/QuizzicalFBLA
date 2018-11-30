@@ -25,5 +25,10 @@ namespace QuizzicalFBLA.Views
         {
             await Navigation.PushAsync(new QuestionPage());
         }
+
+        async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new QuestionPage());
+        }
     }
 }

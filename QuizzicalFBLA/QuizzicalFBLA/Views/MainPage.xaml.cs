@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.Models;
+﻿using Microsoft.AppCenter.Analytics;
+using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -35,9 +36,15 @@ namespace QuizzicalFBLA.Views
                     case (int)MenuItemType.TermsOfService:
                         MenuPages.Add(id, new NavigationPage(new TOSPage()));
                         break;
-                    
+                    case (int)MenuItemType.BugReporting:
+                        MenuPages.Add(id, new NavigationPage(new BugReportingPage()));
+                        break;
+
                 }
             }
+
+            string pageTitle = ((MenuItemType)id).ToString();
+            Analytics.TrackEvent("Visited " + pageTitle);
 
             var newPage = MenuPages[id];
 

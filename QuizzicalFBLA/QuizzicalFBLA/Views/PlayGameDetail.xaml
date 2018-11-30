@@ -2,17 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.PlayGameDetail"
-             Title="Detail">
-    <StackLayout>
+             Title="Quizzical FBLA">
+    <StackLayout BackgroundColor="Gray">
         <!-- Place new controls here -->
 
-        <Button Text= "PLAY" 
+        <!--<Button Text= "PLAY" 
            Image="Jenna.jpg"
            Font="10"
            HorizontalOptions="CenterAndExpand" 
            VerticalOptions="CenterAndExpand"
            Clicked="Button_Clicked"
-           BorderRadius="0"/>
+           BorderRadius="0"/>-->
+
+        <Image Source="xamarin_logo.png" 
+               HeightRequest="100" 
+               WidthRequest="300"
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="CenterAndExpand"               
+               >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
 
     </StackLayout>
 </ContentPage>

@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using InstabugLib;
+using LabelHtml.Forms.Plugin.iOS;
 using UIKit;
 
 namespace QuizzicalFBLA.iOS
@@ -23,6 +24,8 @@ namespace QuizzicalFBLA.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            HtmlLabelRenderer.Initialize();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

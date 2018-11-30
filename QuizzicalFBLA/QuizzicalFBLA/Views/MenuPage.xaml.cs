@@ -20,7 +20,7 @@ namespace QuizzicalFBLA.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Play, Title="Play Game" },
                 new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Report An Issue" },
-                new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Terms of Service" },
+                new HomeMenuItem {Id = MenuItemType.TermsOfService, Title="Terms of Service" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 
