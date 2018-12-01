@@ -2,38 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.EndPage"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             Title="Game Over">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#3b3e48">
             <Label Text="You got "
                    FontSize="Large"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
                    TextColor="White"/>
             <Label Text="{Binding NumberCorrect}"
                    VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
                    Font="40"
                    TextColor="White"/>
             <Label Text="out of 25 questions correct!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
                    FontSize="Large" 
                    TextColor="White"/>
 
-            <Button Text="Retry"
+           <!-- <Button Text="Retry"
                     FontSize="Large"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     Clicked="Button_Clicked"
-                    TextColor="White"/>
+                    TextColor="White"/> -->
+            <Grid HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           Grid.Column="1">
+                    <StackLayout>
+                        <Button Text="Retry?"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            BackgroundColor="Transparent"
+                            Clicked="Button_Clicked"/>
 
-            <Button Text="Share Results"
-                    FontSize="Large"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    Clicked="Share_Clicked"
-                    TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+            <Grid HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           Grid.Column="1">
+                    <StackLayout>
+                        <Button Text="Share Results"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            BackgroundColor="Transparent"
+                            Clicked="Share_Clicked"/>
+
+                    </StackLayout>
+                </Frame>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

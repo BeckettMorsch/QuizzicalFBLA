@@ -7,7 +7,14 @@
             <Label Text="To report an issue SHAKE the phone!"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" 
-                   TextColor="White"/>
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   FontSize="Large"/>
+            <Image Source="PhoneShake.png" 
+               HeightRequest="500" 
+               WidthRequest="500"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center"/> 
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

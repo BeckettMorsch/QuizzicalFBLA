@@ -19,6 +19,7 @@ namespace QuizzicalFBLA.Views
 
             CategoriesViewModel.Current.Reset();
 
+            BackgroundImage = "Background.png";
         }
 
         async private void Button_Clicked(object sender, EventArgs e)
@@ -29,6 +30,11 @@ namespace QuizzicalFBLA.Views
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new QuestionPage());
+        }
+
+        async private void GoToHowToPlayPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HowToPlayPage());
         }
     }
 }

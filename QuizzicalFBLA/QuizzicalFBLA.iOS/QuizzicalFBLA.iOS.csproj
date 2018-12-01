@@ -225,4 +225,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\Icon-App-83.5x83.5%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FBLA_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HowToPlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PhoneShake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Sign In-Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Background.png" />
+  </ItemGroup>
 </Project>
