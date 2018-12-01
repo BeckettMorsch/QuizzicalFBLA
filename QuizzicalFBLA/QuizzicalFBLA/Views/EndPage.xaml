@@ -25,7 +25,8 @@
                     FontSize="Large"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
-                    Clicked="Button_Clicked"/>
+                    Clicked="Button_Clicked"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

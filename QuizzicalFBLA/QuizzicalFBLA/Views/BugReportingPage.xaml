@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.BugReportingPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#3b3e48">
             <Label Text="To report an issue SHAKE the phone!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" 
+                   TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
