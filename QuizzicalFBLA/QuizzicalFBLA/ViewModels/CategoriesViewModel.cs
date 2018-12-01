@@ -28,43 +28,286 @@ namespace QuizzicalFBLA.ViewModels
         {
             Questions.Clear();
 
-            // TODO: Load all the questions
+            //Load all the questions
             Questions.Add(new QuestionItem
             {
                 QuestionNum = 1,
-                Question = "This is question 1 and it is a test",
-                Answer1 = "Apple",
-                Answer2 = "Banana",
-                Answer3 = "Cantaloupe",
-                Answer4 = "Dog",
-                Category = "Category 1",
+                Question = "What are the 3 C’s of Business?",
+                Answer1 = "Capital, Capacity, Character",
+                Answer2 = "Capital, Charity, Capacity",
+                Answer3 = "Currency, Charity, Capacity",
+                Answer4 = "Charity, Capital, Currency",
+                Category = "Business Skills",
                 CorrectAnswer = 1
             }
                 );
             Questions.Add(new QuestionItem
             {
-                QuestionNum = 2,
-                Question = "This is question 2 and it is a test",
-                Answer1 = "SKT T1",
-                Answer2 = "UR MUM",
-                Answer3 = "GAY",
-                Answer4 = "NO u",
-                Category = "Category 2",
+                //QuestionNum = 2,
+                Question = "Where was 2017 NLC held?",
+                Answer1 = "Baltimore, MD",
+                Answer2 = "Anaheim, CA",
+                Answer3 = "Los Angeles, CA",
+                Answer4 = "Nashville, TN",
+                Category = "FBLA History",
+                CorrectAnswer = 2
+            }
+                );
+           Questions.Add(new QuestionItem
+            {
+                //QuestionNum = 2,
+                Question = "What Insurance company sponsors FBLA",
+                Answer1 = "State Farm",
+                Answer2 = "Progressive",
+                Answer3 = "Geico",
+                Answer4 = "AAA",
+                Category = "FBLA National Sponsors/Partners",
+                CorrectAnswer = 3
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+              //QuestionNum = 3,
+                Question = "What is a formal proposal by a member suggesting that the assembly take a certain action?",
+                Answer1 = "Main Motion",
+                Answer2 = "Motion",
+                Answer3 = "Adjourn",
+                Answer4 = "Appeal",
+                Category = "Basic Parliamentary Procedure",
+                CorrectAnswer = 2
+            }
+                            );
+            Questions.Add(new QuestionItem
+            {                
+                Question = "Who is the current FBLA president?",
+                Answer1 = "Eu Ro Wang",
+                Answer2 = "Galadriel Coury",
+                Answer3 = "Ty Rickard",
+                Answer4 = "Ethan Fahie",
+                Category = "National Officers",
+                CorrectAnswer = 1
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What is the ability to make decisions on your own called?",
+                Answer1 = "Integrity",
+                Answer2 = "Honesty",
+                Answer3 = "Initiative",
+                Answer4 = "Management",
+                Category = "Business Skills",
+                CorrectAnswer = 3
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What Year was FBLA Founded?",
+                Answer1 = "1935",
+                Answer2 = "1936",
+                Answer3 = "1937",
+                Answer4 = "1938",
+                Category = "FBLA History",
+                CorrectAnswer = 3
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "Which one of these Colleges DOES not offer a scholarship for FLBA?",
+                Answer1 = "Arizona State University",
+                Answer2 = "Barton College",
+                Answer3 = "Catawba College",
+                Answer4 = "Ohio State University",
+                Category = "FBLA National Sponsors/Partners",
+                CorrectAnswer = 4
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What is it called to cancel or countermand a previous action?",
+                Answer1 = "Rescind",
+                Answer2 = "Appeal",
+                Answer3 = "Motion",
+                Answer4 = "Commit",
+                Category = "Basic Parliamentary Procedure",
+                CorrectAnswer = 1
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "How many national officers are there?",
+                Answer1 = "8",
+                Answer2 = "9",
+                Answer3 = "10",
+                Answer4 = "11",
+                Category = "National Officers",
                 CorrectAnswer = 2
             }
                 );
             Questions.Add(new QuestionItem
             {
-                QuestionNum = 3,
-                Question = "This is question 3 and it is a test",
-                Answer1 = "T1",
-                Answer2 = "MUM",
-                Answer3 = "GY",
-                Answer4 = "NO",
-                Category = "Category 3",
+                Question = "What is the term that describes protecting investments through risk management?",
+                Answer1 = "Responsibility",
+                Answer2 = "Financing",
+                Answer3 = "Capital",
+                Answer4 = "Placement",
+                Category = "Business Skills",
+                CorrectAnswer = 2
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "Who is the founder of FBLA?",
+                Answer1 = "Hamden Forkner",
+                Answer2 = "Jason Felton",
+                Answer3 = "Beverly Klein",
+                Answer4 = "Anthony Gonella",
+                Category = "FBLA History",
+                CorrectAnswer = 1
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What Phone company sponsors FBLA?",
+                Answer1 = "T-Mobile",
+                Answer2 = "Cricket Wireless",
+                Answer3 = "Verizon",
+                Answer4 = "Metro PCS",
+                Category = "FBLA National Sponsors/Partners",
                 CorrectAnswer = 3
             }
-                            );
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "Who is the presiding officer, the person who remains impartial/moderates?",
+                Answer1 = "Treasure",
+                Answer2 = "Vice President",
+                Answer3 = "Chair",
+                Answer4 = "Advisor",
+                Category = "Basic Parliamentary Procedure",
+                CorrectAnswer = 3
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "FBLA is comprised of how many administrative regions?",
+                Answer1 = "3",
+                Answer2 = "4",
+                Answer3 = "5",
+                Answer4 = "6",
+                Category = "National Officers",
+                CorrectAnswer = 3
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "To market products successfully in another country, companies must research the country's?",
+                Answer1 = "Customs, Tastes, Cost",
+                Answer2 = "Customs, Cost, language",
+                Answer3 = "Language, Tastes, Cost",
+                Answer4 = "Language, Customs, Tastes",
+                Category = "Business Skills",
+                CorrectAnswer = 4
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What are FBLA’s colors?",
+                Answer1 = "Blue & Yellow",
+                Answer2 = "White & Gold",
+                Answer3 = "Blue & Black",
+                Answer4 = "Blue & White",
+                Category = "FBLA History",
+                CorrectAnswer = 4
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What credit card company sponsors FBLA?",
+                Answer1 = "Master Card",
+                Answer2 = "Visa",
+                Answer3 = "Chase",
+                Answer4 = "PayPal",
+                Category = "FBLA National Sponsors/Partners",
+                CorrectAnswer = 2
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What assists the assembly in treating or disposing of a main motion?",
+                Answer1 = "Main Motion",
+                Answer2 = "Privileged Motion",
+                Answer3 = "Motion",
+                Answer4 = "Subsidiary Motion",
+                Category = "Basic Parliamentary Procedure",
+                CorrectAnswer = 4
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What is the color of the Blazer the national officers wear?",
+                Answer1 = "Gold",
+                Answer2 = "Black",
+                Answer3 = "Brown",
+                Answer4 = "Navy Blue",
+                Category = "National Officers",
+                CorrectAnswer = 4
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "Which term refers to the actual amount of money you earn or receive during a given period of time?",
+                Answer1 = "Income",
+                Answer2 = "Capital",
+                Answer3 = "Financing",
+                Answer4 = "Direct Deposit",
+                Category = "Business Skills",
+                CorrectAnswer = 1
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What two Words start each Stanza in the FBLA creed?",
+                Answer1 = "We Believe",
+                Answer2 = "I Believe",
+                Answer3 = "Will Believe",
+                Answer4 = "I Want",
+                Category = "FBLA History",
+                CorrectAnswer = 2
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "Who is one supposed to contact about sponsorship, exhibiting, and advertising?",
+                Answer1 = "Christian Mohan",
+                Answer2 = "Jean Buckley",
+                Answer3 = "Hamden Forkner",
+                Answer4 = "Jason Felton",
+                Category = "FBLA national Sponsors/Partners",
+                CorrectAnswer = 2
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "What is the term used to suggest names to be considered for office?",
+                Answer1 = "Nominate",
+                Answer2 = "Suggest",
+                Answer3 = "Ask For",
+                Answer4 = "Debate",
+                Category = "Basic Parliamentary Procedure",
+                CorrectAnswer = 1
+            }
+                );
+            Questions.Add(new QuestionItem
+            {
+                Question = "The national secretary is responsible for proofreading and finalizing the compiled team...",
+                Answer1 = "Summary Reports",
+                Answer2 = "Finance Reports",
+                Answer3 = "Grade Reports",
+                Answer4 = "Points Reports",
+                Category = "National Officers",
+                CorrectAnswer = 1
+            }
+                );
 
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 

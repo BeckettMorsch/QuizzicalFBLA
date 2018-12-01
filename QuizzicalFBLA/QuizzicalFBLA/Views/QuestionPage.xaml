@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QuizzicalFBLA.Views.QuestionPage">
+             x:Class="QuizzicalFBLA.Views.QuestionPage"
+             NavigationPage.HasBackButton="False">
  
     <ContentPage.Content>
         <StackLayout BackgroundColor="#3b3e48">
@@ -29,13 +30,14 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding Question.Answer1}" BackgroundColor="Red"
-                    FontAttributes="Bold" TextColor="White" Clicked="Button1Clicked"/>
-                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding Question.Answer2}" BackgroundColor="Blue" TextColor="White" Clicked="Button2Clicked"/>
-                    <Button Grid.Column="0" Grid.Row="1" Text="{Binding Question.Answer3}" BackgroundColor="Yellow"
-                    FontAttributes="Bold" TextColor="White" VerticalOptions="FillAndExpand" Clicked="Button3Clicked"/>
-                    <Button Grid.Column="1" Grid.Row="1" Text="{Binding Question.Answer4}" BackgroundColor="Green"
-                    FontAttributes="Bold" TextColor="White" VerticalOptions="FillAndExpand" Clicked="Button4Clicked"/>
+                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding Question.Answer1}" BackgroundColor="#ff6666"
+                    FontAttributes="Bold" TextColor="Black" Clicked="Button1Clicked"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding Question.Answer2}" BackgroundColor="#4d4dff" 
+                    FontAttributes="Bold" TextColor="Black" Clicked="Button2Clicked"/>
+                    <Button Grid.Column="0" Grid.Row="1" Text="{Binding Question.Answer3}" BackgroundColor="#ffffb3"
+                    FontAttributes="Bold" TextColor="Black" VerticalOptions="FillAndExpand" Clicked="Button3Clicked"/>
+                    <Button Grid.Column="1" Grid.Row="1" Text="{Binding Question.Answer4}" BackgroundColor="#99ff99"
+                    FontAttributes="Bold" TextColor="Black" VerticalOptions="FillAndExpand" Clicked="Button4Clicked"/>
                 </Grid>
 
             </StackLayout>
