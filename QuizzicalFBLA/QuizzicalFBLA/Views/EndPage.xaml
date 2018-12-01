@@ -4,19 +4,22 @@
              x:Class="QuizzicalFBLA.Views.EndPage"
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#3b3e48">
             <Label Text="You got "
                    FontSize="Large"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"/>
             <Label Text="{Binding NumberCorrect}"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   Font="40" />
+                   Font="40"
+                   TextColor="White"/>
             <Label Text="out of 25 questions correct!"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   FontSize="Large" />
+                   FontSize="Large" 
+                   TextColor="White"/>
 
             <Button Text="Retry?"
                     FontSize="Large"

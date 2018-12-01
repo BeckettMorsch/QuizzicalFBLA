@@ -9,7 +9,7 @@
                 <StackLayout IsVisible="{Binding ShowQuestion}">
                 <!-- Place new controls here -->
                 <Label Text="{Binding Question.Category}"
-                       
+                   TextColor="White"    
                    FontSize="24"      
                    FontAttributes="Bold"
                HorizontalOptions="Center"
@@ -17,7 +17,9 @@
 
                 <Label Text="{Binding Question.Question}" 
                    HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand"/>
+                   VerticalOptions="CenterAndExpand"
+                       FontSize="Medium"
+                       TextColor="White"/>
 
                 <Grid>
                     <Grid.RowDefinitions>
