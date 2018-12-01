@@ -27,6 +27,13 @@
                     HorizontalOptions="CenterAndExpand"
                     Clicked="Button_Clicked"
                     TextColor="White"/>
+
+            <Button Text="Share Results?"
+                    FontSize="Large"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Clicked="Share_Clicked"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

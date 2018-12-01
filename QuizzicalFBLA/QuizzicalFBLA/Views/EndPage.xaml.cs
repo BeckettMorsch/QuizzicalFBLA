@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace QuizzicalFBLA.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -30,6 +31,11 @@ namespace QuizzicalFBLA.Views
 
             vm.ResetCorrect++;
 
+        }
+
+        async private void Share_Clicked(object sender, EventArgs e)
+        {
+            //await CrossShare.Current.Share("message", "title");
         }
     }
 }
