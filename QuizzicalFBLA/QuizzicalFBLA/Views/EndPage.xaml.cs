@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.Models;
+﻿using Plugin.Share;
+using QuizzicalFBLA.Models;
 using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,14 @@ namespace QuizzicalFBLA.Views
 
         async private void Share_Clicked(object sender, EventArgs e)
         {
-            //await CrossShare.Current.Share("message", "title");
+            //var message = "Hi im sharing!!";
+            //var title = "Sharing Title";
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            {
+                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on Quizzical!",
+                Title = "Quizzical Results"
+                //, Url = "hyyps://www.youtube.com"
+            });
         }
     }
 }

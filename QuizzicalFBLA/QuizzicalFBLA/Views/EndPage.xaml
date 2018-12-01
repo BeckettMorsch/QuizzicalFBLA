@@ -21,14 +21,14 @@
                    FontSize="Large" 
                    TextColor="White"/>
 
-            <Button Text="Retry?"
+            <Button Text="Retry"
                     FontSize="Large"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     Clicked="Button_Clicked"
                     TextColor="White"/>
 
-            <Button Text="Share Results?"
+            <Button Text="Share Results"
                     FontSize="Large"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"

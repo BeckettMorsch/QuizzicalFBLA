@@ -64,7 +64,7 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "FBLA National Sponsors/Partners",
                 CorrectAnswer = 3
             }
-                );
+                ); 
             Questions.Add(new QuestionItem
             {
               //QuestionNum = 3,
@@ -308,7 +308,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-
+            
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 
             CurrentQuestion = 0;
