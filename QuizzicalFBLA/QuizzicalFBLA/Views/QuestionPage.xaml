@@ -46,11 +46,11 @@
             <StackLayout  BackgroundColor="#3b3e48" IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
                 <!--<Image Source="file.png" IsVisible="{Binding IsAnswerVisible}"/>-->
                 <Label Text="{Binding Message}"                              
-                       FontSize="Large"
-                       BackgroundColor="#4f535d"
+                       FontSize="Large"                      
                        TextColor="White"
                        VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand" />
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="Transparent"/>
 
 
                 <Grid HorizontalOptions="CenterAndExpand">

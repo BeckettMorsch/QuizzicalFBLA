@@ -27,15 +27,17 @@
                   HorizontalOptions="CenterAndExpand" 
                   VerticalOptions="CenterAndExpand">
                 
-                <Image Source="xamarin_logo.png">
+                <!-- <Image Source="xamarin_logo.png">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
-                </Image>
-                <Label Text="TEST TEST TEST"
-                        FontSize="Large"
-                        HorizontalOptions="CenterAndExpand" 
-                        VerticalOptions="CenterAndExpand">
+                </Image> -->
+                <Label Text="PLAY"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="CenterAndExpand">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Label.GestureRecognizers>
