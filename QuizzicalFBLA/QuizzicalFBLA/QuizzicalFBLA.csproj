@@ -13,6 +13,7 @@
     <PackageReference Include="Microsoft.AppCenter" Version="1.11.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.11.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.11.0" />
+    <PackageReference Include="Plugin.Share" Version="7.1.1" />
     <PackageReference Include="Xam.Plugin.HtmlLabel" Version="3.0.2.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />  
   </ItemGroup>
@@ -27,6 +28,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EndPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HowToPlayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PlayGameDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

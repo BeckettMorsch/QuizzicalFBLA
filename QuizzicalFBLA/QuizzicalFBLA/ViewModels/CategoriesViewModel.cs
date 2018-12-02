@@ -64,8 +64,8 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "FBLA National Sponsors/Partners",
                 CorrectAnswer = 3
             }
-                );
-            Questions.Add(new QuestionItem
+                ); 
+          /*  Questions.Add(new QuestionItem
             {
               //QuestionNum = 3,
                 Question = "What is a formal proposal by a member suggesting that the assembly take a certain action?",
@@ -307,8 +307,8 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "National Officers",
                 CorrectAnswer = 1
             }
-                );
-
+                ); */
+            
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 
             CurrentQuestion = 0;
