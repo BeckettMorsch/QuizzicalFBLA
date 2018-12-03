@@ -312,11 +312,10 @@ namespace QuizzicalFBLA.ViewModels
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 
             CurrentQuestion = 0;
-            OnPropertyChanged("Count");
-            //numberCorrect = 0;
+            OnPropertyChanged("Count");            
             Message = "Perfect";
             ShowQuestion = true;
-
+            NumberCorrect = 0;
         }
 
         public static CategoriesViewModel Current
@@ -385,14 +384,14 @@ namespace QuizzicalFBLA.ViewModels
 
         public int NumberCorrect
             {
-                set { numberCorrect++; }
+                set
+                {
+                    numberCorrect = value;
+                    OnPropertyChanged("NumberCorrect");
+                }
                 get { return numberCorrect; }
             }
-        public int ResetCorrect
-        {
-            set { numberCorrect = 0; }
-            get {return numberCorrect = 0; }
-        }
+
 
         public void OnPropertyChanged (string property)
         {

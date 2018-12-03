@@ -30,8 +30,7 @@ namespace QuizzicalFBLA.Views
             MainPage mp = (MainPage)Application.Current.MainPage;
             mp.Detail = new NavigationPage(new PlayGameDetail());
 
-            vm.ResetCorrect++;
-
+            vm.Reset();
         }
 
         async private void Share_Clicked(object sender, EventArgs e)

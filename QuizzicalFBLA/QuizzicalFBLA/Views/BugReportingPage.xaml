@@ -4,7 +4,7 @@
              x:Class="QuizzicalFBLA.Views.BugReportingPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#3b3e48">
-            <Label Text="To report an issue SHAKE the phone!"
+            <Label Text="To report an issue at any time SHAKE the phone!"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" 
                    TextColor="White"

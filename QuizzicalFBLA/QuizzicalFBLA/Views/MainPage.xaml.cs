@@ -50,6 +50,8 @@ namespace QuizzicalFBLA.Views
 
             if (newPage != null && Detail != newPage)
             {
+                await newPage.PopToRootAsync();
+
                 Detail = newPage;
 
                 if (Device.RuntimePlatform == Device.Android)

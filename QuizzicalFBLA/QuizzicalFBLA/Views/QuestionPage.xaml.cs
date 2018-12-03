@@ -80,7 +80,6 @@ namespace QuizzicalFBLA.Views
             else
             {
                 // Show ending page
-                CategoriesViewModel.Current.Reset();
 
                 //Application.Current.MainPage.Navigation.PopToRootAsync();
                 
