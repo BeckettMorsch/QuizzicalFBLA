@@ -29,14 +29,10 @@ namespace QuizzicalFBLA.Views
             CategoriesViewModel.Current.Reset();
         }
 
-        async private void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new QuestionPage());
-        }
-
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QuestionPage());
+            MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
+            mdp.Detail = new NavigationPage(new QuestionPage());
         }
 
         async private void GoToHowToPlayPage(object sender, EventArgs e)

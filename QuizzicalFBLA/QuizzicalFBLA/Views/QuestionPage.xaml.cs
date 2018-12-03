@@ -88,17 +88,8 @@ namespace QuizzicalFBLA.Views
             else
             {
                 // Show ending page
-
-                //Application.Current.MainPage.Navigation.PopToRootAsync();
-                
-                //Navigation.PopAsync();
-                Navigation.PushAsync(new EndPage());
-
-                /*
-                 * On ending page on Play again? button or whatevs:
-                 *  Application.Current.MainPage = new MainPage();
-                */
-
+                MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
+                mdp.Detail = new NavigationPage(new EndPage());
             }
         }
     }

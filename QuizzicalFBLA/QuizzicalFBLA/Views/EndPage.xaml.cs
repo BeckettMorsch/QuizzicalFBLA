@@ -39,8 +39,8 @@ namespace QuizzicalFBLA.Views
             //var title = "Sharing Title";
             await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
             {
-                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on Quizzical!",
-                Title = "Quizzical Results"
+                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on QuizzicalFBLA!",
+                Title = "QuizzicalFBLA Results"
                 //, Url = "hyyps://www.youtube.com"
             });
         }

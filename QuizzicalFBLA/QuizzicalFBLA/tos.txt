@@ -27,7 +27,7 @@
 
 	  </style>
    </head>
-   <body class="c18">
+   <body class="c18" style="padding:15px;max-width: none;">
       <p class="c6"><span class="c16">QuizzicalFBLA Terms Of Service</span></p>
       <p class="c0"><span class="c1"></span></p>
       <ol class="c13 lst-kix_p7dh0nx0qi8i-0 start" start="1">

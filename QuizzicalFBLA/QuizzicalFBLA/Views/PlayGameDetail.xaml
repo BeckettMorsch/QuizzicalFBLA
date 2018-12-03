@@ -5,23 +5,7 @@
              Title="Quizzical FBLA"
              BackgroundImage="Background (1).png">
     <StackLayout HorizontalOptions="CenterAndExpand">
-        <!-- Place new controls here -->
 
-        <!--<Button Text= "PLAY" 
-           Image="Jenna.jpg"
-           Font="10"
-           HorizontalOptions="CenterAndExpand" 
-           VerticalOptions="CenterAndExpand"
-           Clicked="Button_Clicked"
-           BorderRadius="0"/>-->
-
-       <!-- <Image Source="xamarin_logo.png" 
-               HeightRequest="100" 
-               WidthRequest="300"
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="CenterAndExpand"               
-               />-->
-        
         <Image Source="FBLA_logo.png" 
                Aspect="AspectFit"
                HorizontalOptions="Center" 
@@ -37,16 +21,7 @@
                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
-                   <!-- <Label Text="PLAY"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       TextColor="White"
-                       HorizontalOptions="CenterAndExpand" 
-                       VerticalOptions="CenterAndExpand">
-                    <Label.GestureRecognizers> 
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </Label.GestureRecognizers> 
-                </Label>-->
+
             </Grid>
 
         
