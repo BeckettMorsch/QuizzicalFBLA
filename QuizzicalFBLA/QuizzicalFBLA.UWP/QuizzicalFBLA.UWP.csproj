@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Background.png" />
     <Content Include="FBLA_logo.png" />
     <Content Include="HowToPlay.png" />
     <Content Include="PhoneShake.png" />
@@ -135,7 +136,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="Background.png" />
     <Content Include="StartButton.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />

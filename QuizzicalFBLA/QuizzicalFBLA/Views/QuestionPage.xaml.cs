@@ -39,7 +39,15 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
-                vm.Message = "You are not correct!";
+                vm.Message = "You are not correct! The correct answer was ";
+
+                switch(vm.Question.CorrectAnswer)
+                {
+                    case 1: vm.Message += vm.Question.Answer1 + "."; break;
+                    case 2: vm.Message += vm.Question.Answer2 + "."; break;
+                    case 3: vm.Message += vm.Question.Answer3 + "."; break;
+                    case 4: vm.Message += vm.Question.Answer4 + "."; break;
+                }
 
                 //Incorrect
             }

@@ -4,17 +4,20 @@
              x:Class="QuizzicalFBLA.Views.EndPage"
              NavigationPage.HasBackButton="False"
              Title="Game Over">
+    
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#3b3e48">
+        <StackLayout BackgroundColor="#3b3e48" Padding="15,10,15,20">
             <Label Text="You got "
                    FontSize="Large"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center"
                    TextColor="White"/>
             <Label Text="{Binding NumberCorrect}"
-                   VerticalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
                    HorizontalOptions="Center"
-                   Font="40"
+                   FontSize="80"
+                   FontAttributes="Bold"
+                   Margin="0,15,0,15"
                    TextColor="White"/>
             <Label Text="out of 25 questions correct!"
                    VerticalOptions="Center"
@@ -29,7 +32,8 @@
                     Clicked="Button_Clicked"
                     TextColor="White"/> -->
             <Grid HorizontalOptions="CenterAndExpand"
-                  VerticalOptions="Center">
+                  VerticalOptions="Center"
+                  Margin="0,30,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="250"/>

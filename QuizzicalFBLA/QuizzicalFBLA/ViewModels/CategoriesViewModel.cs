@@ -215,7 +215,7 @@ namespace QuizzicalFBLA.ViewModels
                 Answer1 = "Blue & Yellow",
                 Answer2 = "White & Gold",
                 Answer3 = "Blue & Black",
-                Answer4 = "Blue & White",
+                Answer4 = "Blue & Gold",
                 Category = "FBLA History",
                 CorrectAnswer = 4
             }

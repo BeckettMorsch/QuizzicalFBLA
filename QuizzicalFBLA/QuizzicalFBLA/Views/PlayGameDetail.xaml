@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.PlayGameDetail"
              Title="Quizzical FBLA"
-             BackgroundImage="Background.png">
-    <StackLayout>
+             BackgroundImage="Background (1).png">
+    <StackLayout HorizontalOptions="CenterAndExpand">
         <!-- Place new controls here -->
 
         <!--<Button Text= "PLAY" 
@@ -21,9 +21,9 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="CenterAndExpand"               
                />-->
+        
         <Image Source="FBLA_logo.png" 
-               HeightRequest="300" 
-               WidthRequest="300"
+               Aspect="AspectFit"
                HorizontalOptions="Center" 
                VerticalOptions="Start"/> 
 
@@ -53,6 +53,7 @@
         <Image Source="HowToPlay.png" 
                HeightRequest="75" 
                WidthRequest="75"
+               Margin="0,0,15,15"
                HorizontalOptions="EndAndExpand" 
                VerticalOptions="EndAndExpand">          
                

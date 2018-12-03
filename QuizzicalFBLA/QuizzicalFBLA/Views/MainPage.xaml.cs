@@ -18,6 +18,8 @@ namespace QuizzicalFBLA.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
+            Icon = "hamburger.png";
+
             MenuPages.Add((int)MenuItemType.Play, (NavigationPage)Detail);
         }
 

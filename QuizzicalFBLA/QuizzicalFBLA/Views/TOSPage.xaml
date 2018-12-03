@@ -6,17 +6,15 @@
              x:Name="this">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#3b3e48">
-            <Label Text="TERMS OF SERVICE"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                   FontAttributes="Bold"
-                   TextColor="White"/>
+
             <!-- Make sure you escape all the html strings first -->
             <!--<htmlLabel:HtmlLabel Text="This is the terms of service.  &lt;b&gt;This is bold&lt;/b&gt; and &lt;i&gt;this is italic&lt;/i&gt; and &lt;br&gt;&lt;br&gt;two blank lines&lt;br&gt;Important points:&lt;br&gt; &lt;ul&gt;&lt;li&gt;Point 1&lt;/li&gt;&lt;li&gt;Point 2&lt;/li&gt;&lt;li&gt;Point 3&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt;blah blah"/> -->
-            <Label Text="{Binding Terms}"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" 
-                   TextColor="White"/>
+            <WebView x:Name="browser" WidthRequest="1000" HeightRequest="1000">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding Terms}"/>
+                </WebView.Source>
+            </WebView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
