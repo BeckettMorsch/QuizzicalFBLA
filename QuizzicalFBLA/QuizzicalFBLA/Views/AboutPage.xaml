@@ -84,11 +84,6 @@
                                 <Span Text="Quizzical FBLA was created by" ForegroundColor="#FFFFFF" />
                                 <Span Text=" " />
                                 <Span Text="Anthony Gonella, Beckett Morsch, and Matthew Smickle" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
-                                <Span Text=" " />
-                                <Span Text="with advisory from" ForegroundColor="#FFFFFF"/>
-                                <Span Text=" " />
-                                <Span Text="Michael Tanczos" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
-                                <Span Text="." />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -97,7 +92,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="© Copyright 2018 Anthony Gonella, Beckett Morsch, and Matthew Smickle" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
+                                <Span Text="© " FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
