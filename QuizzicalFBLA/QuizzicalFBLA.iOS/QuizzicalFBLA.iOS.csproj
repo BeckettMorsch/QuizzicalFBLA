@@ -252,4 +252,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\hamburger2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\QuizzicalLogo.png" />
+  </ItemGroup>
 </Project>
