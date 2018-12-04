@@ -240,4 +240,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\Background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StartButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger2x.png" />
+  </ItemGroup>
 </Project>

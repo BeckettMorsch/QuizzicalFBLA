@@ -4,6 +4,7 @@ using System.Text;
 
 namespace QuizzicalFBLA.Models
 {
+  //Navigation Menu elements
     public enum MenuItemType
     {
         Play,

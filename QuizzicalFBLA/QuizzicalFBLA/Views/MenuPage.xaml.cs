@@ -10,6 +10,7 @@ namespace QuizzicalFBLA.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
+        //Populates the Navigation Menu
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
         public MenuPage()
@@ -18,6 +19,7 @@ namespace QuizzicalFBLA.Views
 
             menuItems = new List<HomeMenuItem>
             {
+                //Creates the items in the Navigation Menu
                 new HomeMenuItem {Id = MenuItemType.Play, Title="Play Game" },
                 new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Report An Issue" },
                 new HomeMenuItem {Id = MenuItemType.TermsOfService, Title="Terms of Service" },

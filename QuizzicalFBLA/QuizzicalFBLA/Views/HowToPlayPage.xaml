@@ -11,14 +11,16 @@
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
                    TextColor="White"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   Margin="0,15,0,0"/>
 
-            <Label Text="-To start the quiz press the button in the center of the screen labeled start.&#x0a;-Proceed to read the question at the top of the screen.&#x0a;-Then tap one of the buttons that you think has the right answer on it.&#x0a;-At the end of the quiz tap the button label Retry to return to the start screen.&#x0a;&#x0a;-For now to return to the start screen tap the back button in the top left.&#x0a;&#x0a;-To access other features tap the menu icon in the top left of the screen." 
+            <Label Text="-To start the quiz press the button in the center of the home screen.&#x0a;-The quizz is 25 questions in total, and will let you how well you did at the end.&#x0a;-From the end screen you can retry the quiz, or share how well you did.&#x0a;&#x0a;-The navigation menu on the left can be accessed by tapping the Hamburger Menu' icon in the top left of the screen, or by pulling out the left side of the screen.&#x0a;-From this menu you can view the Terms of Service, About page, aswell as instructions on how to report any issue that oyu have with Quizzical." 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
                    TextColor="White"
                    FontAttributes="Bold"
-                   FontSize ="Medium"/>
+                   FontSize ="Medium"
+                   Margin="15,0,15,0"/>
 
         </StackLayout>
     </ContentPage.Content>

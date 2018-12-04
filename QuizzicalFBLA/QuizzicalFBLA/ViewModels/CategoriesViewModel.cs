@@ -12,23 +12,22 @@ namespace QuizzicalFBLA.ViewModels
     {
         private static CategoriesViewModel current = null;
         private int currentQuestion = 0;
-        //private ObservableCollection<Categories> Category { get; set; }
+
         private ObservableCollection<QuestionItem> Questions { get; set; }
         private static int numberCorrect = 0;
 
         private CategoriesViewModel()
         {
-            //Category = new ObservableCollection<Categories>();
+
             Questions = new ObservableCollection<QuestionItem>();
-            //LoadCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            //LoadCommand = new Command(async () => await ExecuteLoadPlayerCommand());
+
         }
 
         public void Reset()
         {
             Questions.Clear();
 
-            //Load all the questions
+            //Load all the questions into the collection of Questions
             Questions.Add(new QuestionItem
             {
                 QuestionNum = 1,
@@ -43,7 +42,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                //QuestionNum = 2,
+                
                 Question = "Where was 2017 NLC held?",
                 Answer1 = "Baltimore, MD",
                 Answer2 = "Anaheim, CA",
@@ -55,7 +54,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
            Questions.Add(new QuestionItem
             {
-                //QuestionNum = 2,
+                
                 Question = "What Insurance company sponsors FBLA",
                 Answer1 = "State Farm",
                 Answer2 = "Progressive",
@@ -65,7 +64,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 ); 
-          /*  Questions.Add(new QuestionItem
+            Questions.Add(new QuestionItem
             {
               //QuestionNum = 3,
                 Question = "What is a formal proposal by a member suggesting that the assembly take a certain action?",
@@ -215,7 +214,7 @@ namespace QuizzicalFBLA.ViewModels
                 Answer1 = "Blue & Yellow",
                 Answer2 = "White & Gold",
                 Answer3 = "Blue & Black",
-                Answer4 = "Blue & White",
+                Answer4 = "Blue & Gold",
                 Category = "FBLA History",
                 CorrectAnswer = 4
             }
@@ -307,18 +306,19 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "National Officers",
                 CorrectAnswer = 1
             }
-                ); */
+                ); 
             
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 
+            //Resets all of the variables
             CurrentQuestion = 0;
-            OnPropertyChanged("Count");
-            //numberCorrect = 0;
+            OnPropertyChanged("Count");            
             Message = "Perfect";
             ShowQuestion = true;
-
+            NumberCorrect = 0;
         }
 
+        //Creates an instance of the CategoriesViewModel
         public static CategoriesViewModel Current
         {
             get
@@ -330,6 +330,7 @@ namespace QuizzicalFBLA.ViewModels
             }
         }
 
+        //Provides the list of questions to other classes
         public QuestionItem Question
         {
             get
@@ -338,6 +339,7 @@ namespace QuizzicalFBLA.ViewModels
             }
         }
 
+        //Provides the Question Page with the question
         public int CurrentQuestion
         {
             get { return currentQuestion; }
@@ -349,6 +351,7 @@ namespace QuizzicalFBLA.ViewModels
             }
         }
 
+        //Provides other classes with the count variable
         public int Count
         {
             get {
@@ -356,6 +359,7 @@ namespace QuizzicalFBLA.ViewModels
             }
         }
 
+        //Outputs what question is to be shown
         private bool showQuestion = true;
         public bool ShowQuestion
         {
@@ -367,11 +371,13 @@ namespace QuizzicalFBLA.ViewModels
             }
         }
 
+        //Notifies the Question Page to show the result
         public bool ShowAnswer
         {
             get { return !showQuestion; }
         }
 
+        //Updates the message that is to be displayed after the player chooses and answer
         public string message = "ASDKJFLD";
         public string Message
         {
@@ -383,16 +389,17 @@ namespace QuizzicalFBLA.ViewModels
             get { return message; }
         }
 
+        //Outputs the count of how many questions the user got correct
         public int NumberCorrect
             {
-                set { numberCorrect++; }
+                set
+                {
+                    numberCorrect = value;
+                    OnPropertyChanged("NumberCorrect");
+                }
                 get { return numberCorrect; }
             }
-        public int ResetCorrect
-        {
-            set { numberCorrect = 0; }
-            get {return numberCorrect = 0; }
-        }
+
 
         public void OnPropertyChanged (string property)
         {

@@ -22,16 +22,22 @@ namespace QuizzicalFBLA.Views
             BackgroundImage = "Background.png";
         }
 
-        async private void Button_Clicked(object sender, EventArgs e)
+        //Resets the ViewModel if the page is loaded
+        protected override void OnAppearing()
         {
-            await Navigation.PushAsync(new QuestionPage());
+            base.OnAppearing();
+
+            CategoriesViewModel.Current.Reset();
         }
 
+        //Navitgates to the Question page when the start button is tapped
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QuestionPage());
+            MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
+            mdp.Detail = new NavigationPage(new QuestionPage());
         }
 
+        //Navigates to the instructions page if the question mark is tapped
         async private void GoToHowToPlayPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HowToPlayPage());

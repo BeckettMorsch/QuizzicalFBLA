@@ -25,23 +25,23 @@ namespace QuizzicalFBLA.Views
             this.BindingContext = vm = CategoriesViewModel.Current;
         }
 
+        //Resets the quiz if the Retry button is tapped
         private void Button_Clicked(object sender, EventArgs e)
         {
             MainPage mp = (MainPage)Application.Current.MainPage;
             mp.Detail = new NavigationPage(new PlayGameDetail());
 
-            vm.ResetCorrect++;
-
+            vm.Reset();
         }
 
+        //Allows the user to share how many questions they got correct if the Share button is tapped
         async private void Share_Clicked(object sender, EventArgs e)
         {
-            //var message = "Hi im sharing!!";
-            //var title = "Sharing Title";
+            
             await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
             {
-                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on Quizzical!",
-                Title = "Quizzical Results"
+                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on QuizzicalFBLA!",
+                Title = "QuizzicalFBLA Results"
                 //, Url = "hyyps://www.youtube.com"
             });
         }

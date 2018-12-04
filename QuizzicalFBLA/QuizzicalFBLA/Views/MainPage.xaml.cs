@@ -11,6 +11,7 @@ namespace QuizzicalFBLA.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
+        //Implements Navigation Menu
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
@@ -18,9 +19,12 @@ namespace QuizzicalFBLA.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
+            Icon = "hamburger.png";
+
             MenuPages.Add((int)MenuItemType.Play, (NavigationPage)Detail);
         }
 
+        //Loads the items on the Navigation Menu
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
@@ -43,6 +47,7 @@ namespace QuizzicalFBLA.Views
                 }
             }
 
+            //Tracks navigation
             string pageTitle = ((MenuItemType)id).ToString();
             Analytics.TrackEvent("Visited " + pageTitle);
 
@@ -50,6 +55,8 @@ namespace QuizzicalFBLA.Views
 
             if (newPage != null && Detail != newPage)
             {
+                await newPage.PopToRootAsync();
+
                 Detail = newPage;
 
                 if (Device.RuntimePlatform == Device.Android)

@@ -3,24 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.QuestionPage"
              NavigationPage.HasBackButton="False"
-             Title="Question">
+             Title="{Binding Question.Category}">
  
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#3b3e48">
+        <StackLayout BackgroundColor="#3b3e48" Padding="15,10,15,10">
                 <StackLayout IsVisible="{Binding ShowQuestion}">
-                <!-- Place new controls here -->
-                <Label Text="{Binding Question.Category}"
-                   TextColor="White"    
-                   FontSize="24"      
-                   FontAttributes="Bold"
-               HorizontalOptions="Center"
-               VerticalOptions="Start" />
+
 
                 <Label Text="{Binding Question.Question}" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
                        FontSize="Medium"
-                       TextColor="White"/>
+                       TextColor="White"
+                       Margin="0,24,0,0"
+                       />
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -63,7 +59,8 @@
                     <Frame CornerRadius="10"  
                            BackgroundColor="#00d5dd"
                            Padding="0"
-                           Grid.Column="1">
+                           Grid.Column="1"
+                           Margin="0,30,0,0">
                         <StackLayout>
                             <Button Text="Tap to Continue"
                             FontSize="Medium"
