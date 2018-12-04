@@ -238,7 +238,7 @@
       <p class="c0"><span class="c4"></span></p>
       <h5 class="c2" id="h.a6d6ypt77n61"><span class="c9">19. CHANGES TO THESE TERMS</span></h5>
       <p class="c6"><span class="c1">From time to time, we may change these Terms. If we change these Terms, we will give you notice by posting the revised Terms on the Site. Said changes will go into effect on the revision date shown in the revised Terms. By continuing to use the Site or Services, you are agreeing to the revised Terms.</span></p>
-      <p class="c6"><span class="c1">PLEASE PRINT A COPY OF THESE TERMS FOR YOU RECORDS AND CHECK THE SITE REGULARLY FOR ANY CHANGES TO THESE TERMS.</span></p>
+      <p class="c6"><span class="c1">PLEASE PRINT A COPY OF THESE TERMS FOR YOUR RECORDS AND CHECK THE SITE REGULARLY FOR ANY CHANGES TO THESE TERMS.</span></p>
       <p class="c0"><span class="c4"></span></p>
    </body>
 </html>
