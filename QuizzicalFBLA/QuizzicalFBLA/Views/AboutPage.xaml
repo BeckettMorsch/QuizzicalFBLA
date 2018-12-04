@@ -9,7 +9,10 @@
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatible with Xamarin Live Player -->
@@ -24,15 +27,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="#22242a" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding ="0,40,0,40" VerticalOptions="FillAndExpand">
-                   <Image Source="QuizzicalLogo.png" VerticalOptions="Center"  HeightRequest="150"/>
+                    <Grid HeightRequest="150" 
+                          WidthRequest="300" 
+                          HorizontalOptions="CenterAndExpand" 
+                          VerticalOptions="CenterAndExpand">
+                        <Image Source="QuizzicalLogo.png" VerticalOptions="Center"  HeightRequest="150" Aspect="AspectFit"/>
+                    </Grid>
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10" BackgroundColor="#3b3e48">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 <Label FontSize="22">
                     <Label.FormattedText>
                         <FormattedString>
@@ -75,7 +83,7 @@
                             <FormattedString.Spans>
                                 <Span Text="Quizzical FBLA was created by" ForegroundColor="#FFFFFF" />
                                 <Span Text=" " />
-                                <Span Text="Matthew Smickle, Beckett Morsch, and Anthony  Gonella" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
+                                <Span Text="Anthony Gonella, Beckett Morsch, and Matthew Smickle" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
                                 <Span Text=" " />
                                 <Span Text="with advisory from" ForegroundColor="#FFFFFF"/>
                                 <Span Text=" " />
@@ -89,7 +97,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="2018©" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
+                                <Span Text="© Copyright 2018 Anthony Gonella, Beckett Morsch, and Matthew Smickle" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.ViewModels;
+﻿using QuizzicalFBLA.Services;
+using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,11 @@ namespace QuizzicalFBLA.Views
         async private void GoToHowToPlayPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HowToPlayPage());
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
         }
     }
 }

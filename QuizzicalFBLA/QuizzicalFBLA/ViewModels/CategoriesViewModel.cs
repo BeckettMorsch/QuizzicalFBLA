@@ -30,7 +30,6 @@ namespace QuizzicalFBLA.ViewModels
             //Load all the questions into the collection of Questions
             Questions.Add(new QuestionItem
             {
-                QuestionNum = 1,
                 Question = "What are the 3 C’s of Business?",
                 Answer1 = "Capital, Capacity, Character",
                 Answer2 = "Capital, Charity, Capacity",
@@ -306,8 +305,13 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "National Officers",
                 CorrectAnswer = 1
             }
-                ); 
-            
+                );
+
+            int qnum = 1;
+
+            foreach (QuestionItem q in Questions)
+                q.QuestionNum = qnum++;
+
             //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
 
             //Resets all of the variables
@@ -348,6 +352,7 @@ namespace QuizzicalFBLA.ViewModels
                 currentQuestion = value;
                 OnPropertyChanged("CurrentQuestion");
                 OnPropertyChanged("Question");
+                OnPropertyChanged("QuestionNumber");
             }
         }
 
@@ -400,6 +405,13 @@ namespace QuizzicalFBLA.ViewModels
                 get { return numberCorrect; }
             }
 
+        public string QuestionNumber
+        {
+            get
+            {
+                return "Question #" + Questions[CurrentQuestion].QuestionNum;
+            }
+        }
 
         public void OnPropertyChanged (string property)
         {

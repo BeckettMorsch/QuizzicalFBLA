@@ -1,5 +1,6 @@
 ﻿using Plugin.Share;
 using QuizzicalFBLA.Models;
+using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,11 @@ namespace QuizzicalFBLA.Views
                 Title = "QuizzicalFBLA Results"
                 //, Url = "hyyps://www.youtube.com"
             });
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
         }
     }
 }

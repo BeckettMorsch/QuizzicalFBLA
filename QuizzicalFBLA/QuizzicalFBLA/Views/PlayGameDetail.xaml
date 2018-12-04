@@ -3,7 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.PlayGameDetail"
              Title="Quizzical FBLA"
-             BackgroundImage="Background (1).png">
+             BackgroundImage="Background.png">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout HorizontalOptions="CenterAndExpand">
 
         <Image Source="FBLA_logo.png" 
@@ -16,13 +21,43 @@
                   HorizontalOptions="CenterAndExpand" 
                   VerticalOptions="CenterAndExpand">
 
+
                     <Image Source="StartButton.png">
                         <Image.GestureRecognizers>
                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
 
-            </Grid>
+            <!-- Transition to ImageButton's once Xamarin.Forms issues get resolved -->
+            <!--
+            <ImageButton Source="StartButton.png" 
+            BackgroundColor="Transparent"
+            WidthRequest="300"
+            HeightRequest="300"
+            FlexLayout.AlignSelf="Center"
+            FlexLayout.Grow="1"
+            Clicked="TapGestureRecognizer_Tapped"
+            Aspect="AspectFit">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="1.2"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+            -->
+            
+        </Grid>
 
         
         <Image Source="HowToPlay.png" 

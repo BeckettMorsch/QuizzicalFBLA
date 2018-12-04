@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizzicalFBLA.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,10 @@ namespace QuizzicalFBLA.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
+        }
+    }
 }

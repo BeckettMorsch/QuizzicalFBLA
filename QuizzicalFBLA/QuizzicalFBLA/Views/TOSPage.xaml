@@ -5,6 +5,9 @@
              x:Class="QuizzicalFBLA.Views.TOSPage"
              x:Name="this"
              Title="Terms of Service">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#3b3e48" HorizontalOptions="FillAndExpand">
 

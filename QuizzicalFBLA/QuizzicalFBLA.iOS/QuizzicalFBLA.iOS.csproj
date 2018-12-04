@@ -65,6 +65,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BugReporterIOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -165,7 +166,7 @@
     <PackageReference Include="Xam.Plugin.HtmlLabel">
       <Version>3.0.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -232,9 +233,6 @@
     <BundleResource Include="Resources\HowToPlay.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\PhoneShake.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Sign In-Dark.png" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +251,7 @@
     <BundleResource Include="Resources\hamburger2x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\QuizzicalLogo.png" />
+    <BundleResource Include="Resources\bug.png" />
+    <BundleResource Include="Resources\QuizzicalLogo.png" />
   </ItemGroup>
 </Project>

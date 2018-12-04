@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.ViewModels;
+﻿using QuizzicalFBLA.Services;
+using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,6 +88,11 @@ namespace QuizzicalFBLA.Views
                 MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
                 mdp.Detail = new NavigationPage(new EndPage());
             }
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
         }
     }
 }

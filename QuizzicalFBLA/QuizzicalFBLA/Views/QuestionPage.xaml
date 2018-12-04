@@ -3,19 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.QuestionPage"
              NavigationPage.HasBackButton="False"
-             Title="{Binding Question.Category}">
- 
+             Title="{Binding QuestionNumber}"
+             BackgroundImage="Background.png">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#3b3e48" Padding="15,10,15,10">
+        <StackLayout Padding="15,10,15,10">
                 <StackLayout IsVisible="{Binding ShowQuestion}">
 
+                <Label Text="{Binding Question.Category}" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="LightSteelBlue"
+                       />                                        
 
                 <Label Text="{Binding Question.Question}" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
                        FontSize="Medium"
                        TextColor="White"
-                       Margin="0,24,0,0"
+                       Margin="0,5,0,0"
                        />
 
                 <Grid>
@@ -40,7 +51,7 @@
                 </Grid>
 
             </StackLayout>
-            <StackLayout  BackgroundColor="#3b3e48" IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
+            <StackLayout IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
                 <!--<Image Source="file.png" IsVisible="{Binding IsAnswerVisible}"/>-->
                 <Label Text="{Binding Message}"                              
                        FontSize="Large"                      

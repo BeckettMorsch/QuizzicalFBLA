@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
+using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -27,5 +28,10 @@ namespace QuizzicalFBLA.Views
             this.BindingContext = vm = new TermsOfServiceViewModel();
 
 		}
-	}
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
+        }
+    }
 }

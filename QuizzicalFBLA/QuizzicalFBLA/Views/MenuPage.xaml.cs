@@ -35,6 +35,9 @@ namespace QuizzicalFBLA.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+
+                ListViewMenu.SelectedItem = null;
+
                 await RootPage.NavigateFromMenu(id);
             };
         }

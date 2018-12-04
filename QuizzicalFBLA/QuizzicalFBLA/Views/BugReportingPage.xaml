@@ -2,20 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizzicalFBLA.Views.BugReportingPage"
-             Title="Report a Bug">
+             Title="Report an Issue"
+             BackgroundImage="Background.png">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#3b3e48" Padding="15,15,15,0">
-            <Label Text="To report an issue at any time SHAKE the phone!"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" 
+        <StackLayout Padding="15,15,15,0">
+            <Label Text="We value your feedback!"
                    TextColor="White"
-                   FontAttributes="Bold"
                    FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,15"/>
+            
+            <Label Text="If you experience any issues while testing this app simply tap the bug icon in the top right corner of any screen to report an issue.&#x0a;&#x0a;To report an issue now or leave us some feedback on your experience using the app, click the button below."
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="White"
                    />
-            <Image Source="PhoneShake.png" 
-               Aspect="AspectFit"
-               HorizontalOptions="Center" 
-               VerticalOptions="Center"/> 
+
+            <Grid HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="Center"
+                  Margin="0,30,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           Grid.Column="1">
+                    <StackLayout>
+                        <Button Text="Report an Issue"
+                            FontSize="Medium"
+                            TextColor="White"   
+                            HeightRequest="64"
+                            BackgroundColor="Transparent"
+                            Clicked="Button_Clicked"/>
+
+                    </StackLayout>
+                </Frame>
+            </Grid>            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
