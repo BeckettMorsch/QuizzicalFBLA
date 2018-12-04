@@ -14,6 +14,7 @@ namespace QuizzicalFBLA.ViewModels
         {
             try
             {
+                //Reads the Terms of Service text document
                 var assembly = IntrospectionExtensions.GetTypeInfo(typeof(TermsOfServiceViewModel)).Assembly;
                 Stream stream = assembly.GetManifestResourceStream("QuizzicalFBLA.tos.txt");
 
@@ -24,6 +25,7 @@ namespace QuizzicalFBLA.ViewModels
             }
             catch (Exception e)
             {
+                //Reports the crash if the Process fails
                 Crashes.TrackError(e);
             }
 

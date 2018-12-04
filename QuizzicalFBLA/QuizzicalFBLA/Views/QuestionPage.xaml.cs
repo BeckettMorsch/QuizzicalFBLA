@@ -19,9 +19,11 @@ namespace QuizzicalFBLA.Views
         {
             InitializeComponent();
 
+            //Allows this content page to use the CategoriesViewModel
             this.BindingContext = vm = CategoriesViewModel.Current;
         }
 
+        //Processes if the answer chosen is the correct one
         public async void HandleAnswer(int answerNum)
         {
             await Task.Delay(0);
@@ -30,10 +32,7 @@ namespace QuizzicalFBLA.Views
             
             if (vm.Question.CorrectAnswer == answerNum)
             {
-                //Correct
-                // vm.TotalAnswered++;
-                // vm.TotalCorrect++;
-                // vm.Score += whatever
+
                 vm.Message = "You are correct!";
                 vm.NumberCorrect++;
             }
@@ -48,17 +47,13 @@ namespace QuizzicalFBLA.Views
                     case 3: vm.Message += vm.Question.Answer3 + "."; break;
                     case 4: vm.Message += vm.Question.Answer4 + "."; break;
                 }
-
-                //Incorrect
             }
 
-
-            //await Navigation.PushModalAsync(new NavigationPage(new CorrectPage()));
         }
 
+        //Tracks which answer is chosen
         private void Button1Clicked(object sender, EventArgs e)
         {
-            //Bring to next question
             HandleAnswer(1);
         }
 
@@ -77,6 +72,7 @@ namespace QuizzicalFBLA.Views
             HandleAnswer(4);
         }
 
+        //Loads the next question or brings the player to the end page if the quiz is over
         private void NextQuestion(object sender, EventArgs e)
         {
             vm.ShowQuestion = true;
@@ -87,7 +83,7 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
-                // Show ending page
+                //Show ending page
                 MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
                 mdp.Detail = new NavigationPage(new EndPage());
             }

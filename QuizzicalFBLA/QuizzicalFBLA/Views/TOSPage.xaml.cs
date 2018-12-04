@@ -22,7 +22,8 @@ namespace QuizzicalFBLA.Views
 		public TOSPage ()
 		{
 			InitializeComponent ();
-
+            
+            //Allows this content page to use the TermsOfService ViewModel
             this.BindingContext = vm = new TermsOfServiceViewModel();
 
 		}
