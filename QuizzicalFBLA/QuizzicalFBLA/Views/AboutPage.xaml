@@ -6,9 +6,7 @@
              Title="About"
              BackgroundColor="#3b3e48">
     
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
