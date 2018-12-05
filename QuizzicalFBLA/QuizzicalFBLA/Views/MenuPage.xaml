@@ -4,7 +4,7 @@
              x:Class="QuizzicalFBLA.Views.MenuPage"
              Title="Menu"
              Icon="hamburger.png">
-    <StackLayout VerticalOptions="FillAndExpand">
+    <StackLayout VerticalOptions="FillAndExpand" Margin="0,30,0,0">
         <Grid             HeightRequest="150" 
                           HorizontalOptions="FillAndExpand" 
                           BackgroundColor="LightSlateGray">
