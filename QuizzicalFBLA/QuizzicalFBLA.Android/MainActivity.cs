@@ -28,6 +28,7 @@ namespace QuizzicalFBLA.Droid
             LoadApplication(new App());
 
             new Instabug.Builder(this.Application, "6c4ce2b08ac3afa29539f59017d374a9").Build();
+            Instabug.Enable();
         }
     }
 }
