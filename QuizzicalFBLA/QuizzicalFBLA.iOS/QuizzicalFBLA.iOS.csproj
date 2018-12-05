@@ -233,9 +233,6 @@
     <BundleResource Include="Resources\HowToPlay.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Sign In-Dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Background.png" />
   </ItemGroup>
   <ItemGroup>
