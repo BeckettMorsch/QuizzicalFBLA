@@ -10,7 +10,7 @@
         <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#3b3e48">
+        <StackLayout>
             <Label Text="Instructions"
                    VerticalOptions="Start" 
                    HorizontalOptions="Center"
@@ -19,7 +19,7 @@
                    FontSize="Large"
                    Margin="0,15,0,0"/>
 
-            <Label Text="-To start the quiz press the button in the center of the home screen.&#x0a;-The quiz is 25 questions in total and will let you how well you did at the end.&#x0a;-From the end screen you can retry the quiz or share how well you did.&#x0a;&#x0a;-The navigation menu on the left can be accessed by tapping the 'Hamburger Menu' icon in the top left of the screen, or by pulling out the left side of the screen.&#x0a;-From this menu you can view the Terms of Service, About page, as well as instructions on how to report any issue that you have with Quizzical." 
+            <Label Text="-To start the quiz press the button in the center of the home screen.&#x0a;-The quiz consists 25 questions that will test the user's FBLA knowledge.&#x0a;-Once conpleted, the quiz will let you how well you did at the end.&#x0a;-From the end screen you can retry the quiz or share how well you did.&#x0a;&#x0a;-The navigation menu on the left can be accessed by tapping the 'Hamburger Menu' icon in the top left of the screen, or by pulling out the left side of the screen.&#x0a;-From this menu you can view the Terms of Service, About page, as well as instructions on how to report any issue that you have with Quizzical." 
                    HorizontalOptions="Center"
                    TextColor="White"
                    FontAttributes="Bold"

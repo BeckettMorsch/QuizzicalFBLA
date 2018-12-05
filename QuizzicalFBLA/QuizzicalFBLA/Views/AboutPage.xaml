@@ -92,7 +92,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="© " FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
+                                <Span Text="" FontAttributes="Bold"  ForegroundColor="#FFFFFF"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

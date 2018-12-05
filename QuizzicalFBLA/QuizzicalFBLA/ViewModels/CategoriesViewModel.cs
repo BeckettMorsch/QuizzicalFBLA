@@ -64,8 +64,7 @@ namespace QuizzicalFBLA.ViewModels
             }
                 ); 
             Questions.Add(new QuestionItem
-            {
-              //QuestionNum = 3,
+            {              
                 Question = "What is a formal proposal by a member suggesting that the assembly take a certain action?",
                 Answer1 = "Main Motion",
                 Answer2 = "Motion",
@@ -110,7 +109,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "Which one of these Colleges DOES not offer a scholarship for FLBA?",
+                Question = "Which one of these Colleges does NOT offer a scholarship for FLBA?",
                 Answer1 = "Arizona State University",
                 Answer2 = "Barton College",
                 Answer3 = "Catawba College",
@@ -165,7 +164,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "What Phone company sponsors FBLA?",
+                Question = "What phone company sponsors FBLA?",
                 Answer1 = "T-Mobile",
                 Answer2 = "Cricket Wireless",
                 Answer3 = "Verizon",
@@ -176,7 +175,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "Who is the presiding officer, the person who remains impartial/moderates?",
+                Question = "Who is the presiding officer that remains impartial and moderates?",
                 Answer1 = "Treasure",
                 Answer2 = "Vice President",
                 Answer3 = "Chair",
@@ -198,7 +197,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "To market products successfully in another country, companies must research the country's?",
+                Question = "To market products successfully in another country, companies must research the country's...",
                 Answer1 = "Customs, Tastes, Cost",
                 Answer2 = "Customs, Cost, language",
                 Answer3 = "Language, Tastes, Cost",
@@ -242,7 +241,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "What is the color of the Blazer the national officers wear?",
+                Question = "What is the color of the blazer the national officers wear?",
                 Answer1 = "Gold",
                 Answer2 = "Black",
                 Answer3 = "Brown",
@@ -264,7 +263,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "What two Words start each Stanza in the FBLA creed?",
+                Question = "What two words start each stanza in the FBLA creed?",
                 Answer1 = "We Believe",
                 Answer2 = "I Believe",
                 Answer3 = "Will Believe",
@@ -280,7 +279,7 @@ namespace QuizzicalFBLA.ViewModels
                 Answer2 = "Jean Buckley",
                 Answer3 = "Hamden Forkner",
                 Answer4 = "Jason Felton",
-                Category = "FBLA national Sponsors/Partners",
+                Category = "FBLA National Sponsors/Partners",
                 CorrectAnswer = 2
             }
                 );
@@ -297,7 +296,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             Questions.Add(new QuestionItem
             {
-                Question = "The national secretary is responsible for proofreading and finalizing the compiled team...",
+                Question = "The National Secretary is responsible for proofreading and finalizing the compiled team...",
                 Answer1 = "Summary Reports",
                 Answer2 = "Finance Reports",
                 Answer3 = "Grade Reports",
@@ -307,12 +306,13 @@ namespace QuizzicalFBLA.ViewModels
             }
                 );
 
+            //Assigns the questions a number
             int qnum = 1;
 
             foreach (QuestionItem q in Questions)
                 q.QuestionNum = qnum++;
 
-            //Questions = JsonConvert.Deserialize<List<QuestionItem>>(content);
+            
 
             //Resets all of the variables
             CurrentQuestion = 0;
