@@ -1,4 +1,4 @@
-﻿using Xamarin.Essentials;
+﻿using Plugin.Share;
 using QuizzicalFBLA.Models;
 using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
@@ -38,11 +38,12 @@ namespace QuizzicalFBLA.Views
         //Allows the user to share how many questions they got correct if the Share button is tapped
         async private void Share_Clicked(object sender, EventArgs e)
         {
-
-            await Share.RequestAsync(new ShareTextRequest
+            
+            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
             {
                 Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on QuizzicalFBLA!",
                 Title = "QuizzicalFBLA Results"
+                //, Url = "hyyps://www.youtube.com"
             });
         }
 

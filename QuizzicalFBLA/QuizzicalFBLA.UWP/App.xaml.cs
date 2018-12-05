@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabelHtml.Forms.Plugin.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,9 +54,13 @@ namespace QuizzicalFBLA.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                var rendererAssemblies = new[] {
+                    typeof(HtmlLabelRenderer).GetTypeInfo().Assembly
+                    };
 
+                Xamarin.Forms.Forms.Init(e, rendererAssemblies);
 
+                HtmlLabelRenderer.Initialize();
 
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
