@@ -19,7 +19,7 @@
                        FontSize="24"
                        FontAttributes="Bold"
                        TextColor="LightSteelBlue"
-                       />                                        
+                       LineBreakMode="WordWrap"/>                                        
 
                 <Label Text="{Binding Question.Question}" 
                    HorizontalOptions="Center"
@@ -27,6 +27,7 @@
                        FontSize="Medium"
                        TextColor="White"
                        Margin="0,5,0,0"
+                       LineBreakMode="WordWrap"
                        />
 
                 <Grid>
@@ -40,19 +41,101 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding Question.Answer1}" BackgroundColor="#ff6666"
-                    FontAttributes="Bold" TextColor="Black" Clicked="Button1Clicked"/>
-                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding Question.Answer2}" BackgroundColor="#4d4dff" 
-                    FontAttributes="Bold" TextColor="Black" Clicked="Button2Clicked"/>
-                    <Button Grid.Column="0" Grid.Row="1" Text="{Binding Question.Answer3}" BackgroundColor="#ffffb3"
-                    FontAttributes="Bold" TextColor="Black" VerticalOptions="FillAndExpand" Clicked="Button3Clicked"/>
-                    <Button Grid.Column="1" Grid.Row="1" Text="{Binding Question.Answer4}" BackgroundColor="#99ff99"
-                    FontAttributes="Bold" TextColor="Black" VerticalOptions="FillAndExpand" Clicked="Button4Clicked"/>
+                    <Frame CornerRadius="5"  
+                           BackgroundColor="#ff6666"
+                           Padding="0"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="2,2,2,2">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button1Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label FontAttributes="Bold" 
+                                   TextColor="Black" 
+                                   Text="{Binding Question.Answer1}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   LineBreakMode="WordWrap">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Button1Clicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="5"  
+                           BackgroundColor="#4d4dff"
+                           Padding="0"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           Margin="2,2,2,2">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button2Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label FontAttributes="Bold" 
+                                   TextColor="Black" 
+                                   Text="{Binding Question.Answer2}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   LineBreakMode="WordWrap">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Button2Clicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="5"  
+                           BackgroundColor="#ffffb3"
+                           Padding="0"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="2,2,2,2">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button3Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label FontAttributes="Bold" 
+                                   TextColor="Black" 
+                                   Text="{Binding Question.Answer3}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   LineBreakMode="WordWrap">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Button3Clicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="5"  
+                           BackgroundColor="#99ff99"
+                           Padding="0"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           Margin="2,2,2,2">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button4Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label FontAttributes="Bold" 
+                                   TextColor="Black" 
+                                   Text="{Binding Question.Answer4}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   LineBreakMode="WordWrap">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Button4Clicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
                 </Grid>
 
             </StackLayout>
             <StackLayout IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
-                <!--<Image Source="file.png" IsVisible="{Binding IsAnswerVisible}"/>-->
                 <Label Text="{Binding Message}"                              
                        FontSize="Large"                      
                        TextColor="White"

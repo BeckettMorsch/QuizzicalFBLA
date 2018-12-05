@@ -38,6 +38,8 @@ namespace QuizzicalFBLA.Views
 
                 ListViewMenu.SelectedItem = null;
 
+                RootPage.IsPresented = false;
+
                 await RootPage.NavigateFromMenu(id);
             };
         }

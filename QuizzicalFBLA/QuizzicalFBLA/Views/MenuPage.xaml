@@ -4,10 +4,11 @@
              x:Class="QuizzicalFBLA.Views.MenuPage"
              Title="Menu"
              Icon="hamburger.png">
-    <StackLayout VerticalOptions="FillAndExpand" Margin="0,30,0,0">
+    <StackLayout VerticalOptions="FillAndExpand" >
         <Grid             HeightRequest="150" 
                           HorizontalOptions="FillAndExpand" 
-                          BackgroundColor="LightSlateGray">
+                          BackgroundColor="LightSlateGray"
+                          Padding="0,30,0,0">
             <Image Source="QuizzicalLogo.png" VerticalOptions="Center" HeightRequest="125" Aspect="AspectFit" Margin="10,10,10,10"/>
         </Grid>
         <ListView x:Name="ListViewMenu"
