@@ -34,12 +34,12 @@ namespace QuizzicalFBLA.Views
             if (vm.Question.CorrectAnswer == answerNum)
             {
 
-                vm.Message = "You are correct!";
+                vm.Message = "You are Correct!";
                 vm.NumberCorrect++;
             }
             else
             {
-                vm.Message = "You are not correct! The correct answer was ";
+                vm.Message = "You are Incorrect!\n The correct answer was ";
 
                 switch(vm.Question.CorrectAnswer)
                 {

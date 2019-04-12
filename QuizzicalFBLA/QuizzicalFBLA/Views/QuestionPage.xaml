@@ -26,23 +26,23 @@
                    VerticalOptions="CenterAndExpand"
                        FontSize="Medium"
                        TextColor="White"
-                       Margin="0,5,0,0"
+                       Margin="0,0,0,100"
                        LineBreakMode="WordWrap"
                        />
 
-                <Grid>
+                <Grid VerticalOptions="EndAndExpand">
+                    
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="200" />
-                        <RowDefinition Height ="200" />
+                        <RowDefinition Height ="80" />
+                        <RowDefinition Height ="80" />
+                        <RowDefinition Height ="80" />
+                        <RowDefinition Height ="80" />
                     </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+
 
                     <Frame CornerRadius="5"  
-                           BackgroundColor="#ff6666"
+                           BackgroundColor="White"
                            Padding="0"
                            Grid.Row="0"
                            Grid.Column="0"
@@ -65,10 +65,10 @@
                     </Frame>
 
                     <Frame CornerRadius="5"  
-                           BackgroundColor="#4d4dff"
+                           BackgroundColor="White"
                            Padding="0"
-                           Grid.Row="0"
-                           Grid.Column="1"
+                           Grid.Row="1"
+                           Grid.Column="0"
                            Margin="2,2,2,2">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Button2Clicked"/>
@@ -88,9 +88,9 @@
                     </Frame>
 
                     <Frame CornerRadius="5"  
-                           BackgroundColor="#ffffb3"
+                           BackgroundColor="White"
                            Padding="0"
-                           Grid.Row="1"
+                           Grid.Row="2"
                            Grid.Column="0"
                            Margin="2,2,2,2">
                         <Frame.GestureRecognizers>
@@ -111,10 +111,10 @@
                     </Frame>
 
                     <Frame CornerRadius="5"  
-                           BackgroundColor="#99ff99"
+                           BackgroundColor="White"
                            Padding="0"
-                           Grid.Row="1"
-                           Grid.Column="1"
+                           Grid.Row="3"
+                           Grid.Column="0"
                            Margin="2,2,2,2">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Button4Clicked"/>
@@ -139,6 +139,7 @@
                 <Label Text="{Binding Message}"                              
                        FontSize="Large"                      
                        TextColor="White"
+                       HorizontalTextAlignment="Center"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"
                        BackgroundColor="Transparent"/>
