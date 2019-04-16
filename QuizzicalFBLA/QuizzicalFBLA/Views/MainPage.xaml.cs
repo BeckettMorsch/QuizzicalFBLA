@@ -43,6 +43,9 @@ namespace QuizzicalFBLA.Views
                     case (int)MenuItemType.BugReporting:
                         MenuPages.Add(id, new NavigationPage(new BugReportingPage()));
                         break;
+                    case (int)MenuItemType.LeaderBoard:
+                        MenuPages.Add(id, new NavigationPage(new LeaderboardPage()));
+                        break;
 
                 }
             }

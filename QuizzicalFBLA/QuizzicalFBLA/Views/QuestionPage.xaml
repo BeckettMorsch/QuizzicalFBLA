@@ -25,12 +25,13 @@
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
                        FontSize="Medium"
+                       HorizontalTextAlignment="Center"
                        TextColor="White"
                        Margin="0,0,0,100"
                        LineBreakMode="WordWrap"
                        />
 
-                <Grid VerticalOptions="EndAndExpand">
+                <Grid VerticalOptions="End">
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height ="80" />

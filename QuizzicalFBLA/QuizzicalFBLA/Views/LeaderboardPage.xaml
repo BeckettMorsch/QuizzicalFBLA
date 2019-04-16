@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizzicalFBLA.Views.LeaderboardPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Username}" FontSize="Small"/>
+                                <Label Text="{Binding Score}" FontSize="Medium"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="{Binding ErrorMessage}" IsVisible="{Binding IsError}" FontSize="Medium"/>
+            <Label Text="Loading..." IsVisible="{Binding IsBusy}" FontSize="Medium"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

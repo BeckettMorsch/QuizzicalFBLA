@@ -10,7 +10,8 @@ namespace QuizzicalFBLA.Models
         Play,
         About,
         TermsOfService,
-        BugReporting
+        BugReporting,
+        LeaderBoard
     }
     public class HomeMenuItem
     {
