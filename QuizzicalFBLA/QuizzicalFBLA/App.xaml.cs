@@ -5,6 +5,8 @@ using QuizzicalFBLA.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using QuizzicalFBLA.Config;
+using GameSparks.NET.Infrastructure.Settings;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace QuizzicalFBLA
@@ -25,10 +27,10 @@ namespace QuizzicalFBLA
 
         protected override void OnStart()
         {
-             AppCenter.Start("android=b07e290b-6de6-47ba-96ee-b126f75815b5;" +
-                  "uwp=ac278b47-a061-44e5-96c0-389f70f445b8;" +
-                  "ios=74f30c0c-ab9a-480a-a785-d69ac8bd4283",
-                  typeof(Analytics), typeof(Crashes));
+            AppCenter.Start(Secrets.VSAppCenterAndroid + ";" + Secrets.VSAppCenterIOS + ";" + Secrets.VSAppCenterUWP,
+                             typeof(Analytics), typeof(Crashes));
+
+            GameSparksSettings.Set(Secrets.GameSparksApiKey, Secrets.GameSparksCredentials, Secrets.GameSparksSecret, isLive: false);
         }
 
         protected override void OnSleep()
