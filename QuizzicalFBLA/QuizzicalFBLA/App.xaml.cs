@@ -18,6 +18,9 @@ namespace QuizzicalFBLA
 
 
             MainPage = new MainPage();
+
+            // If not currently logged in (Store authentication details somewhere)
+            // MainPage.Navigation.PushModalAsync(new LoginPage());
         }
 
         protected override void OnStart()

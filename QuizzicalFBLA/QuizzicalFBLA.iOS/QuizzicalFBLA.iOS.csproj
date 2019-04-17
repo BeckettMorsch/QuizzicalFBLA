@@ -71,6 +71,7 @@
     <Compile Include="BugReporterIOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +152,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Auth0.OidcClient.iOS">
+      <Version>2.3.1</Version>
+    </PackageReference>
     <PackageReference Include="instabug-for-ios">
       <Version>8.0.8</Version>
     </PackageReference>
@@ -254,4 +258,5 @@
     <BundleResource Include="Resources\bug.png" />
     <BundleResource Include="Resources\QuizzicalLogo.png" />
   </ItemGroup>
+  <ItemGroup />
 </Project>
