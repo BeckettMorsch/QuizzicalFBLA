@@ -4,13 +4,32 @@
              x:Class="QuizzicalFBLA.Views.LeaderboardPage">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Leaderboard" />
+
+            <Frame CornerRadius="45" BackgroundColor="DarkBlue" HeightRequest="45" WidthRequest="45">
+                <Label Text="1"/>
+            </Frame>
+
             <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Username}" FontSize="Small"/>
-                                <Label Text="{Binding Score}" FontSize="Medium"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height ="80" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Username}" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Score}" FontSize="Medium"/>
+
+                                </Grid>
+
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

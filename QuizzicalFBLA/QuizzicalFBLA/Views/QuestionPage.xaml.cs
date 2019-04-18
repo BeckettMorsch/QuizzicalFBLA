@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.Services;
+﻿using QuizzicalFBLA.Config;
+using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -74,7 +75,7 @@ namespace QuizzicalFBLA.Views
         }
 
         //Loads the next question or brings the player to the end page if the quiz is over
-        private void NextQuestion(object sender, EventArgs e)
+        private async void NextQuestion(object sender, EventArgs e)
         {
             vm.ShowQuestion = true;
 
@@ -84,6 +85,8 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
+                await Player.Current.RegisterScore(vm.NumberCorrect);
+
                 //Show ending page
                 MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
                 mdp.Detail = new NavigationPage(new EndPage());

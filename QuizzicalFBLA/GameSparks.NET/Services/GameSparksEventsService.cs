@@ -73,6 +73,17 @@ namespace GameSparks.NET.Services
         /// </summary>
         /// <param name="requestData"></param>
         /// <returns></returns>
+        public async Task<EventsResponse> LogEventRequestAsync(dynamic requestData)
+        {
+            var res = await Requestor.PostStringAsync(Urls.LogEventRequest, JsonHelper.SerializeData(requestData));
+            return JsonConvert.DeserializeObject<EventsResponse>(res.ResponseJson);
+        }
+
+        /// <summary>
+        /// Begin a new asynchronous LogEventRequest
+        /// </summary>
+        /// <param name="requestData"></param>
+        /// <returns></returns>
         public async Task<EventsResponse> LogEventRequestAsync(string requestData)
         {
             var res = await Requestor.PostStringAsync(Urls.LogEventRequest, requestData);

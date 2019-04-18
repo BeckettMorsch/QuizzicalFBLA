@@ -7,6 +7,7 @@ using Leaderboard.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace QuizzicalFBLA.Config
 {
@@ -26,6 +27,7 @@ namespace QuizzicalFBLA.Config
 
         public string GameSparksAuthToken { get; set; }
         public string GameSparksUserID { get; set; }
+        public bool GameSparksLoggedIn { get; set; } = false;
 
         public static Player Current
         {
@@ -40,30 +42,44 @@ namespace QuizzicalFBLA.Config
             }
         }
 
-        public async void AuthenticateGameSparks ()
+        public async Task RegisterScore (int score)
         {
+            var eventService = new GameSparksEventsService();
+            var rs = await eventService.LogEventRequestAsync(new ScoreEvent(GameSparksUserID, score));
+        }
+
+        public async Task AuthenticateGameSparks ()
+        {
+            // If already logged in no need to re-authenticate
+            if (GameSparksLoggedIn) return;
+
+            GameSparksSettings.Set(Secrets.GameSparksApiKey, Secrets.GameSparksCredentials, Secrets.GameSparksSecret, isLive: false);
+
+            GameSparksLoggedIn = false;
+
             var authService = new GameSparksAuthenticationService();
-
-            var registrationRequest = new RegistrationRequest(Name, AutoPassword, AutoUsername, null);
-            var response = authService.RegistrationRequestAsync(registrationRequest);
-
-            if (response.IsCompletedSuccessfully)
-            {
-                Console.Write("Success!");
-            }
-            else
-            {
-                Console.WriteLine(response.Result);
-            }
-
+           
             // Create the AuthenticationRequest(string userName, string password) object
             var authRequest = new AuthenticationRequest(AutoUsername, AutoPassword);
 
             // Fire the request
-            var response2 = authService.AuthenticationRequestAsync(authRequest);
+            var response = await authService.AuthenticationRequestAsync(authRequest);
 
-            Console.WriteLine("Auth token: " + response2.AuthToken);
-            Console.WriteLine("User ID: " + response2.UserId);
+            if (response.Error != null)
+            {
+                // There was an error
+                var registrationRequest = new RegistrationRequest(Name, AutoPassword, AutoUsername, null);
+                response = await authService.RegistrationRequestAsync(registrationRequest);
+            }
+
+            if (response.Error == null)
+            {
+                //Console.WriteLine("Auth token: " + response2.AuthToken);
+                //Console.WriteLine("User ID: " + response2.UserId);
+                GameSparksAuthToken = response.AuthToken;
+                GameSparksUserID = response.UserId;
+                GameSparksLoggedIn = true;
+            }
         }
     }
 }

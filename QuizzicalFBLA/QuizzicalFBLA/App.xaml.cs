@@ -23,6 +23,8 @@ namespace QuizzicalFBLA
 
             // If not currently logged in (Store authentication details somewhere)
             // MainPage.Navigation.PushModalAsync(new LoginPage());
+
+            Player.Current.AuthenticateGameSparks();
         }
 
         protected override void OnStart()
@@ -30,7 +32,6 @@ namespace QuizzicalFBLA
             AppCenter.Start(Secrets.VSAppCenterAndroid + ";" + Secrets.VSAppCenterIOS + ";" + Secrets.VSAppCenterUWP,
                              typeof(Analytics), typeof(Crashes));
 
-            GameSparksSettings.Set(Secrets.GameSparksApiKey, Secrets.GameSparksCredentials, Secrets.GameSparksSecret, isLive: false);
         }
 
         protected override void OnSleep()

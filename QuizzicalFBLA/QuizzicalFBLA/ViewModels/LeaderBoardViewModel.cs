@@ -1,4 +1,8 @@
-﻿using QuizzicalFBLA.Helpers;
+﻿using GameSparks.NET.Services;
+using GameSparks.NET.Services.Leaderboards.Requests;
+using Leaderboard.Events;
+using QuizzicalFBLA.Config;
+using QuizzicalFBLA.Helpers;
 using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +23,6 @@ namespace QuizzicalFBLA.ViewModels
 
         public LeaderBoardViewModel()
         {
-
         }
 
 
@@ -74,20 +77,34 @@ namespace QuizzicalFBLA.ViewModels
             if (IsBusy) return;
             IsBusy = true;
 
+            await Player.Current.AuthenticateGameSparks();
+
             Scores = new ObservableCollection<ScoreItem>();
 
             try
             {
                 // Load data from GameSparks
+                var leaderboardService = new GameSparksLeaderboardsService();
 
-                bool success = false;
+                var leaderboardDataRequest = new LeaderboardDataRequest(null, false, 20, null, 0, 0, false, "best", 0, Player.Current.GameSparksUserID, false, null, null);
+                var leaderboard = leaderboardService.LeaderboardDataRequest<LeaderboardDataResponseScoreEvent>(leaderboardDataRequest);  // Or data can just be "dynamic"
+
+                bool success = leaderboard.Error == null;
 
                 // If Successful
                 if (success)
                 {
                     IsError = false;
                    
-
+                    foreach (LeaderboardDataResponseScoreEvent score in leaderboard.Data)
+                    {
+                        Scores.Add(new ScoreItem()
+                        {
+                            Rank = score.Rank,
+                            Username = score.UserName,
+                            Score = score.Score
+                        });
+                    }
 
                     DataAvailable = true;
                 }
