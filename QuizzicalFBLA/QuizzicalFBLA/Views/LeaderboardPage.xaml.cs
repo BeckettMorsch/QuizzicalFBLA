@@ -18,13 +18,13 @@ namespace QuizzicalFBLA.Views
             InitializeComponent();
             this.BindingContext = new LeaderBoardViewModel();
         }
-        protected async override void OnAppearing()
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
             // Load the posts
             LeaderBoardViewModel vm = (LeaderBoardViewModel)BindingContext;
-            //await vm.ExecuteLoadItemsCommand();
             vm.RefreshCommand.Execute(null);
         }
     }

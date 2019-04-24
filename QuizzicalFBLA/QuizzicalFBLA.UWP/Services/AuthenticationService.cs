@@ -44,5 +44,12 @@ namespace QuizzicalFBLA.UWP.Services
             AuthenticationResult = authenticationResult;
             return authenticationResult;
         }
+
+        public async void Logout()
+        {
+            if (_auth0Client != null)
+                await _auth0Client.LogoutAsync(true);
+
+        }
     }
 }

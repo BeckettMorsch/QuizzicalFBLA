@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Linq;
 
 namespace QuizzicalFBLA.ViewModels 
 {
@@ -13,22 +14,21 @@ namespace QuizzicalFBLA.ViewModels
         private static CategoriesViewModel current = null;
         private int currentQuestion = 0;
 
+        private List<QuestionItem> QuestionPool;
+
         private ObservableCollection<QuestionItem> Questions { get; set; }
-        private static int numberCorrect = 0;
+        private static int numberCorrect = 0, totalPoints = 0;
 
         private CategoriesViewModel()
         {
 
             Questions = new ObservableCollection<QuestionItem>();
 
-        }
+            QuestionPool = new List<QuestionItem>();
 
-        public void Reset()
-        {
-            Questions.Clear();
 
             //Load all the questions into the collection of Questions
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What are the 3 C’s of Business?",
                 Answer1 = "Capital, Capacity, Character",
@@ -39,9 +39,9 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
-                
+
                 Question = "Where was 2017 NLC held?",
                 Answer1 = "Baltimore, MD",
                 Answer2 = "Anaheim, CA",
@@ -51,10 +51,10 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-           Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
-                
-                Question = "What Insurance company sponsors FBLA",
+
+                Question = "What Insurance company sponsors FBLA?",
                 Answer1 = "State Farm",
                 Answer2 = "Progressive",
                 Answer3 = "Geico",
@@ -62,9 +62,9 @@ namespace QuizzicalFBLA.ViewModels
                 Category = "FBLA National Sponsors/Partners",
                 CorrectAnswer = 3
             }
-                ); 
-            Questions.Add(new QuestionItem
-            {              
+                 );
+            QuestionPool.Add(new QuestionItem
+            {
                 Question = "What is a formal proposal by a member suggesting that the assembly take a certain action?",
                 Answer1 = "Main Motion",
                 Answer2 = "Motion",
@@ -74,8 +74,8 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                             );
-            Questions.Add(new QuestionItem
-            {                
+            QuestionPool.Add(new QuestionItem
+            {
                 Question = "Who is the current FBLA president?",
                 Answer1 = "Eu Ro Wang",
                 Answer2 = "Galadriel Coury",
@@ -85,7 +85,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What is the ability to make decisions on your own called?",
                 Answer1 = "Integrity",
@@ -96,7 +96,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What Year was FBLA Founded?",
                 Answer1 = "1935",
@@ -107,7 +107,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "Which one of these Colleges does NOT offer a scholarship for FLBA?",
                 Answer1 = "Arizona State University",
@@ -118,7 +118,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 4
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What is it called to cancel or countermand a previous action?",
                 Answer1 = "Rescind",
@@ -129,7 +129,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "How many national officers are there?",
                 Answer1 = "8",
@@ -140,7 +140,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What is the term that describes protecting investments through risk management?",
                 Answer1 = "Responsibility",
@@ -151,7 +151,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "Who is the founder of FBLA?",
                 Answer1 = "Hamden Forkner",
@@ -162,7 +162,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What phone company sponsors FBLA?",
                 Answer1 = "T-Mobile",
@@ -173,7 +173,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "Who is the presiding officer that remains impartial and moderates?",
                 Answer1 = "Treasure",
@@ -184,7 +184,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "FBLA is comprised of how many administrative regions?",
                 Answer1 = "3",
@@ -195,7 +195,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 3
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "To market products successfully in another country, companies must research the country's...",
                 Answer1 = "Customs, Tastes, Cost",
@@ -206,7 +206,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 4
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What are FBLA’s colors?",
                 Answer1 = "Blue & Yellow",
@@ -217,7 +217,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 4
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What credit card company sponsors FBLA?",
                 Answer1 = "Master Card",
@@ -228,7 +228,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What assists the assembly in treating or disposing of a main motion?",
                 Answer1 = "Main Motion",
@@ -239,7 +239,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 4
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What is the color of the blazer the national officers wear?",
                 Answer1 = "Gold",
@@ -250,7 +250,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 4
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "Which term refers to the actual amount of money you earn or receive during a given period of time?",
                 Answer1 = "Income",
@@ -261,7 +261,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What two words start each stanza in the FBLA creed?",
                 Answer1 = "We Believe",
@@ -272,7 +272,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "Who is one supposed to contact about sponsorship, exhibiting, and advertising?",
                 Answer1 = "Christian Mohan",
@@ -283,7 +283,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 2
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "What is the term used to suggest names to be considered for office?",
                 Answer1 = "Nominate",
@@ -294,7 +294,7 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
-            Questions.Add(new QuestionItem
+            QuestionPool.Add(new QuestionItem
             {
                 Question = "The National Secretary is responsible for proofreading and finalizing the compiled team...",
                 Answer1 = "Summary Reports",
@@ -305,6 +305,35 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
+
+        }
+
+        private static Random rng = new Random();
+
+        public void Shuffle<T>(IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+
+        public void Reset(int count = 5)
+        {
+            Questions.Clear();
+
+            Shuffle(QuestionPool);
+            List<QuestionItem> Quiz = new List<QuestionItem>(QuestionPool.Take(count));
+            
+            foreach (QuestionItem item in Quiz)
+            {
+                Questions.Add(item);
+            }
 
             //Assigns the questions a number
             int qnum = 1;
@@ -320,6 +349,7 @@ namespace QuizzicalFBLA.ViewModels
             Message = "Perfect";
             ShowQuestion = true;
             NumberCorrect = 0;
+            TotalPoints = 0;
         }
 
         //Creates an instance of the CategoriesViewModel
@@ -404,6 +434,16 @@ namespace QuizzicalFBLA.ViewModels
                 }
                 get { return numberCorrect; }
             }
+
+        public int TotalPoints
+        {
+            set
+            {
+                totalPoints = value;
+                OnPropertyChanged("TotalPoints");
+            }
+            get { return totalPoints; }
+        }
 
         public string QuestionNumber
         {

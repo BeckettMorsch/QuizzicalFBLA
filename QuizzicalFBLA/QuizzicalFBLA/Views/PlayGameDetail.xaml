@@ -22,7 +22,7 @@
                   VerticalOptions="CenterAndExpand">
 
 
-                    <Image Source="StartButton.png">
+                    <Image Source="StartButton.png" x:Name="StartButton">
                         <Image.GestureRecognizers>
                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>

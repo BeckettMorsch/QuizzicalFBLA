@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QuizzicalFBLA.Controls"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
              x:Class="QuizzicalFBLA.Views.QuestionPage"
              NavigationPage.HasBackButton="False"
              Title="{Binding QuestionNumber}"
@@ -10,27 +12,216 @@
         <ToolbarItem Icon="bug.png" Text="Report Bug" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="15,10,15,10">
-                <StackLayout IsVisible="{Binding ShowQuestion}">
+        <StackLayout>
 
-                <Label Text="{Binding Question.Category}" 
+            <AbsoluteLayout>
+                <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,1,50"
+                   AbsoluteLayout.LayoutFlags="XProportional, YProportional,WidthProportional"
+                   BackgroundColor="#6C738D"
+                   CornerRadius="0">
+                </Frame>
+                <Frame AbsoluteLayout.LayoutBounds="15,0.5,150,45"
+                   AbsoluteLayout.LayoutFlags="YProportional"
+                   Padding="0,0,0,0">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Score" TextColor="LightGray" FontSize="15" Margin="0,0,0,0"/>
+                        <Label Text="{Binding TotalPoints}" TextColor="LightGray" FontSize="15" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,120,120"
+                   AbsoluteLayout.LayoutFlags="XProportional, YProportional">
+
+                    <controls:ProgressRing x:Name="ring"
+                                WidthRequest="90"
+                                HeightRequest="90" 
+                                RingThickness="6" 
+                                RingBackgroundColor="#2E303C" 
+                                RingBaseColor="DarkGreen" 
+                                RingProgressStartColor="GreenYellow" 
+                                RingProgressEndColor="OrangeRed"
+                                />
+
+                </Frame>
+                <forms:AnimationView 
+                AbsoluteLayout.LayoutBounds="1.0,0.5,150,150"
+                AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+	            x:Name="checkAnimation" 
+	            Animation="433-checked-done.json" 
+	            Loop="false" 
+	            AutoPlay="false"
+                IsVisible="False"
+	            VerticalOptions="FillAndExpand" 
+	            HorizontalOptions="FillAndExpand" />
+
+                <forms:AnimationView 
+                AbsoluteLayout.LayoutBounds="0.9,0.5,100,100"
+                AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+	            x:Name="wrongAnimation" 
+	            Animation="4698-wrong-answer.json" 
+	            Loop="false" 
+	            AutoPlay="false"
+                IsVisible="False"
+	            VerticalOptions="FillAndExpand" 
+	            HorizontalOptions="FillAndExpand" />
+
+            </AbsoluteLayout>
+
+            <AbsoluteLayout Margin="0,-40,0,0">
+
+                <Label 
+                   AbsoluteLayout.LayoutBounds="0.5,0,1,25"
+                   AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"     
+                   Text="{Binding Question.Category}" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
-                       FontSize="24"
+                       FontSize="20"
                        FontAttributes="Bold"
                        TextColor="LightSteelBlue"
                        LineBreakMode="WordWrap"/>                                        
 
-                <Label Text="{Binding Question.Question}" 
+                <Label 
+                   AbsoluteLayout.LayoutBounds="0.5,30,1,1"
+                   AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional"                         
+                   Text="{Binding Question.Question}"
                    HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
                        FontSize="Medium"
                        HorizontalTextAlignment="Center"
                        TextColor="White"
-                       Margin="0,0,0,100"
+                       Margin="10,0,10,0"
                        LineBreakMode="WordWrap"
                        />
 
+                <StackLayout AbsoluteLayout.LayoutBounds="0.5,100,0.9,1"
+                    AbsoluteLayout.LayoutFlags="XProportional,WidthProportional">
+                    
+                    <Frame                     
+                        x:Name="Button1" CornerRadius="5"  
+                        BorderColor="White"     
+                        BackgroundColor="#4E525D"
+                        Padding="0"
+                        WidthRequest="300">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button1_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="15,15,15,15" >
+                            <Label FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       Text="{Binding Question.Answer1}" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       LineBreakMode="WordWrap">
+                                <!--
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                        -->
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame
+                        x:Name="Button2" CornerRadius="5"  
+                        BorderColor="White"     
+                        BackgroundColor="#4E525D"
+                        Padding="0"
+                        WidthRequest="300">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button2_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="15,15,15,15" >
+                            <Label FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       Text="{Binding Question.Answer2}" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       LineBreakMode="WordWrap">
+                                <!--
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                        -->
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame                        
+                        x:Name="Button3" CornerRadius="5"  
+                        BorderColor="White"     
+                        BackgroundColor="#4E525D"
+                        Padding="0"
+                        WidthRequest="300">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button3_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="15,15,15,15" >
+                            <Label FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       Text="{Binding Question.Answer3}" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       LineBreakMode="WordWrap">
+                                <!--
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                        -->
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame                       
+                        x:Name="Button4" CornerRadius="5"  
+                        BorderColor="White"     
+                        BackgroundColor="#4E525D"
+                        Padding="0"
+                        WidthRequest="300">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Button4_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="15,15,15,15" >
+                            <Label FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       Text="{Binding Question.Answer4}" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       LineBreakMode="WordWrap">
+                                <!--
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                        -->
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="ContinueButton" CornerRadius="5"  
+                               BorderColor="#4180f4"     
+                               BackgroundColor="#4286f4"
+                               Padding="0"
+                               WidthRequest="150"
+                               HorizontalOptions="Center"
+                               Margin="20,40,20,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ContinueButton_Tapped" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="15,15,15,15" >
+                            <Label FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       Text="Continue" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       LineBreakMode="WordWrap">
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+
+                <!--
                 <Grid VerticalOptions="End">
                     
                     <Grid.RowDefinitions>
@@ -134,8 +325,8 @@
                         </StackLayout>
                     </Frame>
                 </Grid>
-
-            </StackLayout>
+-->
+            </AbsoluteLayout>
             <StackLayout IsVisible="{Binding ShowAnswer}" VerticalOptions="CenterAndExpand">
                 <Label Text="{Binding Message}"                              
                        FontSize="Large"                      

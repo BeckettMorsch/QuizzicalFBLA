@@ -1,9 +1,11 @@
 ﻿using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
+using QuizzicalFBLA.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -14,6 +16,8 @@ namespace QuizzicalFBLA.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayGameDetail : ContentPage
     {
+        private CancellationTokenSource CancelButtonAnimationTokenSource = new CancellationTokenSource();
+
         public PlayGameDetail()
         {
             InitializeComponent();
@@ -28,12 +32,17 @@ namespace QuizzicalFBLA.Views
         {
             base.OnAppearing();
 
+            CancelButtonAnimationTokenSource = new CancellationTokenSource();
+            Task.Run(() => StartButton.PulseElement(CancelButtonAnimationTokenSource.Token));
+            
             CategoriesViewModel.Current.Reset();
         }
 
-        //Navitgates to the Question page when the start button is tapped
-        async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //Navigates to the Question page when the start button is tapped
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+            CancelButtonAnimationTokenSource.Cancel();
+
             MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;
             mdp.Detail = new NavigationPage(new QuestionPage());
         }
@@ -41,11 +50,15 @@ namespace QuizzicalFBLA.Views
         //Navigates to the instructions page if the question mark is tapped
         async private void GoToHowToPlayPage(object sender, EventArgs e)
         {
+            CancelButtonAnimationTokenSource.Cancel();
+
             await Navigation.PushAsync(new HowToPlayPage());
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
+            CancelButtonAnimationTokenSource.Cancel();
+
             DependencyService.Get<IBugReporter>().Trigger();
         }
     }

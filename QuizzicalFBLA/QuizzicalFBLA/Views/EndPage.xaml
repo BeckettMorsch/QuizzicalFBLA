@@ -23,7 +23,7 @@
                    FontAttributes="Bold"
                    Margin="0,15,0,15"
                    TextColor="White"/>
-            <Label Text="out of 25 questions correct!"
+            <Label Text="out of 5 questions correct!"
                    VerticalOptions="Center"
                    HorizontalOptions="Center"
                    FontSize="Large" 

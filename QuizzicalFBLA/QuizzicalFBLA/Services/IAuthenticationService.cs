@@ -9,6 +9,7 @@ namespace QuizzicalFBLA.Services
     public interface IAuthenticationService
     {
         Task<AuthenticationResult> Authenticate();
+        void Logout();
         AuthenticationResult AuthenticationResult { get; }
     }
 }
