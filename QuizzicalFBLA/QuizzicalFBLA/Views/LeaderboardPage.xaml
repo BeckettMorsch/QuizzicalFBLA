@@ -1,36 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QuizzicalFBLA.Views.LeaderboardPage">
+             x:Class="QuizzicalFBLA.Views.LeaderboardPage"
+             BackgroundImage="Background.png">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Leaderboard" />
+            <Label Text="Leaderboard" HorizontalOptions="Center" TextColor ="LightSteelBlue" FontSize="30"/>
 
-            <Frame CornerRadius="45" BackgroundColor="DarkBlue" HeightRequest="45" WidthRequest="45">
-                <Label Text="1"/>
-            </Frame>
-
-            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}">
+            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="30,0,30,30">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height ="80" />
-                                    </Grid.RowDefinitions>
+                                        <RowDefinition Height ="40" />
+                                        <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="40"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Username}" FontSize="Medium"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Score}" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding RankStr}" TextColor="LightGray" FontSize="Medium" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Username}" TextColor="LightGray" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Score}" TextColor="LightGray" FontSize="Medium"/>
 
-                                </Grid>
-
-                            </StackLayout>
+                                    <Frame Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" HeightRequest="1"/>
+                            </Grid>
+                                
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

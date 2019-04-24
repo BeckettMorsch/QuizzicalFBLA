@@ -101,6 +101,7 @@ namespace QuizzicalFBLA.ViewModels
                         Scores.Add(new ScoreItem()
                         {
                             Rank = score.Rank,
+                            RankStr = (score.Rank+". ").PadLeft(5),
                             Username = score.UserName,
                             Score = score.Score
                         });
