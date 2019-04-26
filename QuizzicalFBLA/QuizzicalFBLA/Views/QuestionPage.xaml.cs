@@ -330,7 +330,7 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
-                await Player.Current.RegisterScore(vm.NumberCorrect);
+                await Player.Current.RegisterScore(vm.TotalPoints);
 
                 //Show ending page
                 MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;

@@ -117,7 +117,7 @@ namespace QuizzicalFBLA.ViewModels
                     IsError = true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // An exception occurred
                 DataAvailable = false;

@@ -1,18 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QuizzicalFBLA.Views.LoginPage">
+             x:Class="QuizzicalFBLA.Views.LoginPage"
+             BackgroundImage="Background.png">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to QuizzicalFBLA"                 
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   FontSize="80"/>
-            <Label Text="Login to Continue"                 
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   FontSize="30"/>
-            <Button Text="Login" Pressed="Button_Pressed"/>
-        </StackLayout>
+        <AbsoluteLayout>
+            <Image AbsoluteLayout.LayoutBounds="0.5,20,0.9,0.5"
+               AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional"
+               x:Name="Logo"
+               Source="FBLA_logo.png" 
+               Aspect="AspectFit"
+               HorizontalOptions="Center" 
+               VerticalOptions="Start"/>
+
+            <Frame
+                           AbsoluteLayout.LayoutBounds="0.5,0.7,0.4,0.1"
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional,HeightProportional"            
+                           CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           VerticalOptions="Center"
+                           Margin="0,30,0,0">
+                <StackLayout>
+                    <Button Text="Sign In To Play"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            BackgroundColor="Transparent"
+                            Clicked="Button_Pressed"/>
+
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

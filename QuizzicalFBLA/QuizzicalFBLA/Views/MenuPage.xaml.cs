@@ -20,11 +20,12 @@ namespace QuizzicalFBLA.Views
             menuItems = new List<HomeMenuItem>
             {
                 //Creates the items in the Navigation Menu
-                new HomeMenuItem {Id = MenuItemType.Play, Title="Play Game" },
-                new HomeMenuItem {Id = MenuItemType.LeaderBoard, Title="Leaderboard"},
-                new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Report An Issue" },
-                new HomeMenuItem {Id = MenuItemType.TermsOfService, Title="Terms of Service" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Play, Title="Play Game", Icon="menu_play.png" },
+                new HomeMenuItem {Id = MenuItemType.LeaderBoard, Title="Leaderboard", Icon="menu_leaderboard.png"},
+                new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Report An Issue", Icon="menu_bug.png" },
+                new HomeMenuItem {Id = MenuItemType.TermsOfService, Title="Terms of Service", Icon="menu_terms.png" },
+                new HomeMenuItem {Id = MenuItemType.About, Title="About", Icon="menu_info.png" },
+                new HomeMenuItem {Id = MenuItemType.Logout, Title="Sign out", Icon="menu_logout.png" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

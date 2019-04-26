@@ -26,6 +26,13 @@ namespace QuizzicalFBLA.Views
             this.BindingContext = vm = CategoriesViewModel.Current;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Star.Play();
+        }
+        
+
         //Resets the quiz if the Retry button is tapped
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -41,7 +48,7 @@ namespace QuizzicalFBLA.Views
             
             await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
             {
-                Text = "I got " + vm.NumberCorrect + " out of 25 questions correct on QuizzicalFBLA!",
+                Text = "I got " + vm.NumberCorrect + " out of 5 questions correct on QuizzicalFBLA!",
                 Title = "QuizzicalFBLA Results"
                 //, Url = "hyyps://www.youtube.com"
             });

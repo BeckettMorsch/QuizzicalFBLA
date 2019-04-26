@@ -4,10 +4,12 @@ using GameSparks.NET.Services.Authentication.Requests;
 using GameSparks.NET.Services.Authentication.Responses;
 using GameSparks.NET.Services.Leaderboards.Requests;
 using Leaderboard.Events;
+using QuizzicalFBLA.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace QuizzicalFBLA.Config
 {
@@ -19,6 +21,7 @@ namespace QuizzicalFBLA.Config
         {
         }
 
+        public bool LoggedIn { get; set; } = false;
         public string Nickname { get; set; } = "Player";
         public string Name { get; set; } = "Player";
         public string Sub { get; set; } = "na|1234567890";
@@ -42,6 +45,41 @@ namespace QuizzicalFBLA.Config
             }
         }
 
+        public async Task<bool> Login()
+        {
+            var authenticationService = DependencyService.Get<IAuthenticationService>();
+            var authenticationResult = await authenticationService.Authenticate();
+
+            if (!authenticationResult.IsError)
+            {
+                Dictionary<string, string> profile = authenticationResult.toProfile();
+
+                // Store player profile in the Player singleton
+                Nickname = profile["nickname"];
+                Name = profile["name"];
+                Sub = profile["sub"];
+                AutoUsername = profile["auto_username"];
+                AutoPassword = profile["auto_password"];
+
+                await AuthenticateGameSparks();
+
+                LoggedIn = true;
+
+                return true;
+            }
+
+            LoggedIn = false;
+
+            return false;
+        }
+
+        public void Logout()
+        {
+            LoggedIn = false;
+            var authenticationService = DependencyService.Get<IAuthenticationService>();
+            authenticationService.Logout();
+        }
+
         public async Task RegisterScore (int score)
         {
             var eventService = new GameSparksEventsService();
@@ -58,7 +96,7 @@ namespace QuizzicalFBLA.Config
             GameSparksLoggedIn = false;
 
             var authService = new GameSparksAuthenticationService();
-           
+
             // Create the AuthenticationRequest(string userName, string password) object
             var authRequest = new AuthenticationRequest(AutoUsername, AutoPassword);
 

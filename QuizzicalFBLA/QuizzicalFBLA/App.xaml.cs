@@ -7,6 +7,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using QuizzicalFBLA.Config;
 using GameSparks.NET.Infrastructure.Settings;
+using System.Threading.Tasks;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace QuizzicalFBLA
@@ -23,8 +24,8 @@ namespace QuizzicalFBLA
 
             // If not currently logged in (Store authentication details somewhere)
             // MainPage.Navigation.PushModalAsync(new LoginPage());
-
-            Player.Current.AuthenticateGameSparks();
+            
+            Task.Run(() => Player.Current.AuthenticateGameSparks());
         }
 
         protected override void OnStart()

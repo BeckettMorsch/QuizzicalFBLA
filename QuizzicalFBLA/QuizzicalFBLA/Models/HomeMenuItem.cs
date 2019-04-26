@@ -11,12 +11,13 @@ namespace QuizzicalFBLA.Models
         About,
         TermsOfService,
         BugReporting,
-        LeaderBoard
+        LeaderBoard,
+        Logout
     }
     public class HomeMenuItem
     {
         public MenuItemType Id { get; set; }
-
         public string Title { get; set; }
+        public string Icon { get; set; }
     }
 }

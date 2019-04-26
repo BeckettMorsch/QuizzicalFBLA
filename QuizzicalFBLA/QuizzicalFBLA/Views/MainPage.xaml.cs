@@ -1,4 +1,5 @@
 ﻿using Microsoft.AppCenter.Analytics;
+using QuizzicalFBLA.Config;
 using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,9 @@ namespace QuizzicalFBLA.Views
                     case (int)MenuItemType.LeaderBoard:
                         MenuPages.Add(id, new NavigationPage(new LeaderboardPage()));
                         break;
-
+                    case (int)MenuItemType.Logout:
+                        MenuPages.Add(id, new NavigationPage());
+                        break;
                 }
             }
 
@@ -54,18 +57,27 @@ namespace QuizzicalFBLA.Views
             string pageTitle = ((MenuItemType)id).ToString();
             Analytics.TrackEvent("Visited " + pageTitle);
 
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
+            if (id == (int)MenuItemType.Logout || (!Player.Current.LoggedIn && Device.RuntimePlatform != Device.UWP))
             {
-                await newPage.PopToRootAsync();
-
-                Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
-
+                Player.Current.Logout();
+                await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
                 IsPresented = false;
+            }
+            else
+            {
+                var newPage = MenuPages[id];
+
+                if (newPage != null && Detail != newPage)
+                {
+                    await newPage.PopToRootAsync();
+
+                    Detail = newPage;
+
+                    if (Device.RuntimePlatform == Device.Android)
+                        await Task.Delay(100);
+
+                    IsPresented = false;
+                }
             }
         }
     }
