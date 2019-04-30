@@ -49,6 +49,14 @@ namespace QuizzicalFBLA.Views
             await Reset();
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            if (CancelContinueTokenSource != null)
+                CancelContinueTokenSource.Cancel();
+        }
+
         public async Task Reset()
         {
             CancelContinueTokenSource = new CancellationTokenSource();
@@ -64,7 +72,7 @@ namespace QuizzicalFBLA.Views
             ring.AnimatedProgress = 1;
             AnimationRunning = true;
             WarningTriggered = false;
-
+            
             List<Task> tasks = new List<Task>();
             for (int i = 0; i < buttons.Length; i++)
             {
@@ -78,18 +86,20 @@ namespace QuizzicalFBLA.Views
                 button.Opacity = 0;
                 tasks.Add(Task.Run(async () =>
                 {
-                    await button.TranslateTo(0, -60, 0);
-
-                    await Task.Delay(delay);
-                    await Task.WhenAll(new Task[] {
-                        button.FadeTo(1, 800, Easing.Linear),
-                        button.TranslateTo(0, 60, 500, Easing.CubicInOut)
-                    });
+                    await button.TranslateTo(0, -60, 0).ContinueWith(async (d) =>
+                        {
+                            await Task.Delay(delay).ContinueWith(async (g) => { 
+                                    await Task.WhenAll(new Task[] {
+                                    button.FadeTo(1, 800, Easing.Linear),
+                                    button.TranslateTo(0, 0, 500, Easing.CubicInOut)
+                                });
+                            });
+                        });
                 }));
             }
 
             await Task.WhenAll(tasks);
-
+            
             return;
         }
 
@@ -104,6 +114,7 @@ namespace QuizzicalFBLA.Views
             AnimationRunning = false;
         }
 
+        
         public void HandleProgressChanged(object sender, EventArgs args)
         {
             if (!ring.AnimationIsRunning("Progress")) return;
@@ -129,6 +140,7 @@ namespace QuizzicalFBLA.Views
 
             }
         }
+        
 
         private async Task PulseElement(VisualElement element, CancellationToken cancellation)
         {
@@ -227,22 +239,20 @@ namespace QuizzicalFBLA.Views
             */
 
             await Task.WhenAll(tasks);
-
+            
             ContinueButton.IsVisible = true;
             await Task.WhenAll(new Task[] {
                     ContinueButton.TranslateTo(0, 30, 500, Easing.CubicOut),
-                    ContinueButton.FadeTo(1.0, 500, Easing.Linear),
-                    PulseElement(ContinueButton, CancelContinueTokenSource.Token)                    
+                    ContinueButton.FadeTo(1.0, 500, Easing.Linear)
+                    //,PulseElement(ContinueButton, CancelContinueTokenSource.Token)                    
               });
-//            await PulseElement(ContinueButton, CancelContinueTokenSource.Token);
+            
 
 
         }
 
         private void Button1_Tapped(object sender, EventArgs e)
         {
-            //View v = (View)sender;
-            //v.ChangeBackgroundColorTo(Color.DarkRed, 350, Easing.CubicOut);
             if (!AnsweredQuestion)
                 HandleAnswer(1);
         }
@@ -265,59 +275,7 @@ namespace QuizzicalFBLA.Views
                 HandleAnswer(4);
         }
 
-
-        /*
-        //Processes if the answer chosen is the correct one
-        public async void HandleAnswer(int answerNum)
-        {
-            await Task.Delay(0);
-
-            vm.ShowQuestion = false;
-            
-            if (vm.Question.CorrectAnswer == answerNum)
-            {
-
-                vm.Message = "You are Correct!";
-                vm.NumberCorrect++;
-            }
-            else
-            {
-                vm.Message = "You are Incorrect!\n The correct answer was ";
-
-                switch(vm.Question.CorrectAnswer)
-                {
-                    case 1: vm.Message += vm.Question.Answer1 + "."; break;
-                    case 2: vm.Message += vm.Question.Answer2 + "."; break;
-                    case 3: vm.Message += vm.Question.Answer3 + "."; break;
-                    case 4: vm.Message += vm.Question.Answer4 + "."; break;
-                }
-            }
-
-        }
-
-        //Tracks which answer is chosen
-        private void Button1Clicked(object sender, EventArgs e)
-        {
-            HandleAnswer(1);
-        }
-
-        private void Button2Clicked(object sender, EventArgs e)
-        {
-            HandleAnswer(2);
-        }
-
-        private void Button3Clicked(object sender, EventArgs e)
-        {
-            HandleAnswer(3);
-        }
-
-        private void Button4Clicked(object sender, EventArgs e)
-        {
-            HandleAnswer(4);
-        }
-
-
-        */
+      
 
         private async void ContinueButton_Tapped(object sender, EventArgs e)
         {

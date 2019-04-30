@@ -424,6 +424,13 @@ namespace QuizzicalFBLA.ViewModels
             get { return message; }
         }
 
+
+        public string EndMessage
+        {
+            get { return "You scored " + NumberCorrect + " out of " + Count + " and earned " + TotalPoints + " points!"  ; }
+        }
+
+
         //Outputs the count of how many questions the user got correct
         public int NumberCorrect
             {
@@ -431,6 +438,7 @@ namespace QuizzicalFBLA.ViewModels
                 {
                     numberCorrect = value;
                     OnPropertyChanged("NumberCorrect");
+                    OnPropertyChanged("EndMessage");
                 }
                 get { return numberCorrect; }
             }
@@ -441,6 +449,7 @@ namespace QuizzicalFBLA.ViewModels
             {
                 totalPoints = value;
                 OnPropertyChanged("TotalPoints");
+                OnPropertyChanged("EndMessage");
             }
             get { return totalPoints; }
         }
@@ -449,7 +458,7 @@ namespace QuizzicalFBLA.ViewModels
         {
             get
             {
-                return "Question #" + Questions[CurrentQuestion].QuestionNum;
+                return "Question " + Questions[CurrentQuestion].QuestionNum + " / " + Count;
             }
         }
 

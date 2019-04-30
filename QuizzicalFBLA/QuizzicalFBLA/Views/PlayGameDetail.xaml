@@ -13,7 +13,7 @@
         <Image AbsoluteLayout.LayoutBounds="0.5,20,0.9,0.5"
                AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional"
                x:Name="Logo"
-               Source="FBLA_logo.png" 
+               Source="fbla_logo.png" 
                Aspect="AspectFit"
                HorizontalOptions="Center" 
                VerticalOptions="Start"/>

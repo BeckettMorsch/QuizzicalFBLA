@@ -58,7 +58,7 @@ namespace QuizzicalFBLA.Views
 
             //Task.Run(() => StartButton.PulseElement(CancelButtonAnimationTokenSource.Token));
             
-            CategoriesViewModel.Current.Reset(1);
+            CategoriesViewModel.Current.Reset(5);
         }
 
         protected override void OnDisappearing()

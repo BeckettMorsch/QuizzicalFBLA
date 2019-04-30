@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using InstabugLib;
 using LabelHtml.Forms.Plugin.iOS;
+using Lottie.Forms.iOS.Renderers;
 using UIKit;
 
 namespace QuizzicalFBLA.iOS
@@ -27,6 +28,7 @@ namespace QuizzicalFBLA.iOS
             HtmlLabelRenderer.Initialize();
 
             global::Xamarin.Forms.Forms.Init();
+            AnimationViewRenderer.Init();
             LoadApplication(new App());
 
             Instabug.StartWithToken("6c4ce2b08ac3afa29539f59017d374a9", IBGInvocationEvent.Shake);

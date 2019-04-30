@@ -80,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\433-checked-done.json" />
     <BundleResource Include="Resources\4698-wrong-answer.json" />
+    <BundleResource Include="Resources\677-trophy.json" />
+    <BundleResource Include="Resources\5474-aashishdeleteanimation.json" />
+    <BundleResource Include="Resources\star.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -161,7 +164,7 @@
       <Version>2.3.1</Version>
     </PackageReference>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>2.7.1</Version>
+      <Version>2.6.3</Version>
     </PackageReference>
     <PackageReference Include="instabug-for-ios">
       <Version>8.2.1</Version>

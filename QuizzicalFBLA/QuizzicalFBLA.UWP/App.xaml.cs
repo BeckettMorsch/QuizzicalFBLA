@@ -1,4 +1,5 @@
 ﻿using LabelHtml.Forms.Plugin.UWP;
+using Lottie.Forms.UWP.Renderers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,7 +62,7 @@ namespace QuizzicalFBLA.UWP
                 Xamarin.Forms.Forms.Init(e, rendererAssemblies);
 
                 HtmlLabelRenderer.Initialize();
-
+                AnimationViewRenderer.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
