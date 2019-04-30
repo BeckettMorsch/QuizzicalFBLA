@@ -75,9 +75,12 @@ namespace QuizzicalFBLA.Config
 
         public void Logout()
         {
-            LoggedIn = false;
-            var authenticationService = DependencyService.Get<IAuthenticationService>();
-            authenticationService.Logout();
+            if (LoggedIn)
+            {
+                var authenticationService = DependencyService.Get<IAuthenticationService>();
+                authenticationService.Logout();
+                LoggedIn = false;
+            }
         }
 
         public async Task RegisterScore (int score)

@@ -29,7 +29,7 @@ namespace QuizzicalFBLA.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Star.Play();
+            //Star.Play();
         }
         
 
