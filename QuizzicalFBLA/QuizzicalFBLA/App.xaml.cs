@@ -23,9 +23,10 @@ namespace QuizzicalFBLA
             MainPage = new MainPage();
 
             // If not currently logged in (Store authentication details somewhere)
-            // MainPage.Navigation.PushModalAsync(new LoginPage());
-            
-            Task.Run(() => Player.Current.AuthenticateGameSparks());
+            if (!Player.Current.LoggedIn && Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.UWP)
+                MainPage.Navigation.PushModalAsync(new LoginPage());
+            else        
+                Task.Run(() => Player.Current.AuthenticateGameSparks());
         }
 
         protected override void OnStart()

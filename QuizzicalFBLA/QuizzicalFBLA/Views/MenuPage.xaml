@@ -5,11 +5,26 @@
              Title="Menu"
              Icon="hamburger.png">
     <StackLayout VerticalOptions="FillAndExpand" >
-        <Grid             HeightRequest="150" 
+        <Grid             
                           HorizontalOptions="FillAndExpand" 
                           BackgroundColor="LightSlateGray"
                           Padding="0,30,0,0">
-            <Image Source="QuizzicalLogo.png" VerticalOptions="Center" HeightRequest="125" Aspect="AspectFit" Margin="10,10,10,10"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="145"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="175"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.ColumnSpan="2" Grid.Row="0" Source="QuizzicalLogo.png" VerticalOptions="Center" HeightRequest="125" Aspect="AspectFit" Margin="10,10,10,0"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Name}" TextColor="White" FontSize="24" Margin="10,10,10,10"/>
+
+            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,10,10,10">
+                <Label Text="{Binding TotalPointsMessage}" TextColor="White" FontSize="18"/>
+            </StackLayout>
+
         </Grid>
         <ListView x:Name="ListViewMenu"
                     HasUnevenRows="True"

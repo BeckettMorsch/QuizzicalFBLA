@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.Models;
+﻿using QuizzicalFBLA.Config;
+using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
 
@@ -17,6 +18,8 @@ namespace QuizzicalFBLA.Views
         {
             InitializeComponent();
 
+            this.BindingContext = Player.Current;
+
             menuItems = new List<HomeMenuItem>
             {
                 //Creates the items in the Navigation Menu
@@ -28,6 +31,7 @@ namespace QuizzicalFBLA.Views
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Sign out", Icon="menu_logout.png" }
             };
 
+            ListViewMenu.ItemSelected += ListViewMenu_ItemSelected;
             ListViewMenu.ItemsSource = menuItems;
 
             ListViewMenu.SelectedItem = menuItems[0];
@@ -44,6 +48,11 @@ namespace QuizzicalFBLA.Views
 
                 await RootPage.NavigateFromMenu(id);
             };
+        }
+
+        private void ListViewMenu_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ListViewMenu.SelectedItem = null;
         }
     }
 }

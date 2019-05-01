@@ -29,6 +29,7 @@ namespace QuizzicalFBLA.Android.Services
             {
                 Domain = Secrets.Auth0Domain,
                 ClientId = Secrets.Auth0ClientId
+
             });
         }
 

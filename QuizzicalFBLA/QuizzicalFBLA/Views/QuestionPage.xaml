@@ -98,7 +98,7 @@
                 </Label>
 
 
-                <StackLayout AbsoluteLayout.LayoutBounds="0.5,150,0.9,1"
+                <StackLayout AbsoluteLayout.LayoutBounds="0.5,170,0.9,1"
                     AbsoluteLayout.LayoutFlags="XProportional,WidthProportional,HeightProportional"
                     BackgroundColor="Transparent" InputTransparent="False">
                     
@@ -205,7 +205,7 @@
                                Padding="0"
                                WidthRequest="150"
                                HorizontalOptions="Center"
-                               Margin="20,40,20,5">
+                               Margin="20,0,20,5">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ContinueButton_Tapped" />
                         </Frame.GestureRecognizers>

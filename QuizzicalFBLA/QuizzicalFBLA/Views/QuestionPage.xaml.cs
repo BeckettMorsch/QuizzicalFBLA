@@ -27,6 +27,8 @@ namespace QuizzicalFBLA.Views
         private CancellationTokenSource CancelContinueTokenSource = new CancellationTokenSource();
         private int correctAnswerIndex = 2;
 
+        private bool gameInProgress = false;
+
         public QuestionPage()
         {
             InitializeComponent();
@@ -59,6 +61,9 @@ namespace QuizzicalFBLA.Views
 
         public async Task Reset()
         {
+            if (gameInProgress) return;
+
+            gameInProgress = true;
             CancelContinueTokenSource = new CancellationTokenSource();
 
             AnsweredQuestion = false;
@@ -284,11 +289,13 @@ namespace QuizzicalFBLA.Views
             if (vm.CurrentQuestion < vm.Count - 1)
             {
                 vm.CurrentQuestion++;
+                gameInProgress = false;
                 await Reset();
             }
             else
             {
                 await Player.Current.RegisterScore(vm.TotalPoints);
+                await Player.Current.AddCurrency(Currencies.TotalPoints, vm.TotalPoints);
 
                 //Show ending page
                 MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;

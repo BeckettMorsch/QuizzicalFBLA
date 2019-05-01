@@ -7,11 +7,11 @@
         <StackLayout>
             <Label Text="Leaderboard" HorizontalOptions="Center" TextColor ="LightSteelBlue" FontSize="30"/>
 
-            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="30,0,30,30">
+            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="30,0,30,30" HorizontalOptions="CenterAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                                <Grid>
+                                <Grid HorizontalOptions="Fill">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height ="40" />
                                         <RowDefinition Height="1"/>
@@ -20,12 +20,12 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding RankStr}" TextColor="LightGray" FontSize="Medium" />
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Username}" TextColor="LightGray" FontSize="Medium"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Score}" TextColor="LightGray" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding RankStr}" TextColor="LightGray" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Username}"  TextColor="LightGray" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding ScoreString}" TextColor="LightGray" FontSize="Medium" HorizontalOptions="End"/>
 
                                     <Frame Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" HeightRequest="1"/>
                             </Grid>
