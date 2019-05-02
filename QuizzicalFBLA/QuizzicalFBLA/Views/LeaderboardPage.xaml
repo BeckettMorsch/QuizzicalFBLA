@@ -1,21 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="QuizzicalFBLA.Views.LeaderboardPage"
              BackgroundImage="Background.png">
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Leaderboard" HorizontalOptions="Center" TextColor ="LightSteelBlue" FontSize="30"/>
 
-            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="30,0,30,30" HorizontalOptions="CenterAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+
+            <forms:AnimationView 
+	            x:Name="Trophy" 
+	            Animation="677-trophy.json" 
+	            Loop="false"
+	            AutoPlay="true"
+                IsVisible="true"               
+                Scale="1.2"
+                BackgroundColor="Transparent"
+	            HorizontalOptions="Center" 
+                WidthRequest="80"
+                HeightRequest="80"
+                />
+
+            <Label Text="Leaderboard" HorizontalOptions="Center" TextColor ="LightSteelBlue" FontSize="30"/>
+                    
+            
+            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="70">
+
+                            <yummy:PancakeView BackgroundGradientStartColor	="White" BackgroundGradientEndColor="LightGray" BackgroundGradientAngle="90" CornerRadius="3,3,3,3" BorderColor="Black" BorderThickness="1" IsClippedToBounds="true" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="70"  Padding="10,12,10,12">
+
                                 <Grid HorizontalOptions="Fill">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height ="40" />
-                                        <RowDefinition Height="1"/>
-                                </Grid.RowDefinitions>
+                                        <!--<RowDefinition Height="1"/>-->
+                                    </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
@@ -23,17 +45,20 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding RankStr}" TextColor="LightGray" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Username}"  TextColor="LightGray" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding ScoreString}" TextColor="LightGray" FontSize="Medium" HorizontalOptions="End"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding RankStr}" TextColor="Black" FontSize="20" HorizontalOptions="EndAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Username}"  TextColor="Black" FontSize="20" HorizontalOptions="StartAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding ScoreString}" TextColor="Black" FontSize="20" HorizontalOptions="End" Margin="0,0,10,0"/>
 
-                                    <Frame Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" HeightRequest="1"/>
-                            </Grid>
-                                
+                                    <!--<Frame Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" HeightRequest="1"/>-->
+                                </Grid>
+
+                            </yummy:PancakeView>
                         </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+
 
             <Label Text="{Binding ErrorMessage}" IsVisible="{Binding IsError}" FontSize="Medium"/>
             <Label Text="Loading..." IsVisible="{Binding IsBusy}" FontSize="Medium"/>

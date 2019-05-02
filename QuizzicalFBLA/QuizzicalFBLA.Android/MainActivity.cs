@@ -31,6 +31,7 @@ namespace QuizzicalFBLA.Droid
             HtmlLabelRenderer.Initialize();
 
             base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             AnimationViewRenderer.Init();
@@ -38,6 +39,13 @@ namespace QuizzicalFBLA.Droid
 
             new Instabug.Builder(this.Application, "6c4ce2b08ac3afa29539f59017d374a9").Build();
             Instabug.Enable();
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         protected override void OnNewIntent(Intent intent)

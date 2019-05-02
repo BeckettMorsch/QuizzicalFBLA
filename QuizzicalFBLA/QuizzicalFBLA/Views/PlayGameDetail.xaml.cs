@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.SimpleAudioPlayer;
 
 namespace QuizzicalFBLA.Views
 {
@@ -17,6 +18,7 @@ namespace QuizzicalFBLA.Views
     public partial class PlayGameDetail : ContentPage
     {
         private CancellationTokenSource CancelButtonAnimationTokenSource = new CancellationTokenSource();
+        private ISimpleAudioPlayer buttonSound;
 
         public PlayGameDetail()
         {
@@ -25,6 +27,10 @@ namespace QuizzicalFBLA.Views
             CategoriesViewModel.Current.Reset();
 
             BackgroundImage = "Background.png";
+
+            buttonSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            buttonSound.Load("startSound.mp3");
+
         }
 
         //Resets the ViewModel if the page is loaded
@@ -70,6 +76,7 @@ namespace QuizzicalFBLA.Views
         //Navigates to the Question page when the start button is tapped
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+            buttonSound.Play();
             CancelButtonAnimationTokenSource.Cancel();
 
             MasterDetailPage mdp = (MasterDetailPage)Application.Current.MainPage;

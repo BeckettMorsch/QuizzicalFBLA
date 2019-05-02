@@ -23,6 +23,7 @@
                    HorizontalOptions="Center"
                    TextColor="White"
                    FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
                    FontSize ="Medium"
                    Margin="25,20,25,0"/>
 

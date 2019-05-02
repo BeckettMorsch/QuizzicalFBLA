@@ -13,27 +13,14 @@
     <ContentPage.Content>
         <AbsoluteLayout>
 
+            <!--
             <StackLayout
                 AbsoluteLayout.LayoutBounds="0.5,0.4,0.9,200"
                 AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"                
             >
-                <Label 
-                Text="Congrats!"
-                FontAttributes="Bold"
-                TextColor="White"
-                FontSize="50"
-                BackgroundColor="Transparent"
-                HorizontalOptions="Center"
-                />
-
-                <Label 
-                Text="{Binding EndMessage}"
-                TextColor="#bbbbbb"
-                FontSize="20"
-                HorizontalOptions="Center"
-                />
 
             </StackLayout>
+            -->
 
             <forms:AnimationView 
                 AbsoluteLayout.LayoutBounds="0.5,0,1,0.3"
@@ -64,11 +51,29 @@
 
 
             <StackLayout  
-                AbsoluteLayout.LayoutBounds="0.5,0.8,0.8,80"
-                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional">
+                AbsoluteLayout.LayoutBounds="0.5,0.6,0.8,0.4"
+                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional">
+
+                <Label 
+                Text="Congrats!"
+                FontAttributes="Bold"
+                TextColor="White"
+                FontSize="50"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                />
+
+                <Label 
+                Text="{Binding EndMessage}"
+                TextColor="#bbbbbb"
+                FontSize="20"
+                HorizontalOptions="Center"
+                />
+                
                 <Frame CornerRadius="10"  
                            BackgroundColor="#00d5dd"
-                           Padding="0">
+                           Padding="0"
+                           Margin="0,30,0,0">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Button_Clicked"/>
                     </Frame.GestureRecognizers>
@@ -92,6 +97,10 @@
                         <TapGestureRecognizer Tapped="Share_Clicked"/>
                     </Frame.GestureRecognizers>
                     <StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Share_Clicked"/>
+                        </StackLayout.GestureRecognizers>
+                        
                         <Button Text="Share Results"
                             FontSize="Medium"
                             TextColor="White"    

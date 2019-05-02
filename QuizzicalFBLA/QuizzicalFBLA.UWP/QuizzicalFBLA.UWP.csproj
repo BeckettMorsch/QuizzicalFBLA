@@ -106,6 +106,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\beep.mp3" />
+    <Content Include="Assets\correct.wav" />
+    <Content Include="Assets\error.wav" />
+    <Content Include="Assets\incorrect.wav" />
+    <Content Include="Assets\negative_beeps.wav" />
+    <Content Include="Assets\tenseMusic.mp3" />
+    <Content Include="Assets\ultradust_clock.wav" />
     <Content Include="Background.png" />
     <Content Include="FBLA_logo.png" />
     <Content Include="HowToPlay.png" />
@@ -145,6 +152,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="QuizzicalLogo.png" />
     <Content Include="StartButton.png" />
+    <Content Include="Assets\startSound.mp3" />
+    <Content Include="Assets\success.mp3" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />
@@ -176,17 +185,20 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Plugin.Share">
-      <Version>7.1.1</Version>
-    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.HtmlLabel">
       <Version>3.0.2.2</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>1.0.21</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Auth0.OidcClient.UWP">

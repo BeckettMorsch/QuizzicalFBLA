@@ -19,6 +19,7 @@
             
             <Label Text="If you experience any issues while testing this app simply tap the bug icon in the top right corner of any screen to report an issue.&#x0a;&#x0a;To report an issue now or leave us some feedback on your experience using the app, click the button below."
                    FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
                    FontSize="Medium"
                    TextColor="White"
                    />

@@ -1,4 +1,4 @@
-﻿using Plugin.Share;
+﻿using Plugin.SimpleAudioPlayer;
 using QuizzicalFBLA.Models;
 using QuizzicalFBLA.Services;
 using QuizzicalFBLA.ViewModels;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Xamarin.Essentials;
 
 namespace QuizzicalFBLA.Views
 {
@@ -18,12 +18,19 @@ namespace QuizzicalFBLA.Views
     public partial class EndPage : ContentPage
     {
         CategoriesViewModel vm;
+        ISimpleAudioPlayer successSound;
 
         public EndPage()
         {
             InitializeComponent();
 
             this.BindingContext = vm = CategoriesViewModel.Current;
+
+            successSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            successSound.Load("success.mp3");
+
+            successSound.Play();
+
         }
 
         protected override void OnAppearing()
@@ -45,12 +52,10 @@ namespace QuizzicalFBLA.Views
         //Allows the user to share how many questions they got correct if the Share button is tapped
         async private void Share_Clicked(object sender, EventArgs e)
         {
-            
-            await CrossShare.Current.Share(new Plugin.Share.Abstractions.ShareMessage
+            await Share.RequestAsync(new ShareTextRequest
             {
                 Text = "I got " + vm.NumberCorrect + " out of " + vm.Count + " questions correct on QuizzicalFBLA and earned " + vm.TotalPoints + " points!",
                 Title = "QuizzicalFBLA Results"
-                //, Url = "hyyps://www.youtube.com"
             });
         }
 

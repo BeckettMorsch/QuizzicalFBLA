@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.SimpleAudioPlayer;
+using Xamarin.Essentials;
 
 namespace QuizzicalFBLA.Views
 {
@@ -27,6 +29,8 @@ namespace QuizzicalFBLA.Views
         private CancellationTokenSource CancelContinueTokenSource = new CancellationTokenSource();
         private int correctAnswerIndex = 2;
 
+        private Dictionary<string, ISimpleAudioPlayer> sounds;
+
         private bool gameInProgress = false;
 
         public QuestionPage()
@@ -41,12 +45,37 @@ namespace QuizzicalFBLA.Views
             ring.OnAnimationCompleted += HandleAnimationCompleted;
             ring.OnProgressChanged += HandleProgressChanged;
 
+            // Load sound effects
+            sounds = new Dictionary<string, ISimpleAudioPlayer>();
+            sounds.Add("correct", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("incorrect", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("timesup", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("error", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("clock", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("button", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("tenseMusic", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+            sounds.Add("beep", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
+
+
+            sounds["correct"].Load("correct.wav");
+            sounds["incorrect"].Load("incorrect.wav");
+            sounds["timesup"].Load("negative_beeps.wav");
+            sounds["error"].Load("error.wav");
+            sounds["clock"].Load("ultradust_clock.wav");
+            sounds["button"].Load("startSound.mp3");
+            sounds["tenseMusic"].Load("tenseMusic.mp3");
+            sounds["tenseMusic"].Loop = true;
+            sounds["beep"].Load("beep.mp3");
+
         }
 
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+
+            sounds["tenseMusic"].Play();
+
 
             await Reset();
         }
@@ -57,6 +86,12 @@ namespace QuizzicalFBLA.Views
 
             if (CancelContinueTokenSource != null)
                 CancelContinueTokenSource.Cancel();
+
+            ring.StopAnimation();
+            AnimationRunning = false;
+
+            sounds["tenseMusic"].Stop();
+
         }
 
         public async Task Reset()
@@ -114,7 +149,7 @@ namespace QuizzicalFBLA.Views
             if (AnimationRunning && !AnsweredQuestion)
             {
                 HandleAnswer(-1);
-
+                sounds["timesup"].Play();
             }
             AnimationRunning = false;
         }
@@ -137,6 +172,7 @@ namespace QuizzicalFBLA.Views
                 double totalSeconds = (ring.AnimationLength / 1000);
                 NextTrigger += 1 / totalSeconds;
 
+                sounds["beep"].Play();
                 Task.Run(async () =>
                 {
                     await ring.ScaleTo(1.05, 250, Easing.CubicIn);
@@ -174,6 +210,8 @@ namespace QuizzicalFBLA.Views
                 checkAnimation.IsVisible = true;
                 checkAnimation.Play();
 
+                sounds["correct"].Play();
+
                 vm.NumberCorrect++;
                 vm.TotalPoints += 100 + (int)(50 * (1 - ring.Progress));
             }
@@ -182,6 +220,12 @@ namespace QuizzicalFBLA.Views
                 checkAnimation.IsVisible = false;
                 wrongAnimation.IsVisible = true;
                 wrongAnimation.Play();
+
+                if (answerNum != -1)
+                {
+                    sounds["incorrect"].Play();
+                    Vibration.Vibrate();
+                }
             }
 
             List<Task> tasks = new List<Task>();
@@ -243,15 +287,27 @@ namespace QuizzicalFBLA.Views
             }, CancelContinueTokenSource.Token));
             */
 
-            await Task.WhenAll(tasks);
-            
+            try
+            {
+                await Task.WhenAll(tasks);
+            }
+            catch (OperationCanceledException e)
+            {
+                return;
+            }
+
+
             ContinueButton.IsVisible = true;
+            ContinueButton.IsEnabled = true;
+
+            await ContinueButton.TranslateTo(0, -30, 0, Easing.Linear);
+
             await Task.WhenAll(new Task[] {
-                    ContinueButton.TranslateTo(0, 30, 500, Easing.CubicOut),
+                    ContinueButton.TranslateTo(0, 0, 500, Easing.CubicOut),
                     ContinueButton.FadeTo(1.0, 500, Easing.Linear)
-                    //,PulseElement(ContinueButton, CancelContinueTokenSource.Token)                    
+                    ,PulseElement(ContinueButton, CancelContinueTokenSource.Token)                    
               });
-            
+
 
 
         }
@@ -285,7 +341,7 @@ namespace QuizzicalFBLA.Views
         private async void ContinueButton_Tapped(object sender, EventArgs e)
         {
             CancelContinueTokenSource.Cancel();
-
+            sounds["button"].Play();
             if (vm.CurrentQuestion < vm.Count - 1)
             {
                 vm.CurrentQuestion++;

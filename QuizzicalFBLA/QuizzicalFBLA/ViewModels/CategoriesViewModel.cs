@@ -109,7 +109,7 @@ namespace QuizzicalFBLA.ViewModels
                 );
             QuestionPool.Add(new QuestionItem
             {
-                Question = "Which one of these Colleges does NOT offer a scholarship for FLBA?",
+                Question = "Which one of these Colleges does NOT offer a scholarship for FBLA?",
                 Answer1 = "Arizona State University",
                 Answer2 = "Barton College",
                 Answer3 = "Catawba College",
