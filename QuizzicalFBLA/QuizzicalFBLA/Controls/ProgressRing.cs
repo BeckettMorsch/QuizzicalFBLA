@@ -163,7 +163,7 @@ namespace QuizzicalFBLA.Controls
         public Task<bool> StartProgressToAnimation()
         {
             var length = base.GetValue(AnimationLengthProperty);
-            Progress = 0;
+            //Progress = 0;
             
             //ProgressTo(AnimatedProgress, AnimationLength, AnimationEasing);
             

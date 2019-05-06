@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using Microsoft.AppCenter;
 
 namespace QuizzicalFBLA.Config
 {
@@ -162,6 +163,8 @@ namespace QuizzicalFBLA.Config
                 OnPropertyChanged("LoggedIn");
 
                 SavePreferences();
+
+                OnLogout?.Invoke(this, new EventArgs());
             }
         }
 
@@ -220,7 +223,7 @@ namespace QuizzicalFBLA.Config
             if (accountDetails != null)
             {
                 // Fill in remaining details
-                TotalPoints = accountDetails.Currency1;
+                TotalPoints = accountDetails.Currency1;                
             }
         }
 
@@ -233,31 +236,42 @@ namespace QuizzicalFBLA.Config
 
             GameSparksLoggedIn = false;
 
-            var authService = new GameSparksAuthenticationService();
-
-            // Create the AuthenticationRequest(string userName, string password) object
-            var authRequest = new AuthenticationRequest(AutoUsername, AutoPassword);
-
-            // Fire the request
-            var response = await authService.AuthenticationRequestAsync(authRequest);
-
-            if (response.Error != null)
+            try
             {
-                // There was an error
-                var registrationRequest = new RegistrationRequest(Name, AutoPassword, AutoUsername, null);
-                response = await authService.RegistrationRequestAsync(registrationRequest);
+
+                var authService = new GameSparksAuthenticationService();
+
+                // Create the AuthenticationRequest(string userName, string password) object
+                var authRequest = new AuthenticationRequest(AutoUsername, AutoPassword);
+
+                // Fire the request
+                var response = await authService.AuthenticationRequestAsync(authRequest);
+
+                if (response.Error != null)
+                {
+                    // There was an error
+                    var registrationRequest = new RegistrationRequest(Name, AutoPassword, AutoUsername, null);
+                    response = await authService.RegistrationRequestAsync(registrationRequest);
+                }
+
+                if (response.Error == null)
+                {
+                    //Console.WriteLine("Auth token: " + response2.AuthToken);
+                    //Console.WriteLine("User ID: " + response2.UserId);
+                    GameSparksAuthToken = response.AuthToken;
+                    GameSparksUserID = response.UserId;
+                    GameSparksLoggedIn = true;
+
+                    await RefreshAccountDetails();
+                }
+
             }
-
-            if (response.Error == null)
+            catch (Exception e)
             {
-                //Console.WriteLine("Auth token: " + response2.AuthToken);
-                //Console.WriteLine("User ID: " + response2.UserId);
-                GameSparksAuthToken = response.AuthToken;
-                GameSparksUserID = response.UserId;
-                GameSparksLoggedIn = true;
-
-                await RefreshAccountDetails();
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
             }
         }
+
+        public EventHandler OnLogout { get; set; }
     }
 }

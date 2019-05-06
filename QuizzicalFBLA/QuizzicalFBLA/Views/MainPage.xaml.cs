@@ -25,6 +25,23 @@ namespace QuizzicalFBLA.Views
             MenuPages.Add((int)MenuItemType.Play, (NavigationPage)Detail);
         }
 
+        public async Task NavigateTo (int id)
+        {
+            var newPage = MenuPages[id];
+
+            if (newPage != null && Detail != newPage)
+            {
+                await newPage.PopToRootAsync();
+
+                Detail = newPage;
+
+                if (Device.RuntimePlatform == Device.Android)
+                    await Task.Delay(100);
+
+                IsPresented = false;
+            }
+        }
+
         //Loads the items on the Navigation Menu
         public async Task NavigateFromMenu(int id)
         {
@@ -47,6 +64,9 @@ namespace QuizzicalFBLA.Views
                     case (int)MenuItemType.LeaderBoard:
                         MenuPages.Add(id, new NavigationPage(new LeaderboardPage()));
                         break;
+                    case (int)MenuItemType.Flashcards:
+                        MenuPages.Add(id, new NavigationPage(new FlashcardPage()));
+                        break;
                     case (int)MenuItemType.Logout:
                         MenuPages.Add(id, new NavigationPage());
                         break;
@@ -60,6 +80,8 @@ namespace QuizzicalFBLA.Views
             if (id == (int)MenuItemType.Logout || (!Player.Current.LoggedIn && Device.RuntimePlatform != Device.UWP))
             {
                 Player.Current.Logout();
+
+                await NavigateTo((int)MenuItemType.Play);
                 await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
                 IsPresented = false;
             }

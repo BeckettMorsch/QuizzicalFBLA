@@ -38,11 +38,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\FlashcardPage.xaml.cs">
+      <DependentUpon>FlashcardPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\BugReportingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EndPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FlashcardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HowToPlayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -25,6 +25,7 @@ namespace QuizzicalFBLA.Views
                 //Creates the items in the Navigation Menu
                 new HomeMenuItem {Id = MenuItemType.Play, Title="Play Game", Icon="menu_play.png" },
                 new HomeMenuItem {Id = MenuItemType.LeaderBoard, Title="Leaderboard", Icon="menu_leaderboard.png"},
+                new HomeMenuItem {Id = MenuItemType.Flashcards, Title="Flashcards", Icon="menu_flash.png"},
                 new HomeMenuItem {Id = MenuItemType.BugReporting, Title="Report An Issue", Icon="menu_bug.png" },
                 new HomeMenuItem {Id = MenuItemType.TermsOfService, Title="Terms of Service", Icon="menu_terms.png" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About", Icon="menu_info.png" },

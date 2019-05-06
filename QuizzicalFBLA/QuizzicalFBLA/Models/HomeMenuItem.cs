@@ -11,6 +11,7 @@ namespace QuizzicalFBLA.Models
         About,
         TermsOfService,
         BugReporting,
+        Flashcards,
         LeaderBoard,
         Logout
     }

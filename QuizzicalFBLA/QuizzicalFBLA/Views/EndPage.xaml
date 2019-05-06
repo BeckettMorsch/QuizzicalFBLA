@@ -51,7 +51,7 @@
 
 
             <StackLayout  
-                AbsoluteLayout.LayoutBounds="0.5,0.6,0.8,0.4"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.8,0.4"
                 AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional">
 
                 <Label 
@@ -113,71 +113,5 @@
             </StackLayout>
         </AbsoluteLayout>
         
-        <!--
-        <StackLayout Padding="15,10,15,20">
-            <Label Text="You got "
-                   FontSize="Large"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="Center"
-                   TextColor="White"/>
-            <Label Text="{Binding NumberCorrect}"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="80"
-                   FontAttributes="Bold"
-                   Margin="0,15,0,15"
-                   TextColor="White"/>
-            <Label Text="out of 5 questions correct!"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="Large" 
-                   TextColor="White"/>
-
-            <Grid HorizontalOptions="CenterAndExpand"
-                  VerticalOptions="Center"
-                  Margin="0,30,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Frame CornerRadius="10"  
-                           BackgroundColor="#00d5dd"
-                           Padding="0"
-                           Grid.Column="1">
-                    <StackLayout>
-                        <Button Text="Retry?"
-                            FontSize="Medium"
-                            TextColor="White"    
-                            BackgroundColor="Transparent"
-                            Clicked="Button_Clicked"/>
-
-                    </StackLayout>
-                </Frame>
-            </Grid>
-
-            <Grid HorizontalOptions="CenterAndExpand"
-                  VerticalOptions="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Frame CornerRadius="10"  
-                           BackgroundColor="#00d5dd"
-                           Padding="0"
-                           Grid.Column="1">
-                    <StackLayout>
-                        <Button Text="Share Results"
-                            FontSize="Medium"
-                            TextColor="White"    
-                            BackgroundColor="Transparent"
-                            Clicked="Share_Clicked"/>
-
-                    </StackLayout>
-                </Frame>
-            </Grid>
-        </StackLayout>
-        -->
     </ContentPage.Content>
 </ContentPage>

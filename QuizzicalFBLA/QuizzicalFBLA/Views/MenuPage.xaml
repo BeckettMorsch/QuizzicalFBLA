@@ -5,9 +5,10 @@
              Title="Menu"
              Icon="hamburger.png">
     <StackLayout VerticalOptions="FillAndExpand" >
+        <!-- #778899 to #D5D6DB -->
         <Grid             
                           HorizontalOptions="FillAndExpand" 
-                          BackgroundColor="LightSlateGray"
+                          BackgroundColor="LightSlateGray"  
                           Padding="0,30,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="145"/>

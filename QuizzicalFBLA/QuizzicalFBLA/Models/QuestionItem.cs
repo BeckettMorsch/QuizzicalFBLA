@@ -15,5 +15,18 @@ namespace QuizzicalFBLA.Models
         public int CorrectAnswer { get; set; }
         public int QuestionNum { get; set; }
         public string Category { get; set; }
+        public string CorrectAnswerText
+        {
+            get
+            {
+                if (CorrectAnswer == 1) return Answer1;
+                if (CorrectAnswer == 2) return Answer2;
+                if (CorrectAnswer == 3) return Answer3;
+                if (CorrectAnswer == 4) return Answer4;
+
+                return "Undefined";
+            }
+        }
+
     }
 }

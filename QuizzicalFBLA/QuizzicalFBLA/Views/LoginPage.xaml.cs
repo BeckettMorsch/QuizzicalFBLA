@@ -22,6 +22,8 @@ namespace QuizzicalFBLA.Views
         private async void Button_Pressed(object sender, EventArgs e)
         {
             SignIn_Button.IsEnabled = false;
+            Loading.IsVisible = true;
+
             bool LoggedIn = await Player.Current.Login();
 
             if (LoggedIn)

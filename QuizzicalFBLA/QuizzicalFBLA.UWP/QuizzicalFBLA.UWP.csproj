@@ -117,11 +117,13 @@
     <Content Include="FBLA_logo.png" />
     <Content Include="HowToPlay.png" />
     <Content Include="menu_bug.png" />
+    <Content Include="menu_flash.png" />
     <Content Include="menu_info.png" />
     <Content Include="menu_leaderboard.png" />
     <Content Include="menu_logout.png" />
     <Content Include="menu_play.png" />
     <Content Include="menu_terms.png" />
+    <Content Include="next.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -221,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="star.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="50-material-loader.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

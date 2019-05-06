@@ -99,6 +99,7 @@
     <AndroidAsset Include="Assets\star.json" />
     <AndroidAsset Include="Assets\5474-aashishdeleteanimation.json" />
     <AndroidAsset Include="Assets\677-trophy.json" />
+    <AndroidAsset Include="Assets\50-material-loader.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -221,6 +222,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\ultradust_clock.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\menu_flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\next.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

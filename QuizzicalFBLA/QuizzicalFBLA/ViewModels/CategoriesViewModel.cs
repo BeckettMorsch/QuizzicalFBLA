@@ -14,9 +14,11 @@ namespace QuizzicalFBLA.ViewModels
         private static CategoriesViewModel current = null;
         private int currentQuestion = 0;
 
-        private List<QuestionItem> QuestionPool;
+        public List<QuestionItem> QuestionPool;
 
         private ObservableCollection<QuestionItem> Questions { get; set; }
+        public ObservableCollection<String> Categories { get; set; }
+
         private static int numberCorrect = 0, totalPoints = 0;
 
         private CategoriesViewModel()
@@ -305,6 +307,20 @@ namespace QuizzicalFBLA.ViewModels
                 CorrectAnswer = 1
             }
                 );
+
+
+            List<String> cats = new List<string>();
+            foreach (QuestionItem q in QuestionPool)
+            {
+                if (!cats.Contains(q.Category))
+                {
+                    cats.Add(q.Category);
+                }
+            }
+            cats.Sort();
+            cats.Insert(0, "All Categories");
+
+            Categories = new ObservableCollection<string>(cats);
 
         }
 

@@ -67,15 +67,38 @@ namespace QuizzicalFBLA.Views
             sounds["tenseMusic"].Loop = true;
             sounds["beep"].Load("beep.mp3");
 
+            Player.Current.OnLogout += OnLoggedOut;
         }
 
+        private void OnLoggedOut (object o, EventArgs e)
+        {
+            foreach (String key in sounds.Keys)
+            {
+                sounds[key].Stop();
+            }
+
+            AnimationRunning = false;
+            ring.StopAnimation();
+
+            if (CancelContinueTokenSource != null)
+                CancelContinueTokenSource.Cancel();
+
+            gameInProgress = false;
+            
+        }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
 
-            sounds["tenseMusic"].Play();
+            if (!sounds["tenseMusic"].IsPlaying)
+                sounds["tenseMusic"].Play();
 
+            if (gameInProgress)
+            {
+                ring.AnimatedProgress = 1;
+                AnimationRunning = true;
+            }
 
             await Reset();
         }
@@ -86,20 +109,23 @@ namespace QuizzicalFBLA.Views
 
             if (CancelContinueTokenSource != null)
                 CancelContinueTokenSource.Cancel();
-
-            ring.StopAnimation();
+            
             AnimationRunning = false;
+            ring.StopAnimation();
 
             sounds["tenseMusic"].Stop();
 
+            
         }
+
 
         public async Task Reset()
         {
+            CancelContinueTokenSource = new CancellationTokenSource();
+
             if (gameInProgress) return;
 
             gameInProgress = true;
-            CancelContinueTokenSource = new CancellationTokenSource();
 
             AnsweredQuestion = false;
             ContinueButton.Opacity = 0;
@@ -108,6 +134,7 @@ namespace QuizzicalFBLA.Views
             wrongAnimation.IsVisible = false;
             checkAnimation.IsVisible = false;
 
+            ring.Progress = 0;
             ring.AnimationLength = 30000;
             ring.AnimatedProgress = 1;
             AnimationRunning = true;
@@ -267,26 +294,7 @@ namespace QuizzicalFBLA.Views
             }, CancelContinueTokenSource.Token));
 
 
-            // Make continue button appear
-            /*
-            tasks.Add(Task.Run(async () =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    ContinueButton.IsVisible = true;
-                }
-                );
-
-                await Task.Delay(2000);
-                await Task.WhenAll(new Task[] {
-                    ContinueButton.TranslateTo(0, 30, 500, Easing.CubicOut),
-                    ContinueButton.FadeTo(1.0, 500, Easing.Linear)
-                });
-                await PulseElement(ContinueButton, CancelContinueTokenSource.Token);
-
-            }, CancelContinueTokenSource.Token));
-            */
-
+            // Make continue button appear            
             try
             {
                 await Task.WhenAll(tasks);
@@ -346,6 +354,7 @@ namespace QuizzicalFBLA.Views
             {
                 vm.CurrentQuestion++;
                 gameInProgress = false;
+
                 await Reset();
             }
             else
