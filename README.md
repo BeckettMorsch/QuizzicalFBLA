@@ -1,7 +1,7 @@
 ![](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/Media/QuizzicalLogoSmall.png?raw=true)
 
 # Quizzical FBLA 1.0 README
-by Anthony Gonella, Beckett Morsch, Mathew Smickle
+by Anthony Gonella, Beckett Morsch, Matthew Smickle
 
 QuizzicalFBLA is a mobile application developed for IOS and Android phones. This app tests the users FBLA knowledge by asking them questions on a wide range of FBLA  subjects.  At the end of the quiz the user can even **share their results on multiple social  media platforms** such as Facebook, Twitter, Reddit.   In fact, you can share results on any social platform supported by the mobile device.  QuizzicalFBLA is bug free and features a  fully functional bug reporting system if a user encounters an issue.  It also features crash and error reporting to the centralized Microsoft App Center along with valuable usage analytics.  Social logins from Facebook and Gmail are fully supported!
 
@@ -123,22 +123,22 @@ Photopea [https://www.photopea.com/](https://www.photopea.com/)
 ## Additional Software Components ##
 The following software components are also part of the QuizzicalFBLA app: 
 
-Chaase.GameSparks.NET [https://christianhaase.github.io/Chaase.GameSparks.NET/](https://christianhaase.github.io/Chaase.GameSparks.NET/)
+Chaase.GameSparks.NET - [https://christianhaase.github.io/Chaase.GameSparks.NET/](https://christianhaase.github.io/Chaase.GameSparks.NET/)
 > GameSparks.NET is an API wrapper for GameSparks REST API. This package was made with the purpose of making GameSparks integrations with web application, easier for the developer. Instead of having to write your own HTTP requests, GameSparks.NET does the job for you, providing you with easy to use services, classes, and settings. This API wrapper has support for synchronous as well as asycnhronous actions.
 
-Com.Airbnb.Xamarin.Forms.Lottie by Martijn van Dijk [https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/](https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/)
+Com.Airbnb.Xamarin.Forms.Lottie by Martijn van Dijk - [https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/](https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/)
 > Render After Effects animations natively on Android, iOS, MacOS, TVOs and UWP
 
-Newtonsoft.Json by James Newton-King [https://www.nuget.org/packages/Newtonsoft.Json/](https://www.nuget.org/packages/Newtonsoft.Json/)
+Newtonsoft.Json by James Newton-King - [https://www.nuget.org/packages/Newtonsoft.Json/](https://www.nuget.org/packages/Newtonsoft.Json/)
 > Json.NET is a popular high-performance JSON framework for .NET
 
-Xam.Plugin.SimpleAudioPlayer by Adrian Stevens [https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/](https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/)
+Xam.Plugin.SimpleAudioPlayer by Adrian Stevens - [https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/](https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/)
 > A light-weight and easy to use cross-platform audio player for Windows UWP/WPF, Xamarin.iOS, Xamarin.Android, Xamarin.Mac, Xamarin.tvOS, Tizen and Xamarin.Forms. Load wav and mp3 files from any location including a shared library. Works well for sound effects or music. Multiple instances can be instantiated to play multiple sources simultaniously.
 
-Xamarin.Essentials by Microsoft [https://www.nuget.org/packages/Xamarin.Essentials/](https://www.nuget.org/packages/Xamarin.Essentials/)
+Xamarin.Essentials by Microsoft - [https://www.nuget.org/packages/Xamarin.Essentials/](https://www.nuget.org/packages/Xamarin.Essentials/)
 > Xamarin.Essentials: a kit of essential API's for your apps
 
-Xamarin.Forms.PancakeView by Steven Thewissen  [https://www.nuget.org/packages/Xamarin.Forms.PancakeView/](https://www.nuget.org/packages/Xamarin.Forms.PancakeView/)
+Xamarin.Forms.PancakeView by Steven Thewissen - [https://www.nuget.org/packages/Xamarin.Forms.PancakeView/](https://www.nuget.org/packages/Xamarin.Forms.PancakeView/)
 >An extended ContentView for Xamarin.Forms with rounded corners, borders, shadows and more!
 
 
