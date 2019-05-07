@@ -1,3 +1,5 @@
+![](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/Media/QuizzicalLogoSmall.png?raw=true)
+
 # Quizzical FBLA 1.0 README
 by Anthony Gonella, Beckett Morsch, Mathew Smickle
 
@@ -5,7 +7,6 @@ QuizzicalFBLA is a mobile application developed for IOS and Android phones. This
 
 
 ## Folder Layout
-------------------------------------------------------------------------------------------
 
 **/CompiledApp**
 > Contains our compiled, signed app in APK form for Android platforms
@@ -18,7 +19,6 @@ QuizzicalFBLA is a mobile application developed for IOS and Android phones. This
 
 
 ## How to Run
-------------------------------------------------------------------------------------------
 
 This mobile application was developed in C# using Visual Studio 2017 and the Xamarin 
 Platform on both Microsoft Windows and OSX.   Contained within the competition submission 
@@ -32,7 +32,6 @@ systems.
 
 
 ## Build Instructions
-------------------------------------------------------------------------------------------
 
 Visual Studio Requirements:
 - Visual Studio 2017 (Windows or Mac) Community Edition
@@ -53,7 +52,7 @@ Enjoy!
 
 ### Media Assets
 
-**Google Material Design Icons**
+#### Google Material Design Icons ####
                                         
 Copyright 2019 Google
 
@@ -63,7 +62,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
                                         
-**Sound Effects Obtained from freesound.org via Creative Commons Attribution License**
+#### Sound Effects Obtained via Creative Commons Attribution License ####
                                         
 negative_beeps.wav by themusicalnomad
 > [https://freesound.org/people/themusicalnomad/sounds/253886/](https://freesound.org/people/themusicalnomad/sounds/253886/)
@@ -81,4 +80,35 @@ correct.wav by bertrof
 > [https://freesound.org/people/Bertrof/sounds/351566/](https://freesound.org/people/Bertrof/sounds/351566/)
 
                        
-**Additional sound effects from [https://www.zapsplat.com](https://www.zapsplat.com)**
+#### Additional sound effects from [https://www.zapsplat.com](https://www.zapsplat.com) ####
+
+
+## Software and Services Used ##
+Quizzical FBLA was developed using the following software applications and services: 
+
+Auth0 - [https://www.auth0.com](https://www.auth0.com)
+> Purpose: Auth0 provides a universal authentication & authorization platform for web, mobile and legacy applications.  You can easily and quickly connect your apps, choose identity providers, add users, set up rules, customize your login page and access analytics from one dashboard
+ 
+GameSparks - [https://www.gamesparks.com/](https://www.gamesparks.com/)
+> Purpose: GameSparks is a cloud-based solution for game developers that helps them to build their server-side components without ever having to set up and run a server.  We used GameSparks for storage of user accounts and score tracking.
+
+Github - [https://github.com/](https://github.com/) 
+> Purpose: Github is an online source hosting service based around the Git version control system.  We utilized Github to store source code revisions during this project. 
+ 
+Gitkraken - [https://www.gitkraken.com/](https://www.gitkraken.com/)
+>Purpose:  Gitkraken was utilized to manage code revisions, resolve merge conflicts, and test experimental branch features. 
+ 
+Instabug - [https://instabug.com/](https://instabug.com/) 
+>Purpose:  We utilize Instabug to provide comprehensive bug reporting and in-app feedback from our users during beta testing.   Instabug automatically attaches steps to reproduce a bug, network request logs and view hierarchy inspections with each bug report.  It also allows users to record videos demonstrating their problem. 
+ 
+Microsoft App Center - [http://appcenter.ms](http://appcenter.ms) 
+>Purpose:  Captures analytics information to allow us to learn Quizzical usage patterns as well as logs information about application crashes and any generated exception errors. 
+ 
+Microsoft Visual Studio 2017 
+>Purpose:  IDE for developing Xamarin.Forms applications in C# 
+
+Photopea [https://www.photopea.com/](https://www.photopea.com/) 
+>Purpose:  Photopea is an online graphics editor that is similar to Adobe Photoshop. We used Photopea to manipulate all of our graphics. 
+
+
+
