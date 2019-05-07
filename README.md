@@ -47,8 +47,16 @@ In order to build for Android you will need Visual Studio or Visual Studio for M
 
 Enjoy!
 
+## Other Notes ##
 
-## Resources Used
+- All of the code that is contained within QuizzicalFBLA is error free and can be run with no issues.  
+- QuizzicalFBLA is entirely written in C# using the Xamarin Framework.
+- The navigation between pages is also error free and all of the buttons on the app take the user to the intended pages.
+- The QuizzicalFBLA app is compatible with Windows, Android, and IOS phones and tablets.
+- The questions in the app all pertain to the topic FBLA
+
+
+## Resources Used ##
 
 ### Media Assets
 
@@ -111,4 +119,38 @@ Photopea [https://www.photopea.com/](https://www.photopea.com/)
 >Purpose:  Photopea is an online graphics editor that is similar to Adobe Photoshop. We used Photopea to manipulate all of our graphics. 
 
 
+## Additional Software Components ##
+The following software components are also part of the QuizzicalFBLA app: 
+
+Chaase.GameSparks.NET [https://christianhaase.github.io/Chaase.GameSparks.NET/](https://christianhaase.github.io/Chaase.GameSparks.NET/)
+> GameSparks.NET is an API wrapper for GameSparks REST API. This package was made with the purpose of making GameSparks integrations with web application, easier for the developer. Instead of having to write your own HTTP requests, GameSparks.NET does the job for you, providing you with easy to use services, classes, and settings. This API wrapper has support for synchronous as well as asycnhronous actions.
+
+Com.Airbnb.Xamarin.Forms.Lottie by Martijn van Dijk [https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/](https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/)
+> Render After Effects animations natively on Android, iOS, MacOS, TVOs and UWP
+
+Newtonsoft.Json by James Newton-King [https://www.nuget.org/packages/Newtonsoft.Json/](https://www.nuget.org/packages/Newtonsoft.Json/)
+> Json.NET is a popular high-performance JSON framework for .NET
+
+Xam.Plugin.SimpleAudioPlayer by Adrian Stevens [https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/](https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/)
+> A light-weight and easy to use cross-platform audio player for Windows UWP/WPF, Xamarin.iOS, Xamarin.Android, Xamarin.Mac, Xamarin.tvOS, Tizen and Xamarin.Forms. Load wav and mp3 files from any location including a shared library. Works well for sound effects or music. Multiple instances can be instantiated to play multiple sources simultaniously.
+
+Xamarin.Essentials by Microsoft [https://www.nuget.org/packages/Xamarin.Essentials/](https://www.nuget.org/packages/Xamarin.Essentials/)
+> Xamarin.Essentials: a kit of essential API's for your apps
+
+Xamarin.Forms.PancakeView by Steven Thewissen  [https://www.nuget.org/packages/Xamarin.Forms.PancakeView/](https://www.nuget.org/packages/Xamarin.Forms.PancakeView/)
+>An extended ContentView for Xamarin.Forms with rounded corners, borders, shadows and more!
+
+
+
+## References ##
+
+
+ - Shuhaiber, Salam. “FBLA.” *Quizlet*, 4 Nov. 2018, quizlet.com/334797739/fbla-flash-cards/. 
+ - Caminneci, Vincent G. “History of FBLA.” *Quizlet*, 2015, quizlet.com/332814945/history-of-fbla-flash-cards/. 
+ - “FBLA-PBL.” *FBLA-PBL*, www.fbla-pbl.org/. 
+ - “Business Skills for Life-Midterm.” *Quizlet*, 14 June 2017, quizlet.com/229744801/business-skills-for-life-midterm-flash-cards/. 
+ - “Terms & Conditions for Mobile Apps.” *TermsFeed*, 12 Nov. 2018, termsfeed.com/blog/terms-conditions-mobile-apps/. 
+ - “Sample Terms and Conditions Template.” *TermsFeed*, 30 Nov. 2018, termsfeed.com/blog/sample-terms-and-conditions-template/. 
+ - Dearie, KJ, and Zachary Paruch. “Mobile App Terms & Conditions Template & Writing Guide.” *Termly*, 28 Nov. 2018, termly.io/resources/templates/mobile-app-terms-and-conditions-template/. 
+ 
 
