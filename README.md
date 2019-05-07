@@ -3,8 +3,9 @@
 # Quizzical FBLA 1.0 README
 by Anthony Gonella, Beckett Morsch, Mathew Smickle
 
-QuizzicalFBLA is a mobile application developed for IOS and Android phones. This app tests the users FBLA knowledge by asking them questions on a wide range of FBLA  subjects.  At the end of the quiz the user can even share their results on multiple social  media platforms such as Facebook, Twitter, Reddit.   In fact, you can share results on any social platform supported by the mobile device.  QuizzicalFBLA is bug free and features a  fully functional bug reporting system if a user encouters an issue.  It also features crash and error reporting to the centralized Microsoft App Center along with valuable usage analytics.
+QuizzicalFBLA is a mobile application developed for IOS and Android phones. This app tests the users FBLA knowledge by asking them questions on a wide range of FBLA  subjects.  At the end of the quiz the user can even **share their results on multiple social  media platforms** such as Facebook, Twitter, Reddit.   In fact, you can share results on any social platform supported by the mobile device.  QuizzicalFBLA is bug free and features a  fully functional bug reporting system if a user encounters an issue.  It also features crash and error reporting to the centralized Microsoft App Center along with valuable usage analytics.  Social logins from Facebook and Gmail are fully supported!
 
+![](https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/auth0.png)
 
 ## Folder Layout
 
