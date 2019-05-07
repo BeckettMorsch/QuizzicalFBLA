@@ -2,9 +2,10 @@
 ![](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/Media/QuizzicalLogoSmall.png?raw=true)
 
 # Quizzical FBLA 1.0 README
+<img align="right" height="500" src="https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/ui.gif">
+
 by Anthony Gonella, Beckett Morsch, Matthew Smickle
 
-<img align="right" height="500" src="https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/ui.gif">
 
 QuizzicalFBLA is a mobile application developed for IOS and Android phones. This app tests the users FBLA knowledge by asking them questions on a wide range of FBLA  subjects.  At the end of the quiz the user can even **share their results on multiple social  media platforms** such as Facebook, Twitter, Reddit.   In fact, you can share results on any social platform supported by the mobile device.  QuizzicalFBLA is bug free and features a  fully functional bug reporting system if a user encounters an issue.  It also features crash and error reporting to the centralized Microsoft App Center along with valuable usage analytics.  Social logins from Facebook and Gmail are fully supported!
 
@@ -86,7 +87,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-                                        
+<br/><br/>                                        
 #### Sound Effects Obtained via Creative Commons Attribution License ####
                                         
 negative_beeps.wav by themusicalnomad
@@ -104,7 +105,7 @@ incorrect.wav by bertrof
 correct.wav by bertrof 
 > [https://freesound.org/people/Bertrof/sounds/351566/](https://freesound.org/people/Bertrof/sounds/351566/)
 
-                       
+<br/><br/>                       
 #### Additional sound effects from [https://www.zapsplat.com](https://www.zapsplat.com) ####
 
 ### Lottie Animations obtained from LottieFiles.com ###
@@ -120,7 +121,7 @@ Lottie animatons were not altered in any way and obtained via Creative Commons A
 "AashishDeleteAnimation" by Aashish Soam - [https://lottiefiles.com/5474-aashishdeleteanimation](https://lottiefiles.com/5474-aashishdeleteanimation)
 
 "Trophy" by Lucas Nemo - [https://lottiefiles.com/677-trophy](https://lottiefiles.com/677-trophy)   
-
+<br/><br/>
 
 ## Software and Services Used ##
 Quizzical FBLA was developed using the following software applications and services: 
@@ -148,7 +149,7 @@ Microsoft Visual Studio 2017
 
 Photopea [https://www.photopea.com/](https://www.photopea.com/) 
 >Purpose:  Photopea is an online graphics editor that is similar to Adobe Photoshop. We used Photopea to manipulate all of our graphics. 
-
+<br/><br/>
 
 ## Additional Software Components ##
 The following software components are also part of the QuizzicalFBLA app: 
@@ -170,7 +171,7 @@ Xamarin.Essentials by Microsoft - [https://www.nuget.org/packages/Xamarin.Essent
 
 Xamarin.Forms.PancakeView by Steven Thewissen - [https://www.nuget.org/packages/Xamarin.Forms.PancakeView/](https://www.nuget.org/packages/Xamarin.Forms.PancakeView/)
 >An extended ContentView for Xamarin.Forms with rounded corners, borders, shadows and more!
-
+<br/><br/>
 
 
 ## References ##
@@ -183,7 +184,7 @@ Xamarin.Forms.PancakeView by Steven Thewissen - [https://www.nuget.org/packages/
  - “Terms & Conditions for Mobile Apps.” *TermsFeed*, 12 Nov. 2018, termsfeed.com/blog/terms-conditions-mobile-apps/. 
  - “Sample Terms and Conditions Template.” *TermsFeed*, 30 Nov. 2018, termsfeed.com/blog/sample-terms-and-conditions-template/. 
  - Dearie, KJ, and Zachary Paruch. “Mobile App Terms & Conditions Template & Writing Guide.” *Termly*, 28 Nov. 2018, termly.io/resources/templates/mobile-app-terms-and-conditions-template/. 
- 
+ <br/><br/>
 
 ## License ##
 
