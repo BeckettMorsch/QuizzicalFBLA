@@ -7,6 +7,19 @@ QuizzicalFBLA is a mobile application developed for IOS and Android phones. This
 
 ![](https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/auth0.png)
 
+## Features
+
+- Designed for Android, iOS, and UWP - We support all three platforms
+- Facebook and Gmail social login support for quick account creation
+- Custom account creation if you want to create a new account with just your email address
+- Over 100 questions in 5 quiz categories! 
+- Make sure you answer quickly with only 30 seconds to complete questions
+- Quizzes are generated randomly from our massive pool of questions
+- Swipe through our intuitive flashcards that allow you to study all our questions or drill down to specific categories
+- Leaderboard shows the top users who have accumulated the most points playing
+- Cloud-based user account storage allows you to use the app on any device seamlessly
+- Found a bug?  Report any bugs along with screen captures and videos directly to us
+
 ## Folder Layout
 
 **/CompiledApp**
@@ -154,4 +167,16 @@ Xamarin.Forms.PancakeView by Steven Thewissen - [https://www.nuget.org/packages/
  - “Sample Terms and Conditions Template.” *TermsFeed*, 30 Nov. 2018, termsfeed.com/blog/sample-terms-and-conditions-template/. 
  - Dearie, KJ, and Zachary Paruch. “Mobile App Terms & Conditions Template & Writing Guide.” *Termly*, 28 Nov. 2018, termly.io/resources/templates/mobile-app-terms-and-conditions-template/. 
  
+
+## License ##
+
+The MIT License (MIT)
+
+Copyright (c) 2019
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
