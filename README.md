@@ -107,6 +107,20 @@ correct.wav by bertrof
                        
 #### Additional sound effects from [https://www.zapsplat.com](https://www.zapsplat.com) ####
 
+### Lottie Animations obtained from LottieFiles.com ###
+Lottie animatons were not altered in any way and obtained via Creative Commons Attribution License
+[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
+                                        
+"Checked Done" by LottieFiles - [https://lottiefiles.com/433-checked-done](https://lottiefiles.com/433-checked-done)
+
+"Wrong Answer" by Pedro Silva -[https://lottiefiles.com/4698-wrong-answer](https://lottiefiles.com/4698-wrong-answer)
+
+"Material Loader" by LottieFiles - [https://lottiefiles.com/50-material-loader](https://lottiefiles.com/50-material-loader)
+                                        
+"AashishDeleteAnimation" by Aashish Soam - [https://lottiefiles.com/5474-aashishdeleteanimation](https://lottiefiles.com/5474-aashishdeleteanimation)
+
+"Trophy" by Lucas Nemo - [https://lottiefiles.com/677-trophy](https://lottiefiles.com/677-trophy)   
+
 
 ## Software and Services Used ##
 Quizzical FBLA was developed using the following software applications and services: 
