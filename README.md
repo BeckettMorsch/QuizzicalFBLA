@@ -7,16 +7,14 @@ QuizzicalFBLA is a mobile application developed for IOS and Android phones. This
 ## Folder Layout
 ------------------------------------------------------------------------------------------
 
-/CompiledApp
-+-- Contains our compiled, signed app in APK form for Android platforms
+**/CompiledApp**
+> Contains our compiled, signed app in APK form for Android platforms
 
-/Documentation
-+-- Contains PDF overview of the app along with screenshots and explanations of all
-    functionality
+**/Documentation**
+> Contains PDF overview of the app along with screenshots and explanations of all functionality
 
-/Source
-+-- Contains Visual Studio 2017 solution file (NOTE: Requires Cross-Platform 
-    Visual Studio 2017 Addon)
+**/Source**
+> Contains Visual Studio 2017 solution file (NOTE: Requires Cross-Platform Visual Studio 2017 Addon)
 
 
 ## How to Run
