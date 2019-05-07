@@ -48,3 +48,37 @@ In order to build for Android you will need Visual Studio or Visual Studio for M
 
 Enjoy!
 
+
+## Resources Used
+
+### Media Assets
+
+**Google Material Design Icons**
+                                        
+Copyright 2019 Google
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+                                        
+**Sound Effects Obtained from freesound.org via Creative Commons Attribution License**
+                                        
+negative_beeps.wav by themusicalnomad
+> [https://freesound.org/people/themusicalnomad/sounds/253886/](https://freesound.org/people/themusicalnomad/sounds/253886/)
+
+ultradust_clock.wav by ultradust 
+> [https://freesound.org/people/ultradust/sounds/167385/](https://freesound.org/people/ultradust/sounds/167385/)
+
+error.wav by distillerystudio 
+> [https://freesound.org/people/distillerystudio/sounds/327737/](https://freesound.org/people/distillerystudio/sounds/327737/)
+
+incorrect.wav by bertrof 
+> [https://freesound.org/people/Bertrof/sounds/351565/](https://freesound.org/people/Bertrof/sounds/351565/)
+
+correct.wav by bertrof 
+> [https://freesound.org/people/Bertrof/sounds/351566/](https://freesound.org/people/Bertrof/sounds/351566/)
+
+                       
+**Additional sound effects from [https://www.zapsplat.com](https://www.zapsplat.com)**
