@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="QuizzicalFBLA.Views.EndPage"
+             NavigationPage.HasBackButton="False"
+             Title="Game Over"
+             BackgroundImage="Background.png">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0.5,0.4,0.9,200"
+                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"                
+            >
+
+            </StackLayout>
+            -->
+
+            <forms:AnimationView 
+                AbsoluteLayout.LayoutBounds="0.5,0,1,0.3"
+                AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
+	            x:Name="Fireworks" 
+	            Animation="5474-aashishdeleteanimation.json" 
+	            Loop="false" 
+	            AutoPlay="true"
+                IsVisible="true"                
+                Scale="1.5"
+                BackgroundColor="Transparent"
+	            VerticalOptions="FillAndExpand" 
+	            HorizontalOptions="FillAndExpand" />
+
+
+            <forms:AnimationView 
+                AbsoluteLayout.LayoutBounds="0.5,0,1,0.3"
+                AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
+	            x:Name="Star" 
+	            Animation="star.json" 
+	            Loop="false"
+	            AutoPlay="true"
+                IsVisible="true"               
+                Scale="1.2"
+                BackgroundColor="Transparent"
+	            VerticalOptions="FillAndExpand" 
+	            HorizontalOptions="FillAndExpand" />
+
+
+            <StackLayout  
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.8,0.4"
+                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional">
+
+                <Label 
+                Text="Congrats!"
+                FontAttributes="Bold"
+                TextColor="White"
+                FontSize="50"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                />
+
+                <Label 
+                Text="{Binding EndMessage}"
+                TextColor="#bbbbbb"
+                FontSize="20"
+                HorizontalOptions="Center"
+                />
+                
+                <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Padding="0"
+                           Margin="0,30,0,0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked"/>
+                    </Frame.GestureRecognizers>
+
+                    <StackLayout>
+                        <Button Text="Retry?"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="Button_Clicked"/>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame CornerRadius="10"  
+                           BackgroundColor="#00d5dd"
+                           Margin="0,10,0,0"
+                           Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Share_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Share_Clicked"/>
+                        </StackLayout.GestureRecognizers>
+                        
+                        <Button Text="Share Results"
+                            FontSize="Medium"
+                            TextColor="White"    
+                            HorizontalOptions="CenterAndExpand"                                
+                            BackgroundColor="Transparent"
+                            Clicked="Share_Clicked"/>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </AbsoluteLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QuizzicalFBLA.Controls"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView"
+             xmlns:vm="clr-namespace:QuizzicalFBLA.ViewModels"
+             x:Class="QuizzicalFBLA.Views.FlashcardMenu"
+             Title="Flashcards"
+             BackgroundImage="Background.png">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bug.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="20,20,20,20">
+
+            <ListView x:Name="CategoryMenu" HasUnevenRows="True" ItemsSource="{Binding Source={x:Static vm:CategoriesViewModel.Current}, Path=Categories}" ItemTapped="CategoryMenu_ItemTapped" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+
+                        <Frame
+                        CornerRadius="5"  
+                        BorderColor="#195375"     
+                        BackgroundColor="#d9ecf7"
+                        Padding="10"
+                        HeightRequest="90"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand"                        
+                        Margin="0,0,0,10">
+                            
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding .}" TextColor="Black" FontSize="20"/>
+                                    <Image Source="next.png" HeightRequest="20" Aspect="AspectFit" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+
+                            </Frame>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
