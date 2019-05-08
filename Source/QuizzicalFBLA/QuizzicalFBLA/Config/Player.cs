@@ -93,6 +93,7 @@ namespace QuizzicalFBLA.Config
 
         private void LoadPreferences()
         {
+            // Load default player preferences
             LoggedIn = Preferences.Get("LoggedIn", false);
             Nickname = Preferences.Get("Nickname", "Player");
             Name = Preferences.Get("Name", "Player");
@@ -110,41 +111,49 @@ namespace QuizzicalFBLA.Config
 
         public async Task<bool> Login()
         {
-            if (!LoggedIn)
+            try
             {
-                var authenticationService = DependencyService.Get<IAuthenticationService>();
-                var authenticationResult = await authenticationService.Authenticate();
-
-                if (!authenticationResult.IsError)
+                if (!LoggedIn)
                 {
-                    Dictionary<string, string> profile = authenticationResult.toProfile();
+                    var authenticationService = DependencyService.Get<IAuthenticationService>();
+                    var authenticationResult = await authenticationService.Authenticate();
 
-                    // Store player profile in the Player singleton
-                    Nickname = profile["nickname"];
-                    Name = profile["name"];
-                    Sub = profile["sub"];
-                    AutoUsername = profile["auto_username"];
-                    AutoPassword = profile["auto_password"];
+                    if (!authenticationResult.IsError)
+                    {
+                        Dictionary<string, string> profile = authenticationResult.toProfile();
 
-                    LoggedIn = true;
+                        // Store player profile in the Player singleton
+                        Nickname = profile["nickname"];
+                        Name = profile["name"];
+                        Sub = profile["sub"];
+                        AutoUsername = profile["auto_username"];
+                        AutoPassword = profile["auto_password"];
 
-                    SavePreferences();
+                        LoggedIn = true;
 
-                    OnPropertyChanged("Nickname");
-                    OnPropertyChanged("Name");
-                    OnPropertyChanged("Sub");
-                    OnPropertyChanged("AutoUsername");
-                    OnPropertyChanged("AutoPassword");
-                    OnPropertyChanged("LoggedIn");
+                        SavePreferences();
+
+                        OnPropertyChanged("Nickname");
+                        OnPropertyChanged("Name");
+                        OnPropertyChanged("Sub");
+                        OnPropertyChanged("AutoUsername");
+                        OnPropertyChanged("AutoPassword");
+                        OnPropertyChanged("LoggedIn");
+                    }
                 }
+
+                if (LoggedIn)
+                {
+                    GameSparksLoggedIn = false;
+                    await AuthenticateGameSparks();
+
+                    return true;  // Fully logged in
+                }
+
             }
-
-            if (LoggedIn)
+            catch (Exception e)
             {
-                GameSparksLoggedIn = false;
-                await AuthenticateGameSparks();
-
-                return true;  // Fully logged in
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
             }
 
             LoggedIn = false;
@@ -154,24 +163,38 @@ namespace QuizzicalFBLA.Config
 
         public void Logout()
         {
-            if (LoggedIn)
+            try
             {
-                var authenticationService = DependencyService.Get<IAuthenticationService>();
-                authenticationService.Logout();
-                LoggedIn = false;
-                GameSparksLoggedIn = false;
-                OnPropertyChanged("LoggedIn");
+                if (LoggedIn)
+                {
+                    var authenticationService = DependencyService.Get<IAuthenticationService>();
+                    authenticationService.Logout();
+                    LoggedIn = false;
+                    GameSparksLoggedIn = false;
+                    OnPropertyChanged("LoggedIn");
 
-                SavePreferences();
+                    SavePreferences();
 
-                OnLogout?.Invoke(this, new EventArgs());
+                    OnLogout?.Invoke(this, new EventArgs());
+                }
             }
-        }
+            catch (Exception e)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
+            }
+}
 
         public async Task RegisterScore (int score)
         {
-            var eventService = new GameSparksEventsService();
-            var rs = await eventService.LogEventRequestAsync(new ScoreEvent(GameSparksUserID, score));
+            try
+            {
+                var eventService = new GameSparksEventsService();
+                var rs = await eventService.LogEventRequestAsync(new ScoreEvent(GameSparksUserID, score));
+            }
+            catch (Exception e)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
+            }
         }
 
         private bool HasProperty(dynamic obj, string name)
@@ -187,20 +210,27 @@ namespace QuizzicalFBLA.Config
         }
 
         public async Task AddCurrency (Currencies currency, int amount)
-        {
+        {            
             int currencyRef = (int)currency;
 
             if (currencyRef < 1 || currencyRef > 6)
                 throw new Exception("Invalid currencyRef - Must be in the range 1-6");
 
-            // Maps to GameSparks Event
-            var eventService = new GameSparksEventsService();
-            var rs = await eventService.LogEventRequestAsync(new AddPointsEvent(GameSparksUserID, currencyRef, amount));
-
-            if (rs.Error != null)
+            try
             {
-                //if (rs.Error == "UNKNOWN")
-                //        throw new Exception("Invalid EventKey - EventKey must be defined in GameSparks");
+                // Maps to GameSparks Event
+                var eventService = new GameSparksEventsService();
+                var rs = await eventService.LogEventRequestAsync(new AddPointsEvent(GameSparksUserID, currencyRef, amount));
+
+                if (rs.Error != null)
+                {
+                    //if (rs.Error == "UNKNOWN")
+                    //        throw new Exception("Invalid EventKey - EventKey must be defined in GameSparks");
+                }
+            }
+            catch (Exception e)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
             }
 
             if (currencyRef == (int)Currencies.TotalPoints)
@@ -213,19 +243,26 @@ namespace QuizzicalFBLA.Config
         {
             if (!GameSparksLoggedIn) return;
 
-            var playerService = new GameSparksPlayerService();
-            var accountDetailsRequest = new AccountDetailsRequest(GameSparksUserID);
-
-            var accountDetails = await playerService.AccountDetailsRequestAsync(accountDetailsRequest);
-
-            TotalPoints = 0;
-
-            if (accountDetails != null)
+            try
             {
-                // Fill in remaining details
-                TotalPoints = accountDetails.Currency1;                
+                var playerService = new GameSparksPlayerService();
+                var accountDetailsRequest = new AccountDetailsRequest(GameSparksUserID);
+
+                var accountDetails = await playerService.AccountDetailsRequestAsync(accountDetailsRequest);
+
+                TotalPoints = 0;
+
+                if (accountDetails != null)
+                {
+                    // Fill in remaining details
+                    TotalPoints = accountDetails.Currency1;
+                }
             }
-        }
+            catch (Exception e)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
+            }
+}
 
         public async Task AuthenticateGameSparks ()
         {

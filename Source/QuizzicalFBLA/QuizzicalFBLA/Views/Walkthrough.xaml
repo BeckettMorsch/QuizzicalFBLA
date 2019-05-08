@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"             
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"             
+             x:Class="QuizzicalFBLA.Views.Walkthrough">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Black">
+
+            <cv:CarouselViewControl x:Name="CV" Orientation="Horizontal" 
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
+                                    InterPageSpacing="0" 
+                                    Position="0" 
+                                    VerticalOptions="FillAndExpand" 
+                                    HorizontalOptions="FillAndExpand" 
+                                    ShowIndicators="True"
+                                    IndicatorsTintColor="#CCFFFFFF" CurrentPageIndicatorTintColor="#FFFFFF">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <AbsoluteLayout BackgroundColor="{Binding BackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <Frame AbsoluteLayout.LayoutBounds="0.5,0,1,0.5"
+                                     AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="EndAndExpand"
+                                   Content="{Binding Animation}">
+                            </Frame>
+                            <StackLayout
+                                     AbsoluteLayout.LayoutBounds="0.5,0.6,1,35"
+                                     AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"                               
+                                     Padding="10,10,10,10"
+                                     HorizontalOptions="Center"
+                                >
+                                <Label Text="{Binding Title}" FontSize="25" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Label Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                            </StackLayout>
+
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+
+            <Frame
+                            AbsoluteLayout.LayoutBounds="0.5,0.9,0.8,0.2"
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional,HeightProportional"                      
+                                   CornerRadius="10"  
+                                   BackgroundColor="#00d5dd"
+                                   Padding="0"
+                                   VerticalOptions="Center"
+                                   Margin="0,30,0,0">
+                <StackLayout>
+                    <Button x:Name="SignIn_Button"
+                                            Text="Get Started"
+                                            FontSize="24"
+                                            TextColor="White"    
+                                            BackgroundColor="Transparent"
+                                            Clicked="SignIn_Button_Clicked"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"
+                                            Padding="15,15,15,15"/>
+                </StackLayout>
+            </Frame>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

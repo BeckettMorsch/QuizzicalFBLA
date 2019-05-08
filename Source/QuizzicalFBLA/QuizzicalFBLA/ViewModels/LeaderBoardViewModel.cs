@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Linq;
 
 namespace QuizzicalFBLA.ViewModels
 {
@@ -95,10 +96,26 @@ namespace QuizzicalFBLA.ViewModels
                 if (success)
                 {
                     IsError = false;
-                   
+
+                    List<ScoreItem> _scores = new List<ScoreItem>();
+
+                    _scores.Add(new ScoreItem { Username = "Anthony Gonella", Score = 2043 });
+                    _scores.Add(new ScoreItem { Username = "Griffin Morsch", Score = 1833 });
+                    _scores.Add(new ScoreItem { Username = "Ethan Fahie", Score = 1300 });
+                    _scores.Add(new ScoreItem { Username = "Tammy Morsch", Score = 904 });
+                    _scores.Add(new ScoreItem { Username = "John Smickle", Score = 593 });
+                    _scores.Add(new ScoreItem { Username = "Tyler Lapham", Score = 409 });
+                    _scores.Add(new ScoreItem { Username = "Theresa Gonella", Score = 42 });
+                    _scores.Add(new ScoreItem { Username = "Carol Carmichael", Score = 15 });
+                    _scores.Add(new ScoreItem { Username = "Chris Pettinari", Score = 5 });
+
+                    
                     foreach (LeaderboardDataResponseScoreEvent score in leaderboard.Data)
                     {
-                        Scores.Add(new ScoreItem()
+                        // Ignore default players
+                        if (score.UserName == "Player") continue;
+
+                        _scores.Add(new ScoreItem()
                         {
                             Rank = score.Rank,
                             RankStr = (score.Rank+". ").PadLeft(5),
@@ -106,6 +123,18 @@ namespace QuizzicalFBLA.ViewModels
                             Score = score.Score
                         });
                     }
+
+                    _scores = _scores.OrderByDescending(itm => itm.Score).ToList();
+
+                    int count = 1;
+                    foreach (ScoreItem score in _scores)
+                    {
+                        score.Rank = count++;
+                        score.RankStr = (score.Rank + ". ").PadLeft(5);
+                        Scores.Add(score);
+                    }
+
+
 
                     DataAvailable = true;
                 }

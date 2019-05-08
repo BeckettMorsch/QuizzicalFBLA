@@ -27,18 +27,21 @@
         </Grid.RowDefinitions>
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding ="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Grid HeightRequest="150" 
+                <ContentView Padding ="0,10,0,10" VerticalOptions="FillAndExpand">
+                    <Grid HeightRequest="120" 
                           WidthRequest="300" 
                           HorizontalOptions="CenterAndExpand" 
                           VerticalOptions="CenterAndExpand">
-                        <Image Source="QuizzicalLogo.png" VerticalOptions="Center"  HeightRequest="150" Aspect="AspectFit"/>
+                        <Image Source="QuizzicalLogo.png" VerticalOptions="Center"  HeightRequest="120" Aspect="AspectFit"/>
                     </Grid>
                 </ContentView>
             </StackLayout>
+            <WebView x:Name="webView" WidthRequest="1000" HeightRequest="1000"/>
         </StackLayout>
-        
-        <ScrollView Grid.Row="1">
+ <!--       <ScrollView Grid.Row="1">
+           
+
+
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 <Label FontSize="22">
                     <Label.FormattedText>
@@ -152,5 +155,6 @@ https://lottiefiles.com/677-trophy
                 </Label>
             </StackLayout>
         </ScrollView>
+            -->
     </Grid>
 </ContentPage>

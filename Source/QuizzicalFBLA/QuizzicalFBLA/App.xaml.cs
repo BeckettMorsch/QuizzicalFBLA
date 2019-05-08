@@ -8,25 +8,61 @@ using Microsoft.AppCenter.Crashes;
 using QuizzicalFBLA.Config;
 using GameSparks.NET.Infrastructure.Settings;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+using QuizzicalFBLA.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace QuizzicalFBLA
 {
     public partial class App : Application
     {
+        public MainPage MainApplicationPage { get; set; }
 
         public App()
         {
             InitializeComponent();
 
+            MainApplicationPage = new MainPage();
+            MainApplicationPage.Appearing += MainApplicationPage_Appearing;
 
-            MainPage = new MainPage();
+            MessagingCenter.Subscribe<Walkthrough>(this, "GetStarted", (sender) => {
 
+                Application.Current.MainPage = MainApplicationPage;
+
+            });
+
+            bool watchedTutorial = false;// Preferences.Get("WatchedTutorial", false);
+
+            if (watchedTutorial)
+            {
+                MainPage = MainApplicationPage;
+            }
+            else
+            {
+                MainPage = new Walkthrough();
+            }
+
+            
+        }
+
+        private void MainApplicationPage_Appearing(object sender, EventArgs e)
+        {
+            // When the main application appears we should check to see if the user is logged in
+            Task.Run(async () => {
+                await LoginCheck();
+            });
+        }
+
+        public async Task LoginCheck ()
+        {
             // If not currently logged in (Store authentication details somewhere)
             if (!Player.Current.LoggedIn && Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.UWP)
-                MainPage.Navigation.PushModalAsync(new LoginPage());
-            else        
-                Task.Run(() => Player.Current.AuthenticateGameSparks());
+            {
+                await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+            }
+            else
+                await Player.Current.AuthenticateGameSparks();
+
         }
 
         protected override void OnStart()

@@ -72,7 +72,7 @@
                     </swipeCardView:SwipeCardView.ItemTemplate>
                 </swipeCardView:SwipeCardView>
             </Grid>
-            <Label Text="Swipe up/down to move to next card, left/right to reveal answer" TextColor="Gray" FontSize="12" HorizontalOptions="Center"/>
+            <Label Text="Swipe up/down to move to next card, left/right to reveal answer" TextColor="LightGray" FontSize="18" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
             
         </StackLayout>
     </ContentPage.Content>

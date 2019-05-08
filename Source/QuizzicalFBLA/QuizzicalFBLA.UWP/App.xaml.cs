@@ -1,4 +1,5 @@
-﻿using LabelHtml.Forms.Plugin.UWP;
+﻿using CarouselView.FormsPlugin.UWP;
+using LabelHtml.Forms.Plugin.UWP;
 using Lottie.Forms.UWP.Renderers;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,8 @@ namespace QuizzicalFBLA.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 var rendererAssemblies = new[] {
-                    typeof(HtmlLabelRenderer).GetTypeInfo().Assembly
+                    typeof(HtmlLabelRenderer).GetTypeInfo().Assembly,
+                    typeof(CarouselViewRenderer).GetTypeInfo().Assembly
                     };
 
                 Xamarin.Forms.Forms.Init(e, rendererAssemblies);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using CarouselView.FormsPlugin.iOS;
 using Foundation;
 using InstabugLib;
 using LabelHtml.Forms.Plugin.iOS;
@@ -29,6 +29,7 @@ namespace QuizzicalFBLA.iOS
 
             global::Xamarin.Forms.Forms.Init();
             AnimationViewRenderer.Init();
+            CarouselViewRenderer.Init();
             LoadApplication(new App());
 
             Instabug.StartWithToken("6c4ce2b08ac3afa29539f59017d374a9", IBGInvocationEvent.Shake);
