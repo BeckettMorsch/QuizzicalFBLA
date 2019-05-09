@@ -48,6 +48,7 @@ it would be inaccurate to judge our entry based off of strictly running the UWP 
 of the app. Certain features such as bug reporting are only available on Android and iOS 
 systems.
 
+[Download Release 1.2](https://github.com/BeckettMorsch/QuizzicalFBLA/releases)
 
 ## Build Instructions
 
