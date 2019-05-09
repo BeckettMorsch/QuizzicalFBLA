@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
@@ -26,7 +26,7 @@
             <Label Text="Leaderboard" HorizontalOptions="Center" TextColor ="LightSteelBlue" FontSize="30"/>
                     
             
-            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand">
+            <ListView ItemsSource="{Binding Scores}" IsVisible="{Binding DataAvailable}" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell Height="70">
