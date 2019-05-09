@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace QuizzicalFBLA.Helpers
 {
+    // Adds an animation extension to support gradual color transition animations
     public static class AnimationExtensions
     {
         public static async Task PulseElement(this VisualElement element, CancellationToken cancellation)

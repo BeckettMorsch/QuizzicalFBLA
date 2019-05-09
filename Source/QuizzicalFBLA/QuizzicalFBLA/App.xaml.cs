@@ -31,7 +31,7 @@ namespace QuizzicalFBLA
 
             });
 
-            bool watchedTutorial = false;// Preferences.Get("WatchedTutorial", false);
+            bool watchedTutorial = Preferences.Get("WatchedTutorial", false);
 
             if (watchedTutorial)
             {

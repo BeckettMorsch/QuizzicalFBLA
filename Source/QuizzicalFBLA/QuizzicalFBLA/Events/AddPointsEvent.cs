@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Leaderboard.Events
 {
+    // Used in conjunction with GameSparks for adjusting player currencies
     class AddPointsEvent
     {
         [JsonProperty("@class")]

@@ -232,46 +232,7 @@ namespace QuizzicalFBLA.Controls
 
 
         #endregion
-
-        /*
-        public static Color LerpHSV(Color ar, Color br, float t)
-        {
-            ColorHSV a = ColorHSV.FromRgb(ar);
-            ColorHSV b = ColorHSV.FromRgb(br);
-
-            // Hue interpolation
-            double h;
-            double d = b.H - a.H;
-            if (a.H > b.H)
-            {
-                // Swap (a.h, b.h)
-                var h3 = b.H;
-                b.H = a.H;
-                a.H = h3;
-
-                d = -d;
-                t = 1 - t;
-            }
-
-            if (d > 0.5) // 180deg
-            {
-                a.H = a.H + 1; // 360deg
-                h = (a.H + t * (b.H - a.H)) % 1; // 360deg
-            }
-            if (d <= 0.5) // 180deg
-            {
-                h = a.H + t * d;
-            }
-
-            // Interpolates the rest
-            return new ColorHSV
-            (
-            h, // H
-            a.S + t * (b.S - a.S), // S
-            a.V + t * (b.V - a.V) // V            
-            );
-        }
-        */
+        
         private Color Interpolate(Color source, Color target, double percent)
         {
             var r = (source.R + (target.R - source.R) * percent);
@@ -285,6 +246,7 @@ namespace QuizzicalFBLA.Controls
         {
             base.OnPaintSurface(e);
 
+            // Get appropriate graphics context
             SKImageInfo info = e.Info;
             SKSurface surface = e.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -298,8 +260,6 @@ namespace QuizzicalFBLA.Controls
                 StrokeWidth = (float)RingThickness,
                 IsAntialias = true
             };
-
-            // RingBaseColor, RingProgressColor
 
             var circleRadius = (float)Math.Min(info.Width - RingThickness, info.Height - RingThickness) / 2;
             var circleMiddle = circleRadius + (float)RingThickness / 2;
@@ -318,9 +278,7 @@ namespace QuizzicalFBLA.Controls
                 path.AddArc(rect, startAngle, 360);
                 canvas.DrawPath(path, paint);
             }
-
-            //canvas.DrawCircle(circleMiddle, circleMiddle, circleRadius, paint);
-
+            
             paint.Color = Interpolate(RingProgressStartColor, RingProgressEndColor, Progress).ToSKColor();
 
             using (SKPath path = new SKPath())
@@ -341,10 +299,6 @@ namespace QuizzicalFBLA.Controls
                     TextSize = circleRadius * 1.2f,
                     FakeBoldText = true
                 };
-
-
-                //float textWidth = textPaint.MeasureText(num);
-                //textPaint.TextSize = circleRadius * textPaint.TextSize / textWidth;
 
                 SKRect textBounds = new SKRect();
                 textPaint.MeasureText(num, ref textBounds);

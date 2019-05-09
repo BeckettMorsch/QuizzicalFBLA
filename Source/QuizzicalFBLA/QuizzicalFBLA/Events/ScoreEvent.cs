@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Leaderboard.Events
 {
+    // Used in conjunction with GameSparks for adjusting player scores
     class ScoreEvent
     {
         [JsonProperty("@class")]

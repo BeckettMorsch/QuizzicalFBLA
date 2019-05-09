@@ -23,6 +23,7 @@ namespace QuizzicalFBLA.Config
         TotalPoints = 1
     }
 
+    // This class implements a singleton pattern that exposes the player credentials and other management functions during operation of the app
     public class Player : BaseViewModel
     {
         private static Player player;
@@ -56,6 +57,7 @@ namespace QuizzicalFBLA.Config
             }
         }
 
+        // Total points in a readable numeric format with commas for use in the leaderboard or score reporting pages
         public string TotalPointsMessage
         {
             get
@@ -66,7 +68,7 @@ namespace QuizzicalFBLA.Config
                 return totalPoints.ToString("N0") + " Points";
             }
         }
-
+       
         public static Player Current
         {
             get {
@@ -81,6 +83,7 @@ namespace QuizzicalFBLA.Config
             }
         }
 
+        // Stores user profile preferences to the device
         private void SavePreferences ()
         {
             Preferences.Set("LoggedIn", LoggedIn);
@@ -91,6 +94,7 @@ namespace QuizzicalFBLA.Config
             Preferences.Set("AutoPassword", AutoPassword);
         }
 
+        // Loads user profile preferences from the device
         private void LoadPreferences()
         {
             // Load default player preferences
@@ -109,6 +113,8 @@ namespace QuizzicalFBLA.Config
             OnPropertyChanged("LoggedIn");
         }
 
+        // Attempts to authenticate with Auth0 using the iOS/Android implemented dependency service - Auth0 authentication opens a web browser for authentication
+        // which then redirects back to the app via a URI set in the Auth0 backend
         public async Task<bool> Login()
         {
             try
@@ -131,8 +137,10 @@ namespace QuizzicalFBLA.Config
 
                         LoggedIn = true;
 
+                        // Store preferences to device
                         SavePreferences();
 
+                        // Notify any property listeners of changes
                         OnPropertyChanged("Nickname");
                         OnPropertyChanged("Name");
                         OnPropertyChanged("Sub");
@@ -144,6 +152,7 @@ namespace QuizzicalFBLA.Config
 
                 if (LoggedIn)
                 {
+                    // Attempt to re-login to GameSparks to refresh the user profile
                     GameSparksLoggedIn = false;
                     await AuthenticateGameSparks();
 
@@ -161,6 +170,8 @@ namespace QuizzicalFBLA.Config
             return false;
         }
 
+        // Logs out of Auth0 by invoking the logout endpoint - this isn't pretty from a UI perspective but it is functional and is the 
+        // recommended approach by Auth0 for now using their SDK
         public void Logout()
         {
             try
@@ -169,10 +180,13 @@ namespace QuizzicalFBLA.Config
                 {
                     var authenticationService = DependencyService.Get<IAuthenticationService>();
                     authenticationService.Logout();
+
+                    // Update logged in states
                     LoggedIn = false;
                     GameSparksLoggedIn = false;
                     OnPropertyChanged("LoggedIn");
 
+                    // Update preferences on the device
                     SavePreferences();
 
                     OnLogout?.Invoke(this, new EventArgs());
@@ -182,12 +196,16 @@ namespace QuizzicalFBLA.Config
             {
                 Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
             }
-}
+        }
 
+        // Triggers an update score event on the GameSparks service with the user's new game score - this updates any leaderboards associated
+        // in the Gamesparks backend
         public async Task RegisterScore (int score)
         {
             try
             {
+                if (!GameSparksLoggedIn) return;
+
                 var eventService = new GameSparksEventsService();
                 var rs = await eventService.LogEventRequestAsync(new ScoreEvent(GameSparksUserID, score));
             }
@@ -209,6 +227,7 @@ namespace QuizzicalFBLA.Config
             return objType.GetProperty(name) != null;
         }
 
+        // GameSparks allows for 6 built in currencies - This will update one of them with some amount
         public async Task AddCurrency (Currencies currency, int amount)
         {            
             int currencyRef = (int)currency;
@@ -262,8 +281,9 @@ namespace QuizzicalFBLA.Config
             {
                 Microsoft.AppCenter.Crashes.Crashes.TrackError(e);
             }
-}
+        }
 
+        // Authenticates the user with the GameSparks backend - Gamesparks is responsible for storing player data
         public async Task AuthenticateGameSparks ()
         {
             // If already logged in no need to re-authenticate
@@ -293,8 +313,6 @@ namespace QuizzicalFBLA.Config
 
                 if (response.Error == null)
                 {
-                    //Console.WriteLine("Auth token: " + response2.AuthToken);
-                    //Console.WriteLine("User ID: " + response2.UserId);
                     GameSparksAuthToken = response.AuthToken;
                     GameSparksUserID = response.UserId;
                     GameSparksLoggedIn = true;
@@ -309,6 +327,7 @@ namespace QuizzicalFBLA.Config
             }
         }
 
+        // Expose logout events to allow parts of the program to quickly redirect the user to a login page at the moment they logoff
         public EventHandler OnLogout { get; set; }
     }
 }

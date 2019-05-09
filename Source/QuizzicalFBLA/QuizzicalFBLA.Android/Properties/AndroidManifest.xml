@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.eastonsd.quizzicalfbla" android:installLocation="internalOnly">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2" package="com.eastonsd.quizzicalfbla" android:installLocation="internalOnly" android:versionCode="2">
 	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
 	<application android:label="QuizzicalFBLA"></application>
 	<uses-permission android:name="android.permission.VIBRATE" />
+  <uses-permission android:name="android.permission.BATTERY_STATS" />
 </manifest>

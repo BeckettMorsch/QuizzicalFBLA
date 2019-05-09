@@ -835,17 +835,6 @@ namespace QuizzicalFBLA.ViewModels
             }
                 );
 
-            QuestionPool.Add(new QuestionItem
-            {
-                Question = "What is the name of the program offered in conjunction with the National Leadership Conference that is offered to national, state, and local FBLA-PBL officers, members, and advisers for leadership development and training?",
-                Answer1 = "Management Series 2000",
-                Answer2 = "Institute for Leaders",
-                Answer3 = "Leadership Training 2000",
-                Answer4 = "The Institute",
-                Category = "FBLA National Sponsors/Partners",
-                CorrectAnswer = 3
-            }
-                );
 
             QuestionPool.Add(new QuestionItem
             {
@@ -887,7 +876,7 @@ namespace QuizzicalFBLA.ViewModels
 
             QuestionPool.Add(new QuestionItem
             {
-                Question = "In order to qualify for participation in the competitive events program for FBLA, dues must be received in the National Center by what date?",
+                Question = "To qualify for the competitive events program for FBLA, dues must be received in the National Center by what date?",
                 Answer1 = "April 1",
                 Answer2 = "March 1",
                 Answer3 = "April 15",
@@ -1037,19 +1026,6 @@ namespace QuizzicalFBLA.ViewModels
             }
                 );
 
-
-
-            QuestionPool.Add(new QuestionItem
-            {
-                Question = "The national vice presidents will do all of the following except?",
-                Answer1 = "Assist in planning Regional Leadership Conferences",
-                Answer2 = "Assist the president in the promotion and development of FBLA in the regions that elected them.",
-                Answer3 = "Serve as an ex officio member of the national executive council.",
-                Answer4 = "Preside at regional meetings at the National Leadership Conference.",
-                Category = "National Officers",
-                CorrectAnswer = 3
-            }
-                );
 
             QuestionPool.Add(new QuestionItem
             {

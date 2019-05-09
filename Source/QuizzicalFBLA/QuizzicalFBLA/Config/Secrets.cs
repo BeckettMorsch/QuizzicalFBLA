@@ -8,6 +8,7 @@ using GameSparks.NET.Services.Leaderboards.Requests;
 
 namespace QuizzicalFBLA.Config
 {
+    // IF NOT FOR FBLA SUBMISSION THIS FILE IS USUALLY OMITTED FROM VERSION CONTROL
     public static class Secrets
     {
         // Auth0 credentials

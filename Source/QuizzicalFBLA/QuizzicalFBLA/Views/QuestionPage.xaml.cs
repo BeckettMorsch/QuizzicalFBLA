@@ -96,8 +96,11 @@ namespace QuizzicalFBLA.Views
 
             if (gameInProgress)
             {
-                ring.AnimatedProgress = 1;
-                AnimationRunning = true;
+                if (!AnsweredQuestion)
+                {
+                    ring.AnimatedProgress = 1;
+                    AnimationRunning = true;
+                }
             }
 
             await Reset();
@@ -114,10 +117,15 @@ namespace QuizzicalFBLA.Views
             ring.StopAnimation();
 
             sounds["tenseMusic"].Stop();
-
-            
         }
 
+        private bool AnimationsEnabled
+        {
+            get
+            {
+                return Battery.EnergySaverStatus != EnergySaverStatus.On;
+            }
+        }
 
         public async Task Reset()
         {
@@ -148,21 +156,29 @@ namespace QuizzicalFBLA.Views
 
                 button.BackgroundColor = Color.FromHex("4E525D");
 
-                int delay = i * 150;
-
-                button.Opacity = 0;
-                tasks.Add(Task.Run(async () =>
+                if (AnimationsEnabled)
                 {
-                    await button.TranslateTo(0, -60, 0).ContinueWith(async (d) =>
-                        {
-                            await Task.Delay(delay).ContinueWith(async (g) => { 
+                    int delay = i * 150;
+
+                    button.Opacity = 0;
+                    tasks.Add(Task.Run(async () =>
+                    {
+                        await button.TranslateTo(0, -60, 0).ContinueWith(async (d) =>
+                            {
+                                await Task.Delay(delay).ContinueWith(async (g) =>
+                                {
                                     await Task.WhenAll(new Task[] {
                                     button.FadeTo(1, 800, Easing.Linear),
                                     button.TranslateTo(0, 0, 500, Easing.CubicInOut)
+                                    });
                                 });
                             });
-                        });
-                }));
+                    }));
+                }
+                else
+                {
+                    button.Opacity = 1;
+                }
             }
 
             await Task.WhenAll(tasks);
@@ -200,18 +216,22 @@ namespace QuizzicalFBLA.Views
                 NextTrigger += 1 / totalSeconds;
 
                 sounds["beep"].Play();
-                Task.Run(async () =>
+                if (AnimationsEnabled)
                 {
-                    await ring.ScaleTo(1.05, 250, Easing.CubicIn);
-                    await ring.ScaleTo(1.0, 250, Easing.CubicIn);
-                });
-
+                    Task.Run(async () =>
+                    {
+                        await ring.ScaleTo(1.05, 250, Easing.CubicIn);
+                        await ring.ScaleTo(1.0, 250, Easing.CubicIn);
+                    });
+                }
             }
         }
         
 
         private async Task PulseElement(VisualElement element, CancellationToken cancellation)
         {
+            if (!AnimationsEnabled) return;
+
             while (!cancellation.IsCancellationRequested)
             {
                 await element.ScaleTo(1.1, 1000, Easing.SinIn);
@@ -262,11 +282,14 @@ namespace QuizzicalFBLA.Views
                 View PressedButton = buttons[answerIndex];
 
                 // Pressed button animation
-                tasks.Add(Task.Run(async () =>
+                if (AnimationsEnabled)
                 {
-                    await PressedButton.ScaleTo(1.025, 150, Easing.CubicInOut);
-                    await PressedButton.ScaleTo(1.0, 150, Easing.CubicInOut);
-                }, CancelContinueTokenSource.Token));
+                    tasks.Add(Task.Run(async () =>
+                    {
+                        await PressedButton.ScaleTo(1.025, 150, Easing.CubicInOut);
+                        await PressedButton.ScaleTo(1.0, 150, Easing.CubicInOut);
+                    }, CancelContinueTokenSource.Token));
+                }
             }
 
             // Add handling for incorrect answers
@@ -275,29 +298,44 @@ namespace QuizzicalFBLA.Views
                 if (i != correctAnswerIndex)
                 {
                     View b = buttons[i];
-                    tasks.Add(Task.Run(async () =>
+                    if (AnimationsEnabled)
                     {
-                        await b.ChangeBackgroundColorTo(Color.DarkRed, delay, Easing.CubicOut);
-                        await b.FadeTo(0.2, delay * 2, Easing.CubicOut);
-                    }, CancelContinueTokenSource.Token));
+                        tasks.Add(Task.Run(async () =>
+                        {
+                            await b.ChangeBackgroundColorTo(Color.DarkRed, delay, Easing.CubicOut);
+                            await b.FadeTo(0.2, delay * 2, Easing.CubicOut);
+                        }, CancelContinueTokenSource.Token));
+                    }
+                    else
+                    {
+                        b.BackgroundColor = Color.DarkRed;
+                        b.Opacity = 0.2;
+                    }
                 }
             }
 
             // Add handling for correct answer
-            tasks.Add(Task.Run(async () =>
+            if (AnimationsEnabled)
             {
-                await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay, Easing.CubicOut);
-                await CorrectButton.ChangeBackgroundColorTo(Color.YellowGreen, delay / 2, Easing.CubicOut);
-                await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay / 2, Easing.CubicOut);
-                await CorrectButton.ChangeBackgroundColorTo(Color.YellowGreen, delay / 2, Easing.CubicOut);
-                await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay, Easing.CubicOut);
-            }, CancelContinueTokenSource.Token));
-
+                tasks.Add(Task.Run(async () =>
+                {
+                    await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay, Easing.CubicOut);
+                    await CorrectButton.ChangeBackgroundColorTo(Color.YellowGreen, delay / 2, Easing.CubicOut);
+                    await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay / 2, Easing.CubicOut);
+                    await CorrectButton.ChangeBackgroundColorTo(Color.YellowGreen, delay / 2, Easing.CubicOut);
+                    await CorrectButton.ChangeBackgroundColorTo(Color.DarkGreen, delay, Easing.CubicOut);
+                }, CancelContinueTokenSource.Token));
+            }
+            else
+            {
+                CorrectButton.BackgroundColor = Color.DarkGreen;
+            }
 
             // Make continue button appear            
             try
             {
-                await Task.WhenAll(tasks);
+                if (tasks.Count > 0)
+                    await Task.WhenAll(tasks);
             }
             catch (OperationCanceledException e)
             {
@@ -308,14 +346,20 @@ namespace QuizzicalFBLA.Views
             ContinueButton.IsVisible = true;
             ContinueButton.IsEnabled = true;
 
-            await ContinueButton.TranslateTo(0, -30, 0, Easing.Linear);
+            if (AnimationsEnabled)
+            {
+                await ContinueButton.TranslateTo(0, -30, 0, Easing.Linear);
 
-            await Task.WhenAll(new Task[] {
+                await Task.WhenAll(new Task[] {
                     ContinueButton.TranslateTo(0, 0, 500, Easing.CubicOut),
                     ContinueButton.FadeTo(1.0, 500, Easing.Linear)
-                    ,PulseElement(ContinueButton, CancelContinueTokenSource.Token)                    
+                    ,PulseElement(ContinueButton, CancelContinueTokenSource.Token)
               });
-
+            }
+            else
+            {
+                ContinueButton.Opacity = 1;
+            }
 
 
         }

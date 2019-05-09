@@ -11,27 +11,8 @@ namespace QuizzicalFBLA.Models
         public string IdToken { get; set; }
         public string AccessToken { get; set; }
         public IEnumerable<Claim> UserClaims { get; set; }
-        /*
-            set
-            {
-                UserClaims = value;
-
-                Profile.Clear();
-                foreach (var claim in value)
-                {
-                    if (!Profile.ContainsKey(claim.Type))
-                        Profile.Add(claim.Type, claim.Value);
-                }
-
-                if (Profile.ContainsKey("sub"))
-                {
-                    string AutoUser = Profile["sub"].Replace("-", "").Replace("|", "");
-                    Profile.Add("auto_username", AutoUser);
-                    //Profile.Add("auto_password", AutoUser.Sha256Hash());
-                }
-            }
-        }*/
-
+        
+        // Remaps the user claim obtained from Auth0 to a dictionary 
         public Dictionary<string,string> toProfile ()
         {
             Dictionary<string, string> profile = new Dictionary<string, string>();
