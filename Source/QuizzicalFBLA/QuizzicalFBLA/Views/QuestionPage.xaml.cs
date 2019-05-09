@@ -253,9 +253,9 @@ namespace QuizzicalFBLA.Views
 
             if (answerIndex == correctAnswerIndex)
             {
+                checkAnimation.Play();
                 wrongAnimation.IsVisible = false;
                 checkAnimation.IsVisible = true;
-                checkAnimation.Play();
 
                 sounds["correct"].Play();
 
@@ -264,9 +264,9 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
+                wrongAnimation.Play();
                 checkAnimation.IsVisible = false;
                 wrongAnimation.IsVisible = true;
-                wrongAnimation.Play();
 
                 if (answerNum != -1)
                 {
