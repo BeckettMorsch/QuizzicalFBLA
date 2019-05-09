@@ -30,7 +30,6 @@
                     VerticalOptions="CenterAndExpand" HeightRequest="800">
                     <swipeCardView:SwipeCardView.ItemTemplate>
                         <DataTemplate>
-                            <!--<Label Text="{Binding .}" FontSize="Large" HeightRequest="300" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="Beige"/>-->
                             <controls:XFFlipView x:Name="Card" HeightRequest="400" IsFlipped="{Binding Flipped, Mode=TwoWay}">
 
                                 <controls:XFFlipView.FrontView>
@@ -44,7 +43,7 @@
                                         <StackLayout>
                                             <Label Text="{Binding Question.Category}" FontSize="22" TextColor="Black" FontAttributes="Bold"/>
                                             <BoxView BackgroundColor="LightGray" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
-                                            <Label Text="{Binding Question.Question}" FontSize="20" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding Question.Question}" FontSize="20" TextColor="Black" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
                                             <Label Text="{Binding QuestionNumberText}" FontSize="12" TextColor="DimGray" HorizontalOptions="End"/>
                                         </StackLayout>
                                     </yummy:PancakeView>

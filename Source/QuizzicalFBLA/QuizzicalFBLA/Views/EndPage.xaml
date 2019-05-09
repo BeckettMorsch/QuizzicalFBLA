@@ -13,15 +13,6 @@
     <ContentPage.Content>
         <AbsoluteLayout>
 
-            <!--
-            <StackLayout
-                AbsoluteLayout.LayoutBounds="0.5,0.4,0.9,200"
-                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"                
-            >
-
-            </StackLayout>
-            -->
-
             <forms:AnimationView 
                 AbsoluteLayout.LayoutBounds="0.5,0,1,0.3"
                 AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
@@ -51,7 +42,7 @@
 
 
             <StackLayout  
-                AbsoluteLayout.LayoutBounds="0.5,0.5,0.8,0.4"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.8,0.5"
                 AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional">
 
                 <Label 

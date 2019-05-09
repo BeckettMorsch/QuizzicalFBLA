@@ -52,7 +52,7 @@ namespace QuizzicalFBLA.Views
             else
                 pool = CategoriesViewModel.Current.QuestionPool.Where(q => q.Category == selectedCategory).ToList();
 
-            _cardItems.Clear();
+            CardItems.Clear();
             foreach (QuestionItem question in pool)
             {
                 CardItems.Add(new FlashCard()
