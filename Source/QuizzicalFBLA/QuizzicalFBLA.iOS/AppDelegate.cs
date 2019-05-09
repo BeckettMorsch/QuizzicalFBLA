@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Auth0.OidcClient;
 using CarouselView.FormsPlugin.iOS;
 using Foundation;
 using InstabugLib;
@@ -35,6 +36,13 @@ namespace QuizzicalFBLA.iOS
             Instabug.StartWithToken("6c4ce2b08ac3afa29539f59017d374a9", IBGInvocationEvent.Shake);
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            ActivityMediator.Instance.Send(url.AbsoluteString);
+
+            return true;
         }
     }
 }

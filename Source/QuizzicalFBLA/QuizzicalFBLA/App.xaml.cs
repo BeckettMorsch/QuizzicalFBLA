@@ -48,7 +48,8 @@ namespace QuizzicalFBLA
         private void MainApplicationPage_Appearing(object sender, EventArgs e)
         {
             // When the main application appears we should check to see if the user is logged in
-            Task.Run(async () => {
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
+            {
                 await LoginCheck();
             });
         }
