@@ -99,8 +99,10 @@ namespace QuizzicalFBLA.ViewModels
 
                     List<ScoreItem> _scores = new List<ScoreItem>();
 
+                    // Populate the leaderboard with a few scores in case the leaderboard was recently reset
                     _scores.Add(new ScoreItem { Username = "Anthony Gonella", Score = 2043 });
                     _scores.Add(new ScoreItem { Username = "Griffin Morsch", Score = 1833 });
+                    _scores.Add(new ScoreItem { Username = "Bev Klein", Score = 1678 });
                     _scores.Add(new ScoreItem { Username = "Ethan Fahie", Score = 1300 });
                     _scores.Add(new ScoreItem { Username = "Tammy Morsch", Score = 904 });
                     _scores.Add(new ScoreItem { Username = "John Smickle", Score = 593 });
@@ -109,6 +111,12 @@ namespace QuizzicalFBLA.ViewModels
                     _scores.Add(new ScoreItem { Username = "Carol Carmichael", Score = 15 });
                     _scores.Add(new ScoreItem { Username = "Chris Pettinari", Score = 5 });
 
+                    // Remove some of the leaderboard entries to make room for real ones
+                    if (leaderboard.Data.Count > 0)
+                    {
+                        int max = (int)Math.Min(_scores.Count, leaderboard.Data.Count);
+                        _scores.RemoveRange(0, max);
+                    }
                     
                     foreach (LeaderboardDataResponseScoreEvent score in leaderboard.Data)
                     {
