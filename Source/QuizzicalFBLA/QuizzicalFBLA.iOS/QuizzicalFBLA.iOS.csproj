@@ -313,4 +313,28 @@
   <ItemGroup>
     <BundleResource Include="Resources\next.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beep.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\correct.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\error.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\incorrect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\negative_beeps.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\success.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tenseMusic.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ultradust_clock.wav" />
+  </ItemGroup>
 </Project>
