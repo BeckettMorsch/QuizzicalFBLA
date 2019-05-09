@@ -1,7 +1,7 @@
 
 ![](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/Media/QuizzicalLogoSmall.png?raw=true)
 
-# Quizzical FBLA 1.0 README
+# Quizzical FBLA 1.2 README
 <img align="right" height="500" src="https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/ui.gif">
 
 by Anthony Gonella, Beckett Morsch, Matthew Smickle
@@ -55,7 +55,7 @@ Visual Studio Requirements:
 - Visual Studio 2017 (Windows or Mac) Community Edition
 - Cross-Platform Add-on
 - (If Mac) XCode
-- Android Platform 27 SDK
+- Android Platform 28 SDK (Pie)
 
 In order to build for IOS you will need OSX with both XCode and Visual Studio for Mac fully  updated and an Internet connection. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of the QuizzicalFBLA.iOS project using the iPhone Simulator.   We recommend utilizing the iPhone XS Max iOS 12.1 simulator.
 
@@ -68,7 +68,7 @@ Enjoy!
 - All of the code that is contained within QuizzicalFBLA is error free and can be run with no issues.  
 - QuizzicalFBLA is entirely written in C# using the Xamarin Framework.
 - The navigation between pages is also error free and all of the buttons on the app take the user to the intended pages.
-- The QuizzicalFBLA app is compatible with Windows, Android, and IOS phones and tablets.
+- The QuizzicalFBLA app is compatible with Android/iOS phones and tablets.
 - The questions in the app all pertain to the topic FBLA
 
 
