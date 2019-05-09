@@ -13,7 +13,7 @@ QuizzicalFBLA is a mobile application developed for IOS and Android phones. This
 
 ## Features
 
-- Designed for Android, iOS, and UWP - We support all three platforms
+- Designed for Android and iOS - We support both platforms
 - Facebook and Gmail social login support for quick account creation
 - Custom account creation if you want to create a new account with just your email address
 - Over 100 questions in 5 quiz categories! 
@@ -56,8 +56,6 @@ Visual Studio Requirements:
 - Cross-Platform Add-on
 - (If Mac) XCode
 - Android Platform 27 SDK
-
-***NOTE: API Keys cannot be publicly distributed and are not included on Github - Building this app requires the file Secrets.cs which will be placed in /Source/QuizzicalFBLA/QuizzicalFBLA/Config/***
 
 In order to build for IOS you will need OSX with both XCode and Visual Studio for Mac fully  updated and an Internet connection. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of the QuizzicalFBLA.iOS project using the iPhone Simulator.   We recommend utilizing the iPhone XS Max iOS 12.1 simulator.
 

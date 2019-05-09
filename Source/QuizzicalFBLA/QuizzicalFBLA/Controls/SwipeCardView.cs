@@ -500,9 +500,12 @@ namespace MLToolkit.Forms.SwipeCardView
             {
                 // Move the top card back to the center
                 // Not awaiting on purpose to allow TranslateTo, RotateTo and ScaleTo to happen simultaneously 
+                // Because this call is not awaited, execution of the current method continues before the call is completed
+
+#pragma warning disable CS4014
                 topCard.TranslateTo((-topCard.X), -topCard.Y, AnimationLength, Easing.SpringOut);
                 topCard.RotateTo(0, AnimationLength, Easing.SpringOut);
-                
+#pragma warning restore CS4014
 
                 // Scale the back card down
                 var prevCard = _cards[this.PrevCardIndex(_topCardIndex)];

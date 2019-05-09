@@ -337,7 +337,7 @@ namespace QuizzicalFBLA.Views
                 if (tasks.Count > 0)
                     await Task.WhenAll(tasks);
             }
-            catch (OperationCanceledException e)
+            catch (OperationCanceledException)
             {
                 return;
             }

@@ -25,6 +25,7 @@ namespace QuizzicalFBLA.Views
             MenuPages.Add((int)MenuItemType.Play, (NavigationPage)Detail);
         }
 
+        // Navigate to a particular page by it's MenuItemType integer id
         public async Task NavigateTo (int id)
         {
             var newPage = MenuPages[id];
