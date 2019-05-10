@@ -16,7 +16,7 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" Padding="20,20,20,20">
 
-            <ListView x:Name="CategoryMenu" HasUnevenRows="True" ItemsSource="{Binding Source={x:Static vm:CategoriesViewModel.Current}, Path=Categories}" ItemTapped="CategoryMenu_ItemTapped" VerticalOptions="FillAndExpand"  BackgroundColor="Transparent">
+            <ListView x:Name="CategoryMenu" HasUnevenRows="True" ItemsSource="{Binding Source={x:Static vm:CategoriesViewModel.Current}, Path=Categories}" ItemTapped="CategoryMenu_ItemTapped" VerticalOptions="Fill"  BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="100">
