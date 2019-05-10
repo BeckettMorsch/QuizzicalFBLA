@@ -5,6 +5,7 @@
 <img align="right" height="500" src="https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/ui.gif">
 
 by Anthony Gonella, Beckett Morsch, Matthew Smickle
+
 Easton Area High School
 Easton, PA
 
