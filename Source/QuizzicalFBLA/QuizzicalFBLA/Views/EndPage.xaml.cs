@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using QuizzicalFBLA.Helpers;
 
 namespace QuizzicalFBLA.Views
 {
@@ -30,15 +31,14 @@ namespace QuizzicalFBLA.Views
             successSound.Load("success.mp3");
 
             successSound.Play();
-
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //Star.Play();
+            MusicPlayer.Current.Play("daftCat");
         }
-        
+
 
         //Resets the quiz if the Retry button is tapped
         private void Button_Clicked(object sender, EventArgs e)

@@ -53,7 +53,6 @@ namespace QuizzicalFBLA.Views
             sounds.Add("error", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
             sounds.Add("clock", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
             sounds.Add("button", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
-            sounds.Add("tenseMusic", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
             sounds.Add("beep", CrossSimpleAudioPlayer.CreateSimpleAudioPlayer());
 
 
@@ -63,8 +62,6 @@ namespace QuizzicalFBLA.Views
             sounds["error"].Load("error.wav");
             sounds["clock"].Load("ultradust_clock.wav");
             sounds["button"].Load("startSound.mp3");
-            sounds["tenseMusic"].Load("tenseMusic.mp3");
-            sounds["tenseMusic"].Loop = true;
             sounds["beep"].Load("beep.mp3");
 
             Player.Current.OnLogout += OnLoggedOut;
@@ -91,8 +88,7 @@ namespace QuizzicalFBLA.Views
         {
             base.OnAppearing();
 
-            if (!sounds["tenseMusic"].IsPlaying)
-                sounds["tenseMusic"].Play();
+            MusicPlayer.Current.Play("tenseMusic");
 
             if (gameInProgress)
             {
@@ -116,7 +112,7 @@ namespace QuizzicalFBLA.Views
             AnimationRunning = false;
             ring.StopAnimation();
 
-            sounds["tenseMusic"].Stop();
+            MusicPlayer.Current.Pause();
         }
 
         private bool AnimationsEnabled

@@ -88,6 +88,7 @@
     <BundleResource Include="Resources\3520-light-bulb.json" />
     <BundleResource Include="Resources\4887-book.json" />
     <BundleResource Include="Resources\4892-star.json" />
+    <BundleResource Include="Resources\daftcat.mp3" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -206,7 +207,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\QuizzicalFBLA\QuizzicalFBLA.csproj">
-      <Project>{15246D8A-CBA5-46BB-BD7B-1EAB3300FA6D}</Project>
+      <Project>{06812524-E1D4-45FD-B1E4-033911515288}</Project>
       <Name>QuizzicalFBLA</Name>
     </ProjectReference>
   </ItemGroup>

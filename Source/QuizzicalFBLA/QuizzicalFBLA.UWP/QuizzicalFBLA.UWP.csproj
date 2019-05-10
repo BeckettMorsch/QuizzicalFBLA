@@ -160,6 +160,7 @@
     <Content Include="add.png" />
     <Content Include="save.png" />
     <Content Include="cancel.png" />
+    <Content Include="Assets\daftcat.mp3" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

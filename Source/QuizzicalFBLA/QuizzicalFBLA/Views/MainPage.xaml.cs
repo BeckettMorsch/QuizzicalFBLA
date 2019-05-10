@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using QuizzicalFBLA.Config;
+using QuizzicalFBLA.Helpers;
 using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,15 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
+                if (id != (int)MenuItemType.Play)
+                {
+                    MusicPlayer.Current.Play("daftCat");
+                }
+                else
+                {
+                    MusicPlayer.Current.Play("daftCat");
+                }
+
                 var newPage = MenuPages[id];
 
                 if (newPage != null && Detail != newPage)

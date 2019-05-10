@@ -10,6 +10,7 @@ using GameSparks.NET.Infrastructure.Settings;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using QuizzicalFBLA.Models;
+using QuizzicalFBLA.Helpers;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace QuizzicalFBLA
@@ -75,16 +76,19 @@ namespace QuizzicalFBLA
             AppCenter.Start(Secrets.VSAppCenterAndroid + ";" + Secrets.VSAppCenterIOS + ";" + Secrets.VSAppCenterUWP,
                              typeof(Analytics), typeof(Crashes));
 
+            MusicPlayer.Current.Play("daftCat");
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            MusicPlayer.Current.Pause();
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            MusicPlayer.Current.Resume();
         }
     }
 }
