@@ -89,14 +89,7 @@ namespace QuizzicalFBLA.Views
             }
             else
             {
-                if (id != (int)MenuItemType.Play)
-                {
-                    MusicPlayer.Current.Play("daftCat");
-                }
-                else
-                {
-                    MusicPlayer.Current.Play("daftCat");
-                }
+                MusicPlayer.Current.Play("daftCat");
 
                 var newPage = MenuPages[id];
 

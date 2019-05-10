@@ -47,11 +47,19 @@ namespace QuizzicalFBLA.Helpers
             }
         }
 
+        public void Stop()
+        {
+            foreach (string song in sounds.Keys)
+            {
+                if (sounds[song].IsPlaying)
+                    sounds[song].Stop();
+            }
+        }
+
         public void Resume()
         {
             if (sounds.ContainsKey(currentSong))
             {
-                if (!sounds[currentSong].IsPlaying)
                 sounds[currentSong].Play();
             }
         }
@@ -70,8 +78,8 @@ namespace QuizzicalFBLA.Helpers
                 currentSong = "";
             }
 
-            // Pause every other song and then continue with the new song
-            Pause();
+            // Stop every other song and then continue with the new song
+            Stop();
             Resume();
         }
     }
