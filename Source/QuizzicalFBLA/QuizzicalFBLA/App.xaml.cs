@@ -82,7 +82,7 @@ namespace QuizzicalFBLA
         protected override void OnSleep()
         {
             // Handle when your app sleeps
-            MusicPlayer.Current.Pause();
+            MusicPlayer.Current.Stop();
         }
 
         protected override void OnResume()

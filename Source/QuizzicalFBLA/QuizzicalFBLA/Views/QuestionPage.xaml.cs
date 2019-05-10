@@ -112,7 +112,6 @@ namespace QuizzicalFBLA.Views
             AnimationRunning = false;
             ring.StopAnimation();
 
-            MusicPlayer.Current.Pause();
         }
 
         private bool AnimationsEnabled
