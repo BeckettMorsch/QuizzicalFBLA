@@ -1,7 +1,7 @@
 
 ![](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/Media/QuizzicalLogoSmall.png?raw=true)
 
-# Quizzical FBLA 1.3 README
+# Quizzical FBLA 1.4 README
 <img align="right" height="500" src="https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/ui.gif">
 
 by Anthony Gonella, Beckett Morsch, Matthew Smickle
@@ -48,7 +48,7 @@ it would be inaccurate to judge our entry based off of strictly running the UWP 
 of the app. Certain features such as bug reporting are only available on Android and iOS 
 systems.
 
-[Download Release 1.3](https://github.com/BeckettMorsch/QuizzicalFBLA/releases)
+[Download Release 1.4](https://github.com/BeckettMorsch/QuizzicalFBLA/releases)
 
 ## Build Instructions
 
