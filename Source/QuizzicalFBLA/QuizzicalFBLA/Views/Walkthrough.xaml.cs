@@ -1,4 +1,5 @@
-﻿using QuizzicalFBLA.Models;
+﻿using Plugin.SimpleAudioPlayer;
+using QuizzicalFBLA.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,10 +18,15 @@ namespace QuizzicalFBLA.Views
 	{
         public ObservableCollection<Board> Boards { get; set; } = new ObservableCollection<Board>();
         private CancellationTokenSource TokenSource = new CancellationTokenSource();
+        private ISimpleAudioPlayer buttonSound;
 
         public Walkthrough ()
 		{
+
 			InitializeComponent ();
+
+            buttonSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            buttonSound.Load("startSound.mp3");
 
             Boards.Add(new Board
             {
@@ -105,6 +111,7 @@ namespace QuizzicalFBLA.Views
 
         private void SignIn_Button_Clicked(object sender, EventArgs e)
         {
+            buttonSound.Play();
             Preferences.Set("WatchedTutorial", true);
             MessagingCenter.Send<Walkthrough>(this, "GetStarted");
         }

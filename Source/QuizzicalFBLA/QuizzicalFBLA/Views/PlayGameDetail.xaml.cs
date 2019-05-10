@@ -86,6 +86,7 @@ namespace QuizzicalFBLA.Views
         //Navigates to the instructions page if the question mark is tapped
         async private void GoToHowToPlayPage(object sender, EventArgs e)
         {
+            buttonSound.Play();
             CancelButtonAnimationTokenSource.Cancel();
 
             await Navigation.PushAsync(new HowToPlayPage());
