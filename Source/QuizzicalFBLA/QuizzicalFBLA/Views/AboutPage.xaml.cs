@@ -99,7 +99,7 @@ p {
 </style>
 </head>
 <body>
-<h1 id=""quizzical-fbla-1-0-readme"">Quizzical FBLA 1.4</h1>
+<h1 id=""quizzical-fbla-1-0-readme"">Quizzical FBLA 1.5</h1>
 <p>by Anthony Gonella, Beckett Morsch, Matthew Smickle</p>
 <p>QuizzicalFBLA is a mobile application developed for IOS and Android phones. This app tests the users FBLA knowledge by asking them questions on a wide range of FBLA  subjects.  At the end of the quiz the user can even <strong>share their results on multiple social  media platforms</strong> such as Facebook, Twitter, Reddit.   In fact, you can share results on any social platform supported by the mobile device.  QuizzicalFBLA is bug free and features a  fully functional bug reporting system if a user encounters an issue.  It also features crash and error reporting to the centralized Microsoft App Center along with valuable usage analytics.  Social logins from Facebook and Gmail are fully supported!</p>
 <p><img src=""https://raw.githubusercontent.com/BeckettMorsch/QuizzicalFBLA/master/Media/auth0.png"" alt=""""></p>
@@ -164,6 +164,7 @@ p {
 <p>&quot;Material Loader&quot; by LottieFiles - <a href=""https://lottiefiles.com/50-material-loader"">https://lottiefiles.com/50-material-loader</a></p>
 <p>&quot;AashishDeleteAnimation&quot; by Aashish Soam - <a href=""https://lottiefiles.com/5474-aashishdeleteanimation"">https://lottiefiles.com/5474-aashishdeleteanimation</a></p>
 <p>&quot;Trophy&quot; by Lucas Nemo - <a href=""https://lottiefiles.com/677-trophy"">https://lottiefiles.com/677-trophy</a><br><br/><br/></p>
+<p>&quot;Error 404 - Facebook Style&quot; by Andrea Balbo - <a href=""https://lottiefiles.com/3227-error-404-facebook-style"">https://lottiefiles.com/3227-error-404-facebook-style</a><br><br/><br/></p>
 <h2 id=""software-and-services-used"">Software and Services Used</h2>
 <p>Quizzical FBLA was developed using the following software applications and services: </p>
 <p>Auth0 - <a href=""https://www.auth0.com"">https://www.auth0.com</a></p>

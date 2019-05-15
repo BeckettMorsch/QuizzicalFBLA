@@ -31,11 +31,11 @@
                 AbsoluteLayout.LayoutBounds="0.5,0,1,0.3"
                 AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
 	            x:Name="Star" 
-	            Animation="star.json" 
+	            Animation="{Binding EndAnimation}" 
 	            Loop="false"
 	            AutoPlay="true"
                 IsVisible="true"               
-                Scale="1.2"
+                Scale="{Binding EndAnimationScale}"
                 BackgroundColor="Transparent"
 	            VerticalOptions="FillAndExpand" 
 	            HorizontalOptions="FillAndExpand" />

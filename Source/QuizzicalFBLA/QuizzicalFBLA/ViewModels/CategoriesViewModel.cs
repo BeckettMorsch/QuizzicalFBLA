@@ -1336,7 +1336,7 @@ namespace QuizzicalFBLA.ViewModels
             get { return !showQuestion; }
         }
 
-        //Updates the message that is to be displayed after the player chooses and answer
+        //Updates the message that is to be displayed after the player chooses an answer
         public string message = "ASDKJFLD";
         public string Message
         {
@@ -1348,15 +1348,39 @@ namespace QuizzicalFBLA.ViewModels
             get { return message; }
         }
 
-        public string heading = "ASDKJFLD";
+        public string EndAnimation
+        {
+            get
+            {
+                double average = (double)NumberCorrect / Questions.Count;
+                EndAnimationScale = 1.2;
+
+                if (average < 0.5)
+                {
+                    EndAnimationScale = 0.8;
+                    return "3227-error-404-facebook-style.json"; 
+                }
+
+                return "star.json";
+            }
+        }
+
+        public double EndAnimationScale { get; set; } = 1.2;
+
         public string Heading
         {
-            set
-            {
-                heading = value;
-                OnPropertyChanged("Heading");
+            get {
+                string message = "Congrats!";
+
+                double average = (double)NumberCorrect / Questions.Count;
+
+                if (average < 0.5)
+                {
+                    message = "Too bad!";
+                }
+
+                return message;
             }
-            get { return heading; }
         }
 
 
@@ -1373,6 +1397,9 @@ namespace QuizzicalFBLA.ViewModels
                 {
                     numberCorrect = value;
                     OnPropertyChanged("NumberCorrect");
+                    OnPropertyChanged("EndAnimation");
+                    OnPropertyChanged("EndAnimationScale");
+                    OnPropertyChanged("Heading");
                     OnPropertyChanged("EndMessage");
                 }
                 get { return numberCorrect; }
@@ -1383,6 +1410,9 @@ namespace QuizzicalFBLA.ViewModels
             set
             {
                 totalPoints = value;
+                OnPropertyChanged("EndAnimation");
+                OnPropertyChanged("EndAnimationScale");
+                OnPropertyChanged("Heading");
                 OnPropertyChanged("TotalPoints");
                 OnPropertyChanged("EndMessage");
             }

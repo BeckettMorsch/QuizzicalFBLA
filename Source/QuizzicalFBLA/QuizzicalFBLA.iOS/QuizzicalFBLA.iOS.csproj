@@ -90,6 +90,7 @@
     <BundleResource Include="Resources\4892-star.json" />
     <BundleResource Include="Resources\daftcat.mp3" />
     <BundleResource Include="Resources\fbla_logo.png" />
+    <BundleResource Include="Resources\3227-error-404-facebook-style.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
