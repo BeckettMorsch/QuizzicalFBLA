@@ -1348,6 +1348,17 @@ namespace QuizzicalFBLA.ViewModels
             get { return message; }
         }
 
+        public string heading = "ASDKJFLD";
+        public string Heading
+        {
+            set
+            {
+                heading = value;
+                OnPropertyChanged("Heading");
+            }
+            get { return heading; }
+        }
+
 
         public string EndMessage
         {
